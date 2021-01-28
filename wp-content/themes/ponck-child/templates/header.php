@@ -163,8 +163,8 @@ do_action( 'us_before_canvas' ) ?>
 
 		//Hier laden we het header bestand wat gecustomised is
 
-		if (file_exists(__DIR__ . '/l-header.php')) {
-			include(__DIR__ . '/l-header.php');
+		if (file_exists(__DIR__ . '/l-header-html.php')) {
+			include(__DIR__ . '/l-header-html.php');
 		} else {
 			echo "Template file l-header.php ontbreekt in Child theme /templates/";
 			echo "<br>Zie child theme /templates/header.php regel 163";

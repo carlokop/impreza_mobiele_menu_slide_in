@@ -6,7 +6,7 @@
  * Do not overload this file directly. Instead have a look at templates/header.php file in us-core plugin folder:
  * you should find all the needed hooks there.
  */
-if (file_exists(__DIR__ . '/templates/headerj.php')) { //Aanpassing op het originele thema
+if (file_exists(__DIR__ . '/templates/header.php')) { //Aanpassing op het originele thema
 
     include(__DIR__ . '/templates/header.php'); //Aanpassing op het originele thema
 

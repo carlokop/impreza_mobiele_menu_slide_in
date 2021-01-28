@@ -1,3 +1,17 @@
+<div class="row topHeader">
+    <span class="material-icons home-icon">home</span>
+    <a href="#" class="btn secondary rounded">Contact</a>
+    <div id="mobileMenuButton" role="button">
+        <span class="text">Menu</span>
+        <div class="animated-hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+
 <header id="page-header" class="l-header pos_fixed shadow_thin bg_solid id_6" itemscope="" itemtype="https://schema.org/WPHeader">
     <div class="l-subheader at_middle">
         <div class="l-subheader-h">
@@ -48,4 +62,12 @@
         </div>
     </div>
     <div class="l-subheader for_hidden hidden"></div>
+    <div class="row mobileMenuFooter">
+        <a href="#" class="btn secondary rounded">Contact</a>
+        <div class="lang">
+            <a href="#" class="">NL</a>
+            <span>/</span>
+            <a href="#" class="disabled">EN</a>
+        </div>
+    </div>
 </header>

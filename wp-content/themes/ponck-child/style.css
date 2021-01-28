@@ -9,4 +9,138 @@
  Tags:         plaats, hier, jouw, tags, gescheiden, door, kommas
  Text Domain:  ponck-child
 */
+.row {
+  display: flex;
+}
+
+.btn {
+  padding: 5px 20px;
+}
+
+.btn.primary {
+  color: #fff;
+  background: #e6007E;
+}
+
+.btn.secondary {
+  color: #fff;
+  background: #333;
+}
+
+.btn.rounded {
+  border-radius: 50px;
+}
+
+.animated-hamburger-icon {
+  width: 24px;
+  height: 16px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+.animated-hamburger-icon span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 1px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.animated-hamburger-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.animated-hamburger-icon span:nth-child(2) {
+  top: 8px;
+}
+
+.animated-hamburger-icon span:nth-child(3) {
+  top: 8px;
+}
+
+.animated-hamburger-icon span:nth-child(4) {
+  top: 16px;
+}
+
+.animated-hamburger-icon.open span:nth-child(1) {
+  top: 20px;
+  width: 0%;
+  left: 50%;
+}
+
+.animated-hamburger-icon.open span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+.animated-hamburger-icon.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.animated-hamburger-icon.open span:nth-child(4) {
+  top: 20px;
+  width: 0%;
+  left: 50%;
+}
+
+.topHeader {
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+  background: #e6007E;
+}
+
+.topHeader .home-icon {
+  font-size: 30px;
+  color: #fff;
+}
+
+.topHeader #mobileMenuButton .text {
+  float: left;
+  position: absolute;
+  right: 50px;
+  font-size: 20px;
+  bottom: 10px;
+  color: #fff;
+}
+
+@media (max-width: 599px) {
+  .l-header, .l-header .w-cart-notification, .w-nav.type_mobile.m_layout_panel .w-nav-list.level_1 {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .mobileMenuFooter {
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mobileMenuFooter .lang {
+    font-size: 16px;
+  }
+  .mobileMenuFooter .lang .disabled {
+    opacity: 0.6;
+  }
+  .l-subheader.at_middle, .l-subheader.at_middle .w-dropdown-list, .l-subheader.at_middle .type_mobile .w-nav-list.level_1 {
+    background: #e6007E !important;
+    color: #fff !important;
+  }
+  .header_ver .l-header {
+    background: #e6007E !important;
+    color: #fff !important;
+  }
+  .w-search.ush_search_1 {
+    display: none;
+  }
+}
 /*# sourceMappingURL=style.css.map */

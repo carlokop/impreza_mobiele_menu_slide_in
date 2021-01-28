@@ -1,0 +1,17 @@
+@import "_colors";
+
+.btn {
+    padding: 5px 20px;
+}
+
+.btn.primary {
+    color:$wit;
+    background:$primary;
+}
+
+.btn.secondary {
+    color:$wit;
+    background:$secondary;
+}
+
+.btn.rounded {border-radius:50px;}

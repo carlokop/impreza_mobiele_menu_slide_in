@@ -7,6 +7,11 @@ add_action( 'login_enqueue_scripts', function() {
 	
 }, 1);
 
+add_action('wp_enqueue_scripts', 'custom_scripts');
+function custom_scripts() {
+	wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array(), '1.0.0', true);
+}
+
 function return_to_ponck($url) {
 	
     return 'https://ponck.nl';
