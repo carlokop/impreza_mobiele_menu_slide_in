@@ -8,7 +8,7 @@ class US_Walker_Nav_Menu_Child extends Walker_Nav_Menu {
 		$level = ( $depth + 2 ); // because it counts the first submenu as 0
 
 		// build html
-		$output .= '<ul class="w-nav-list level_' . $level . '">';
+		$output .= '<ul class="w-nav-list-sub level_' . $level . '">';
 	}
 
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -128,40 +128,40 @@ class US_Walker_Nav_Menu_Child extends Walker_Nav_Menu {
 	}
 }
 
-add_filter( 'wp_nav_menu_objects', 'us_dropdown_wp_nav_menu_objects' );
-function us_dropdown_wp_nav_menu_objects( $sorted_menu_items ) {
-	foreach ( $sorted_menu_items as $index => $item ) {
+// add_filter( 'wp_nav_menu_objects', 'us_dropdown_wp_nav_menu_objects' );
+// function us_dropdown_wp_nav_menu_objects( $sorted_menu_items ) {
+// 	foreach ( $sorted_menu_items as $index => $item ) {
 
-		// IF it is a first level item or if it is a fake last item
-		if ( $item->menu_item_parent == 0 ) {
-			$dropdown_settings = get_post_meta( $item->ID, 'us_mega_menu_settings', TRUE );
+// 		// IF it is a first level item or if it is a fake last item
+// 		if ( $item->menu_item_parent == 0 ) {
+// 			$dropdown_settings = get_post_meta( $item->ID, 'us_mega_menu_settings', TRUE );
 
-			if ( is_array( $dropdown_settings ) ) {
+// 			if ( is_array( $dropdown_settings ) ) {
 
-				// Set columns value
-				if ( ! empty( $dropdown_settings['columns'] ) AND intval( $dropdown_settings['columns'] ) > 1 ) {
-					$item->mega_menu_cols = intval( $dropdown_settings['columns'] );
-				}
+// 				// Set columns value
+// 				if ( ! empty( $dropdown_settings['columns'] ) AND intval( $dropdown_settings['columns'] ) > 1 ) {
+// 					$item->mega_menu_cols = intval( $dropdown_settings['columns'] );
+// 				}
 
-				// Set mobile dropdown behavior
-				if ( ! empty( $dropdown_settings['override_settings'] ) AND $dropdown_settings['override_settings'] ) {
-					$item->mobile_behavior = $dropdown_settings['mobile_behavior'];
-				}
-			}
+// 				// Set mobile dropdown behavior
+// 				if ( ! empty( $dropdown_settings['override_settings'] ) AND $dropdown_settings['override_settings'] ) {
+// 					$item->mobile_behavior = $dropdown_settings['mobile_behavior'];
+// 				}
+// 			}
 
-			$sorted_menu_items[$index] = $item;
-		}
-	}
+// 			$sorted_menu_items[$index] = $item;
+// 		}
+// 	}
 
-	return $sorted_menu_items;
-}
+// 	return $sorted_menu_items;
+// }
 
-// Add fallback menu location, which can be used in plugins
-add_action( 'init', 'register_us_menu' );
-function register_us_menu() {
-	register_nav_menus(
-		array(
-			'us_main_menu' => __( 'Custom Menu', 'us' ),
-		)
-	);
-}
+// // Add fallback menu location, which can be used in plugins
+// add_action( 'init', 'register_us_menu' );
+// function register_us_menu() {
+// 	register_nav_menus(
+// 		array(
+// 			'us_main_menu' => __( 'Custom Menu', 'us' ),
+// 		)
+// 	);
+// }

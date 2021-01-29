@@ -20,3 +20,6 @@ function return_to_ponck($url) {
 
 add_filter( 'login_headerurl', 'return_to_ponck' );
 
+
+require_once __DIR__ . '/common/functions/menu2.php';
+

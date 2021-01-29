@@ -8,7 +8,7 @@ class US_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$level = ( $depth + 2 ); // because it counts the first submenu as 0
 
 		// build html
-		$output .= '<ul class="w-nav-list level_' . $level . '">';
+		$output .= '<ul class="w-nav-list hall level_' . $level . '">';
 	}
 
 	public function end_lvl( &$output, $depth = 0, $args = array() ) {
