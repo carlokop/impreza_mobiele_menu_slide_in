@@ -12,6 +12,7 @@
 
 @import "scss/_helpers";
 @import "scss/_buttons";
+@import "scss/animations";
 
 .animated-hamburger-icon {
   width: 24px;
@@ -81,49 +82,70 @@
     }
 }
 
-.topHeader {
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px 15px;
-    position: fixed;
-    height:48px;
-    top: 0;
-    left: 0;
-    width:100%;
-    z-index:999999;
-    background:$primary;
 
-    .home-icon {
-        font-size:30px;
-        color:$wit;
-        transition: all 0.225s;
-    }
+/* Mobiele navigatie menu */
+@media (max-width: 992px) {
 
-    #mobileMenuButton .text {
-        float: left;
+    .hide-sm {display:none;}
+    .show-sm {display:unset;}
+
+    //nav submenu animatie
+
+    nav.w-nav {
+        width: 100%;
+        padding: 0 0.6rem;
+        text-align: left;
         position: absolute;
-        right: 50px;
-        font-size: 20px;
-        bottom: 10px;
-        color: $wit;
+        left: 0;
+        transition: all 0.5s;
     }
 
-    #contactButtonTopHeader {
-        // position: absolute;
-        // opacity: 1;
-        // left: 50%;
-        // transform: translateX(-50%);
-        transition: all 0.225s;
+    nav.w-nav.animating {
+        animation: mobielMenuSubmenu 1s ease-in-out;
     }
 
-    .home-icon.visibility-hidden,
-    #contactButtonTopHeader.visibility-hidden {
-        visibility: hidden;
-        opacity: 0;
-    }
-}
 
-@media (max-width: 599px) {
+    .topHeader {
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 15px;
+        position: fixed;
+        height:48px;
+        top: 0;
+        left: 0;
+        width:100%;
+        z-index:999999;
+        background:$primary;
+
+        .home-icon {
+            font-size:30px;
+            color:$wit;
+            transition: all 0.225s;
+        }
+
+        #mobileMenuButton .text {
+            float: left;
+            position: absolute;
+            right: 50px;
+            font-size: 20px;
+            bottom: 10px;
+            color: $wit;
+        }
+
+        #contactButtonTopHeader {
+            // position: absolute;
+            // opacity: 1;
+            // left: 50%;
+            // transform: translateX(-50%);
+            transition: all 0.225s;
+        }
+
+        .home-icon.visibility-hidden,
+        #contactButtonTopHeader.visibility-hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
 
     .header-show .page-header {
         transform: translate3d(0,0,0);
@@ -177,11 +199,11 @@
             transition: none;
         }
 
-        #mobileMainMenu[data-currentlevel='1'] li.level_1 a.level_1 {
+        #mainMenu[data-currentlevel='1'] li.level_1 a.level_1 {
             font-size: 18px;
         }
 
-        #mobileMainMenu[data-currentlevel='2'] {
+        #mainMenu[data-currentlevel='2'] {
             li.level_1 {
                 a.level_1 {
                     font-size: 20px;
@@ -204,7 +226,7 @@
 
         }
 
-        #mobileMainMenu[data-currentlevel='3'] {
+        #mainMenu[data-currentlevel='3'] {
             li.level_2 {
                 a.level_2 {
                     font-size: 20px;
@@ -263,7 +285,7 @@
             height: 100%;
         }
 
-        ul#mobileMainMenu {
+        ul#mainMenu {
             li.current_page_item {
                 a {color:$wit;}
             }
@@ -297,42 +319,116 @@
             }
         }
 
-        #mobileMainMenu .menu-item {display:none}
-        #mobileMainMenu .menu-item.active {display:block}
-        #mobileMainMenu[data-currentlevel='3'] .menu-item.level_1.active a.level_1 {display: none;}
+        #mainMenu .menu-item {display:none}
+        #mainMenu .menu-item.active {display:block}
+        #mainMenu[data-currentlevel='3'] .menu-item.level_1.active a.level_1 {display: none;}
+
+    }
+
+}
+
+@media (min-width:993px) {
+
+    .hide-lg {display:none;}
+    .show-lg {display:unset;}
+
+    .w-nav.type_desktop:not(.height_full),
+    .w-vwrapper .w-nav.type_desktop {
+        line-height: unset;
+    }
+
+    .page-header {
+        background:$primary;
+        transition: all 1s;
+
+        .w-nav.type_mobile .w-nav-anchor:not(.w-btn) {
+            line-height: unset;
+            padding: unset;
+            transition: unset;
+        }
+        
+
+        .inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:10px 15px;
+
+            .logo {
+                .icon {
+                    display:none;
+                }
+                img {
+                    display:flex;
+                    width:auto;
+                    max-height:100px;
+                }
+                i {
+                    font-size:30px;
+                    color:$wit;
+                    transition: all 0.225s;
+                }
+            }
+
+            
+
+            ul#mainMenu {
+                display:flex;
+                align-items: center;
+
+                li {
+                    padding: 0 15px;
+                    a { 
+                        color:$wit;
+                        transition: all 0.3s;
+                        .w-nav-arrow {
+                            display: initial;
+                        }
+                    }
+                    a:hover { opacity: 0.8;}
+                }
+
+                ul {display: none;}
+
+            }
+
+            .buttons_naast_menu {
+                display: flex;
+                align-items: center;
+                .lang {
+                    padding: 0 15px;
+                    a {
+                        font-size: 14px;
+                        color: $wit;
+                    }
+                    a.disabled {
+                        opacity: 0.6;
+                    }
+                }
+            }
+
+        }
 
 
+    }
+
+    .page-header.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+
+        .logo {
+            img {display: none;}
+            .icon {display:flex;}
+        }
     }
 
 
 }
 
-//nav submenu animatie
 
-nav.w-nav {
-    width: 100%;
-    padding: 0 0.6rem;
-    text-align: left;
-    position: absolute;
-    left: 0;
-    transition: all 0.5s;
-}
-
-nav.w-nav.animating {
-  animation: mobielMenuSubmenu 1s ease-in-out;
-}
-
-@keyframes mobielMenuSubmenu {
-  0% {
-    left:0;
-  }
-  50% {
-    left: -100vw;
-  }
-  100% {
-      left:0;
-  }
-}
 
 
 

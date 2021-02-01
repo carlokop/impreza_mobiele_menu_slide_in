@@ -11,6 +11,7 @@ add_action('wp_enqueue_scripts', 'custom_scripts');
 function custom_scripts() {
 	wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array(), '1.0.0', true);
 }
+add_theme_support('custom-logo');
 
 function return_to_ponck($url) {
 	
@@ -21,5 +22,5 @@ function return_to_ponck($url) {
 add_filter( 'login_headerurl', 'return_to_ponck' );
 
 
-require_once __DIR__ . '/common/functions/menu2.php';
+require_once __DIR__ . '/common/functions/US_Walker_Nav_Menu_Child.php';
 
