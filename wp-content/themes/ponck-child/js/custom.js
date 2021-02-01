@@ -5,6 +5,7 @@
         menuIcons[0].classList.toggle('open');
         document.getElementsByTagName('body')[0].classList.toggle('header-show');
         document.querySelector('#contactButtonTopHeader').classList.toggle('visibility-hidden');
+        document.querySelector('#mobileMenuHomeIcon').classList.toggle('visibility-hidden');
     });
 }());
 
@@ -15,9 +16,6 @@ class setSubmenuClass {
     Er zit een fout in hoe this.currentLevel op de site wordt vertoond undefined
     We lijken niet goed terug te kunnen bladeren mogelijk door bovenstaande
     */
-
-
-
 
     constructor() {
         this.mobileMainMenuParentLink = document.querySelectorAll('#mobileMainMenu .menu-item.level_1');
@@ -31,52 +29,73 @@ class setSubmenuClass {
 
     activateSubmenu(link) {
 
+        const current = this.currentLevel;
         this.setCurrentLevel(link);
         this.mobileNav.classList.add('animating');
+        link.parentElement.classList.toggle('opened');
 
         const that = this;
         setTimeout(function(){ 
-
             that.mobileNav.classList.add('show-sub');
-            that.setActiveClasses(link);
-            document.getElementById('mobileMainMenu').dataset.currentlevel = this.currentLevel;
+            that.setActiveClasses(link,current);
+            document.getElementById('mobileMainMenu').dataset.currentlevel = that.currentLevel;
 
-        }, 1000);
+        }, 500);
 
         //setTimeout moet hier 2x zo lang zijn als bovenstaande
         setTimeout(function(){ 
             this.mobileNav.classList.remove('animating');
-        }, 2000);
+        }, 1000);
 
     } 
 
-    setActiveClasses(link = false) {
+    setActiveClasses(link = false, previous = false) {
 
         if(this.clearAllActives()) {
+
             const allMenuItems = this.mobileNav.getElementsByClassName('menu-item');
             for(let menuItem of allMenuItems) {
                 if(menuItem.classList.contains(`level_${this.currentLevel}`)) {
                     if(this.currentLevel === 1) {
                         menuItem.classList.add('active');
                     } else {
-                        //Zoek de parent en zet alle children op actief tot 1 niveau
-                        const parentEl = link.parentElement;
-                        parentEl.classList.add('active');
-                        const level = this.getClickLevel(parentEl)+1;
-                        
-                        const children = parentEl.querySelectorAll(`li.level_${level}`);
-                        for(let child of children) {
-                            child.classList.add('active');
-                        }
 
-                        //voor level 3 moeten we het level 1 item ook op actief zetten
-                        if(this.currentLevel === 3) {
+                        if(previous != false && previous < this.currentLevel) {
+                            //We gaan een subniveau verder
+                            //Zoek de parent en zet alle children op actief tot 1 niveau
+                            const parentEl = link.parentElement;
+                            parentEl.classList.add('active');
+                            const level = this.getClickLevel(parentEl)+1;
+                            
+                            const children = parentEl.querySelectorAll(`li.level_${level}`);
+                            for(let child of children) {
+                                child.classList.add('active');
+                            }
+
+                            //voor level 3 moeten we het level 1 item ook op actief zetten
+                            if(this.currentLevel === 3) {
+                                for(let level1link of this.mobileMainMenuParentLink) {
+                                    if(level1link.classList.contains('opened')) {
+                                        level1link.classList.add('active');
+                                    }
+                                }
+                            }
+                        } else {
+                            //We gaan van niveau 3 naar niveau 2
                             for(let level1link of this.mobileMainMenuParentLink) {
                                 if(level1link.classList.contains('opened')) {
                                     level1link.classList.add('active');
+
+                                    const activeLevel2Links = level1link.querySelectorAll('li.menu-item.level_2');
+                                    for(let level2link of activeLevel2Links) {
+                                        level2link.classList.add('active');
+                                    }                                
+                                    return; 
                                 }
+
                             }
                         }
+
                     }
                 } else {
                     menuItem.classList.remove('active');
@@ -104,6 +123,8 @@ class setSubmenuClass {
         for(let level1item of openedElements) {
             level1item.classList.remove('opened');
         }
+
+        document.getElementById('mobileMainMenu').dataset.currentlevel = this.currentLevel;
     }
 
     //return het niveau van submenu's
