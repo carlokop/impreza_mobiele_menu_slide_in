@@ -345,6 +345,10 @@
     color: #fff;
     transition: all 0.225s;
   }
+  .page-header .inner #mainNavContainer {
+    transition: padding 0.3s ease-in-out;
+    overflow: hidden;
+  }
   .page-header .inner ul#mainMenu {
     display: flex;
     align-items: center;

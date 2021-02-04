@@ -43,7 +43,7 @@ if (file_exists(__DIR__ . '/templates/header.php')) { //Aanpassing op het origin
                                         array(
                                             'theme_location' => 'us_main_menu',
                                             'container' => FALSE,
-                                            'walker' => new US_Walker_Nav_Menu,
+                                            'walker' => new US_Walker_Nav_Menu_Child,
                                             'items_wrap' => '%3$s',
                                             'fallback_cb' => FALSE,
                                         )

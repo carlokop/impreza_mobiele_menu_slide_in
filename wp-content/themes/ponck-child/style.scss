@@ -371,7 +371,10 @@
                 }
             }
 
-            
+            #mainNavContainer {
+                transition:padding 0.3s ease-in-out;
+                overflow: hidden;
+            }
 
             ul#mainMenu {
                 display:flex;
@@ -539,12 +542,7 @@
             }
         }
 
-
-
     }
-
-   
-
 
 }
 

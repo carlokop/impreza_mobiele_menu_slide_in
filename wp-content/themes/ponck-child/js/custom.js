@@ -206,6 +206,14 @@ class setSubmenuClass {
 class setSubmenuClassDesktop  extends setSubmenuClass {
     constructor() {
         super();
+        this.adminbar = 0;
+    }
+
+    adminLoggedIn() {
+        if(document.querySelector('#wpadminbar')) {
+            this.adminbar = 32;
+        }
+        return this.adminbar;
     }
 
     activatedropdown(el, show = true) {
@@ -215,52 +223,16 @@ class setSubmenuClassDesktop  extends setSubmenuClass {
             this.clearDropdown();
             if(show) {
                 el.classList.add('show-dropdown');  
-                this.paddingBottom(0,this.getHeightSubmenu(el),this.mainNavContainer);
+                this.mainNavContainer.style.paddingBottom = this.getHeightSubmenu(el) + 'px';
             } else {
                 el.classList.remove('show-dropdown');
-                this.paddingBottom(0,0,this.mainNavContainer);
+                this.mainNavContainer.style.paddingBottom = '0px';
             }
 
         } else {
             console.error('element heeft geen dropdown');
         }
     }
-
-    paddingBottom(padding,maxPadding,el) {
-        const that = this;
-
-        //set startpositie padding
-        if(el.style.paddingBottom) {
-            const valueArr = el.style.paddingBottom.split('px');
-            const value = parseInt(valueArr.shift());
-            padding = value;
-        }
-
-        const idInterval = setInterval(() => { 
-
-            if(maxPadding > padding) {
-
-                if(padding >= maxPadding) {
-                    clearInterval(idInterval);
-                } else {
-                    that.mainNavContainer.style.paddingBottom = padding+1 + 'px';
-                }
-                padding++;
-                
-            } else {
-
-                if(maxPadding >= padding) {
-                    clearInterval(idInterval);
-                } else {
-                    that.mainNavContainer.style.paddingBottom = padding-1 + 'px';
-                }
-                padding--;
-
-            }
-
-        }, 1);
-    }
-
 
     hasDropdown(el) {
         if(el.querySelectorAll('ul')) return true;
@@ -316,8 +288,12 @@ class setSubmenuClassDesktop  extends setSubmenuClass {
 
     for(let link of mainMenuLinkWithSubmenu) {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            setSubmenu.activateSubmenu(link);
+
+            if(window.innerWidth <= 992) {
+                e.preventDefault();
+                setSubmenu.activateSubmenu(link);
+            }
+
         });
     }
 
@@ -341,7 +317,8 @@ class setSubmenuClassDesktop  extends setSubmenuClass {
     let lastTimeoutId;
 
     document.addEventListener('mousemove',(e) => {
-        if(pageHeader.offsetHeight >= e.clientY) {
+
+        if(pageHeader.offsetHeight+setSubmenu.adminLoggedIn() >= e.clientY) {
 
             mouseOver = true;
 
