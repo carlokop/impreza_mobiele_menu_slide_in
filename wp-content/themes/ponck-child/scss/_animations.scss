@@ -9,3 +9,12 @@
         left:0;
     }
 }
+
+@keyframes width100percent {
+    0% {
+        width:0;
+    }
+    100% {
+        width: 100%;
+    }
+}

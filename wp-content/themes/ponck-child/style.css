@@ -43,6 +43,15 @@
   }
 }
 
+@keyframes width100percent {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 .animated-hamburger-icon {
   width: 24px;
   height: 16px;
@@ -297,6 +306,7 @@
   }
 }
 
+/* Desktop Menu */
 @media (min-width: 993px) {
   .hide-lg {
     display: none;
@@ -310,7 +320,7 @@
   }
   .page-header {
     background: #e6007E;
-    transition: all 1s;
+    transition: all 0.3s;
   }
   .page-header .w-nav.type_mobile .w-nav-anchor:not(.w-btn) {
     line-height: unset;
@@ -320,7 +330,6 @@
   .page-header .inner {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 15px;
   }
   .page-header .inner .logo .icon {
@@ -329,7 +338,7 @@
   .page-header .inner .logo img {
     display: flex;
     width: auto;
-    max-height: 100px;
+    height: 100px;
   }
   .page-header .inner .logo i {
     font-size: 30px;
@@ -339,26 +348,115 @@
   .page-header .inner ul#mainMenu {
     display: flex;
     align-items: center;
+    position: relative;
+    transition: padding 0.3s;
+    padding-top: 35px;
+  }
+  .page-header .inner ul#mainMenu .menu-item-has-children > .w-nav-anchor:not(.level_1) .w-nav-title {
+    padding-right: unset;
+  }
+  .page-header .inner ul#mainMenu ul {
+    display: none;
   }
   .page-header .inner ul#mainMenu li {
-    padding: 0 15px;
+    padding: 0 30px;
+    position: unset;
   }
   .page-header .inner ul#mainMenu li a {
-    color: #fff;
+    color: #fff !important;
     transition: all 0.3s;
   }
   .page-header .inner ul#mainMenu li a .w-nav-arrow {
     display: initial;
   }
+  .page-header .inner ul#mainMenu li a .w-nav-arrow:before {
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .page-header .inner ul#mainMenu li a .w-nav-arrow {
+    display: none;
+  }
   .page-header .inner ul#mainMenu li a:hover {
     opacity: 0.8;
   }
-  .page-header .inner ul#mainMenu ul {
+  .page-header .inner ul#mainMenu li.level_1.show-dropdown a.level_1 {
+    position: relative;
+  }
+  .page-header .inner ul#mainMenu li.level_1.show-dropdown a.level_1:after {
+    content: '';
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: solid 1px #fff !important;
+    animation: width100percent 0.3s;
+  }
+  .page-header .inner ul#mainMenu li.menu-item-has-children.level_1 a .w-nav-arrow {
+    display: unset;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown a.level_1 .w-nav-arrow:before {
+    transform: rotate(180deg);
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 {
+    display: unset;
+    position: absolute;
+    left: 0;
+    margin-left: 0;
+    padding-inline-start: 0;
+    width: 100%;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li {
+    width: 50%;
+    float: left;
+    padding: 0;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a.level_2 {
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a.level_2 .w-nav-title {
+    position: relative;
+    display: inline-flex;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a.level_2 .w-nav-arrow {
+    display: unset;
+    position: relative;
+    line-height: unset;
+    width: unset;
+    padding-left: 1em;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a.level_2 .w-nav-arrow:before {
+    content: '\f061';
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a:hover {
+    padding-left: 25px;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li ul.level_3 {
+    display: block;
+    margin-left: 0;
+    margin-top: 0;
+    padding-inline-start: 0;
+    transition: all 0.3s;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li ul.level_3 li {
+    width: 100%;
+    padding-left: 0;
+    margin-left: 0;
+    font-size: 12px;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li ul.level_3 li a.level_3 .w-nav-arrow {
     display: none;
   }
   .page-header .inner .buttons_naast_menu {
     display: flex;
     align-items: center;
+    padding-top: 35px;
+    transition: padding 0.3s;
   }
   .page-header .inner .buttons_naast_menu .lang {
     padding: 0 15px;
@@ -382,6 +480,12 @@
   }
   .page-header.sticky .logo .icon {
     display: flex;
+  }
+  .page-header.sticky .inner ul#mainMenu {
+    padding-top: 0;
+  }
+  .page-header.sticky .inner .buttons_naast_menu {
+    padding-top: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

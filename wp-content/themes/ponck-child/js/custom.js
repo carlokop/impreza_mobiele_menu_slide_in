@@ -1,22 +1,50 @@
-//Bepaald of we mobiel of desktop menu tonen
-const setMenu = () => {
+const setCookie = (cookieName,cookieValue,seconds,cookiePath = "/") => {
+    let expirationTime = (1000 * seconds);                        
+    const date = new Date();  
+    const dateTimeNow = date.getTime(); 
 
-    const nav = document.querySelector('#mainNavContainer');
-    if(screen.width > 992) {
-        if(nav.classList.contains('type_mobile')) {
-            nav.classList.remove('type_mobile');    
-            nav.classList.add('type_desktop'); 
-        }   
-    } else {
-        if(nav.classList.contains('type_desktop')) {
-            nav.classList.remove('type_desktop');    
-            nav.classList.add('type_mobile'); 
-        } 
-    }
+    date.setTime(dateTimeNow + expirationTime);  
+    expirationTime = date.toUTCString();
+
+    document.cookie = cookieName+"="+cookieValue+"; expires="+expirationTime+"; path="+cookiePath; 
 }
 
-window.addEventListener('load', setMenu);
-window.addEventListener('resize', setMenu);
+const getCookie = (cookieName) => {
+  const name = cookieName + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+//Sticky header
+(function() {
+    window.addEventListener('scroll',() => {
+        const pageHeader = document.getElementById('page-header');
+        if(window.scrollY >= 100) {
+            if(!pageHeader.classList.contains('sticky')) {
+                pageHeader.classList.add('sticky');
+                if(document.getElementById('wpadminbar')) {
+                    pageHeader.classList.add('is-admin');
+                } else {
+                    pageHeader.classList.remove('is-admin');
+                }
+            }
+        } else {
+            if(pageHeader.classList.contains('sticky')) {
+                pageHeader.classList.remove('sticky');
+            }
+        }
+    })
+}());
 
 //Deze class is voor het mobiele menu. 
 class setSubmenuClass {
@@ -29,6 +57,27 @@ class setSubmenuClass {
 
         this.setActiveClasses();
         document.getElementById('mainMenu').dataset.currentlevel = this.currentLevel;
+        window.addEventListener('load', this.setMenu);
+        window.addEventListener('resize', this.setMenu);
+    }
+
+    //Bepaald of we mobiel of desktop menu tonen
+    setMenu(){
+
+        const nav = document.querySelector('#mainNavContainer');
+        if(window.innerWidth > 992) {
+            
+            if(nav.classList.contains('type_mobile')) {
+                nav.classList.remove('type_mobile');    
+                nav.classList.add('type_desktop'); 
+            }   
+        } else {
+            
+            if(nav.classList.contains('type_desktop')) {
+                nav.classList.remove('type_desktop');    
+                nav.classList.add('type_mobile'); 
+            } 
+        }
     }
 
     activateSubmenu(link) {
@@ -85,6 +134,7 @@ class setSubmenuClass {
                                 }
                             }
                         } else {
+
                             //We gaan van niveau 3 naar niveau 2
                             for(let level1link of this.mainMenuParentLink) {
                                 if(level1link.classList.contains('opened')) {
@@ -96,17 +146,14 @@ class setSubmenuClass {
                                     }                                
                                     return; 
                                 }
-
                             }
                         }
-
                     }
                 } else {
                     menuItem.classList.remove('active');
                 }
             }
         }
-
     }
 
     clearAllActives() {
@@ -156,24 +203,109 @@ class setSubmenuClass {
 } //class
 
 //Deze class is voor het desktop menu
-class setSubmenuClassDesktop extends setSubmenuClass {
+class setSubmenuClassDesktop  extends setSubmenuClass {
     constructor() {
         super();
     }
 
-    
-}
+    activatedropdown(el, show = true) {
+
+        if(this.hasDropdown(el)) {
+            
+            this.clearDropdown();
+            if(show) {
+                el.classList.add('show-dropdown');  
+                this.paddingBottom(0,this.getHeightSubmenu(el),this.mainNavContainer);
+            } else {
+                el.classList.remove('show-dropdown');
+                this.paddingBottom(0,0,this.mainNavContainer);
+            }
+
+        } else {
+            console.error('element heeft geen dropdown');
+        }
+    }
+
+    paddingBottom(padding,maxPadding,el) {
+        const that = this;
+
+        //set startpositie padding
+        if(el.style.paddingBottom) {
+            const valueArr = el.style.paddingBottom.split('px');
+            const value = parseInt(valueArr.shift());
+            padding = value;
+        }
+
+        const idInterval = setInterval(() => { 
+
+            if(maxPadding > padding) {
+
+                if(padding >= maxPadding) {
+                    clearInterval(idInterval);
+                } else {
+                    that.mainNavContainer.style.paddingBottom = padding+1 + 'px';
+                }
+                padding++;
+                
+            } else {
+
+                if(maxPadding >= padding) {
+                    clearInterval(idInterval);
+                } else {
+                    that.mainNavContainer.style.paddingBottom = padding-1 + 'px';
+                }
+                padding--;
+
+            }
+
+        }, 1);
+    }
+
+
+    hasDropdown(el) {
+        if(el.querySelectorAll('ul')) return true;
+        else return false;
+    }
+
+    getHeightSubmenu(el,level = 2) {
+        if(el.querySelectorAll(`ul.level_${level}`)) {
+            const childDropdown = el.querySelectorAll('ul.level_2');
+            if(childDropdown.length === 1) {
+                return childDropdown[0].offsetHeight;
+            } else {
+                console.error('Meer of minder dan een dropdownmenu gevonden');
+            }
+        } else {
+            console.error('Geen submenu gevonden in element: '+el);
+        }
+        return 0;
+    }
+
+    clearDropdown() {
+        const dropdownLists = this.mainNavContainer.querySelectorAll('.show-dropdown');
+        if(dropdownLists.length > 0) {
+            for(let dropdownList of dropdownLists) {
+                dropdownList.classList.remove('show-dropdown');
+            }
+        } else {
+            return false;
+        }
+    }
+
+} //class
 
 //Regelt het openen en sluiten van het mobiele menu
 (function() {
     const menuButton = document.querySelector('#mobileMenuButton');
     const menuIcons = document.querySelectorAll('#mobileMenuButton .animated-hamburger-icon');
+
     menuButton.addEventListener('click', () => {
         menuIcons[0].classList.toggle('open');
         document.getElementsByTagName('body')[0].classList.toggle('header-show');
         document.querySelector('#contactButtonTopHeader').classList.toggle('visibility-hidden');
         document.querySelector('#mobileMenuHomeIcon').classList.toggle('visibility-hidden');
     });
+
 }());
 
 //Event listener voor het mobile menu
@@ -198,81 +330,58 @@ class setSubmenuClassDesktop extends setSubmenuClass {
     })
 }());
 
-//Sticky header
+//Eventlistener voor desktop menu
 (function() {
-    window.addEventListener('scroll',() => {
-        const pageHeader = document.getElementById('page-header');
-        if(window.scrollY >= 100) {
-            if(!pageHeader.classList.contains('sticky')) {
-                pageHeader.classList.add('sticky');
-                if(document.getElementById('wpadminbar')) {
-                    pageHeader.classList.add('is-admin');
-                } else {
-                    pageHeader.classList.remove('is-admin');
-                }
-            }
+
+    const setSubmenu = new setSubmenuClassDesktop();
+    const mainMenu = document.querySelector('#mainMenu');
+    const level1items = mainMenu.querySelectorAll('li.menu-item-has-children.level_1');
+    const pageHeader = document.querySelector('#page-header');
+    let mouseOver = false;
+    let lastTimeoutId;
+
+    document.addEventListener('mousemove',(e) => {
+        if(pageHeader.offsetHeight >= e.clientY) {
+
+            mouseOver = true;
+
         } else {
-            if(pageHeader.classList.contains('sticky')) {
-                pageHeader.classList.remove('sticky');
+
+            mouseOver = false;
+            mainMenu.classList.remove('megamenu');
+
+            for(let level1item of level1items) {
+                setSubmenu.activatedropdown(level1item,false);
             }
+
         }
-    })
+    });
+    
+
+    for(let level1item of level1items) {
+        
+        level1item.addEventListener('mouseenter',() => {
+
+            if(window.innerWidth > 992) {
+
+                clearTimeout(lastTimeoutId);
+                lastTimeoutId = setTimeout(() => {
+                    mainMenu.classList.add('megamenu');
+                    setSubmenu.activatedropdown(level1item);
+
+                }, 300);
+            
+            }
+        });
+
+    }
 }());
 
-/*
-Voor het dropdown menu hebben we nu een cookie geplaatst die na 10 seconden verwijderd
-We plaatsen de class megamenu wanneer we het megamenu willen tonen. Dit doet nog niets
-*/
-
-//Eventlistener voor desktop menu
-const mainMenu = document.querySelector('#mainMenu');
-mainMenu.addEventListener('mouseenter',() => {
-    mainMenu.classList.add('megamenu');
-    setCookie("megamenu",true,9); 
-    setTimeout(() => {
-        if(!getCookie('megamenu')) {
-            mainMenu.classList.remove('megamenu');
-        }
-    }, 10000);
-});
-
-const setCookie = (cookieName,cookieValue,seconds,cookiePath = "/") => {
-    var expirationTime = (1000 * seconds);                        
-    var date = new Date();  
-    var dateTimeNow = date.getTime(); 
-
-    date.setTime(dateTimeNow + expirationTime);  
-    var expirationTime = date.toUTCString();
-
-    document.cookie = cookieName+"="+cookieValue+"; expires="+expirationTime+"; path="+cookiePath; 
-}
-
-const getCookie = (cookieName) => {
-  var name = cookieName + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 
 
 
 
 
-
-
-
-//submenu
-const setSubmenu = new setSubmenuClassDesktop();
-//setSubmenu.test();
 
 
 

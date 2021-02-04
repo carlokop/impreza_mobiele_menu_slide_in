@@ -24,14 +24,14 @@ class US_Walker_Nav_Menu_Child extends Walker_Nav_Menu {
 		$classes[] = 'menu-item-' . $item->ID;
 
 		// Add columns value
-		if ( ! empty( $item->mega_menu_cols ) ) {
-			$classes[] = 'columns_' . $item->mega_menu_cols;
-		}
+		// if ( ! empty( $item->mega_menu_cols ) ) {
+		// 	$classes[] = 'columns_' . $item->mega_menu_cols;
+		// }
 
 		// Add mobile behavior value
-		if ( ! empty( $item->mobile_behavior ) ) {
-			$classes[] = 'mobile-drop-by_' . $item->mobile_behavior;
-		}
+		// if ( ! empty( $item->mobile_behavior ) ) {
+		// 	$classes[] = 'mobile-drop-by_' . $item->mobile_behavior;
+		// }
 
 		// Removing active classes for scroll links, so they could be handled by JavaScript instead
 		if ( isset( $item->url ) AND strpos( $item->url, '#' ) !== FALSE ) {
