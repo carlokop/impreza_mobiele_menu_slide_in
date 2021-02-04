@@ -116,6 +116,12 @@
         width:100%;
         z-index:999999;
         background:$primary;
+        font-family: 'Roboto', sans-serif;
+
+        a {
+            display: flex;
+            align-items: center;
+        }
 
         .home-icon {
             font-size:30px;
@@ -168,6 +174,7 @@
 
     .page-header {
         background:$primary !important;
+        font-family: 'Roboto', sans-serif;
         color:$wit !important;
         max-width: 100% !important;
         width:100% !important;
@@ -341,6 +348,7 @@
     .page-header {
         background:$primary;
         transition: all 0.3s;
+        font-family: 'Roboto', sans-serif;
 
         .w-nav.type_mobile .w-nav-anchor:not(.w-btn) {
             line-height: unset;
@@ -542,6 +550,10 @@
             }
         }
 
+    }
+
+    .admin-bar .page-header {
+        top:32px;
     }
 
 }

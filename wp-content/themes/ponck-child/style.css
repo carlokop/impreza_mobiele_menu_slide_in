@@ -140,6 +140,11 @@
     width: 100%;
     z-index: 999999;
     background: #e6007E;
+    font-family: 'Roboto', sans-serif;
+  }
+  .topHeader a {
+    display: flex;
+    align-items: center;
   }
   .topHeader .home-icon {
     font-size: 30px;
@@ -180,6 +185,7 @@
   }
   .page-header {
     background: #e6007E !important;
+    font-family: 'Roboto', sans-serif;
     color: #fff !important;
     max-width: 100% !important;
     width: 100% !important;
@@ -321,6 +327,7 @@
   .page-header {
     background: #e6007E;
     transition: all 0.3s;
+    font-family: 'Roboto', sans-serif;
   }
   .page-header .w-nav.type_mobile .w-nav-anchor:not(.w-btn) {
     line-height: unset;
@@ -490,6 +497,9 @@
   }
   .page-header.sticky .inner .buttons_naast_menu {
     padding-top: 0;
+  }
+  .admin-bar .page-header {
+    top: 32px;
   }
 }
 /*# sourceMappingURL=style.css.map */
