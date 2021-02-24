@@ -9,7 +9,7 @@ add_action( 'login_enqueue_scripts', function() {
 
 add_action('wp_enqueue_scripts', 'custom_scripts');
 function custom_scripts() {
-	wp_enqueue_script('navbar-js', get_stylesheet_directory_uri() . '/js/navbar.js', array(), '1.0.0', true);
+	wp_enqueue_script('navbar-js', get_stylesheet_directory_uri() . '/js/navbar.dev.js', array(), '1.0.0', true);
 }
 add_theme_support('custom-logo');
 

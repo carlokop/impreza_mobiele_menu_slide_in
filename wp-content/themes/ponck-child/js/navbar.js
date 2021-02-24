@@ -101,7 +101,7 @@ class setMenuClass {
     window.addEventListener('scroll', () => {
       const pageHeader = document.getElementById('page-header');
 
-      if (window.scrollY >= 100) {
+      if (window.scrollY >= 58) {
         if (!pageHeader.classList.contains('sticky')) {
           pageHeader.classList.add('sticky');
 

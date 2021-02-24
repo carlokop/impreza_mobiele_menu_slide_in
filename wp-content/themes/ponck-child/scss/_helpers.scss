@@ -1,3 +1,21 @@
-.row {
-    display:flex;
+@import "_media-mixins";  
+
+.row {display:flex;}
+
+.float-right {float:right;}
+.float-left {float:left;}
+
+//grid voor -xxl
+@each $size, $wordtNogNietGebruikt in $breakpoints {
+
+    @include breakpoints($size) {
+
+        .float-left#{$size} {float:left;}
+        .float-right#{$size} {float:right;}
+
+    }
+
 }
+
+
+

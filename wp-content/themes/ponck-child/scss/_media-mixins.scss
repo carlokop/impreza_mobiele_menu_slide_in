@@ -1,0 +1,80 @@
+$breakpoints: (
+    -sm:576px,
+    -md:768px,
+    -lg:992px,
+    -xl:1200px,
+    //-xxl:1600px
+);
+
+
+//mixin media query
+@mixin breakpoints($breakpoint) { 
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media only screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+}
+
+//loops de media queries
+//$widths: 25,50,75,80,100;
+
+//grid voor media queries
+// @each $width in $widths {
+//     .w-#{$width} {
+//         width: #{$width}#{'%'};
+//         max-width: #{$width}#{'%'};
+//         flex: 0 0 #{$width}#{'%'};
+//     }
+// }
+
+// @each $size, $wordtNogNietGebruikt in $breakpoints {
+
+//     @include breakpoints($size) {
+
+//         //grid voor media queries
+//         @each $width in $widths {
+//             .w#{$size}-#{$width} {
+//                 width: #{$width}#{'%'};
+//                 max-width: #{$width}#{'%'};
+//                 flex: 0 0 #{$width}#{'%'};
+//             }
+            
+//         }
+
+//     }
+
+// }
+
+
+//grid voor -xxl
+@each $size, $wordtNogNietGebruikt in $breakpoints {
+
+    @include breakpoints($size) {
+
+
+        //@for $i from 1 through 12 {
+
+            
+
+            // @if $size == -xxl {
+
+            //     $perc: #{($i / 12) * 100}#{'%'};
+            //     .col#{$size}-#{$i} {
+            //         flex: 0 0 #{$perc};
+            //         max-width: #{$perc};
+            //     }
+                
+            //     .offset#{$size}-#{$i} {
+            //         margin-left: #{$perc};
+            //     }
+
+                
+
+            // }
+    
+        //}
+
+    }
+
+}

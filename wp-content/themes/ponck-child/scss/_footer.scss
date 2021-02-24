@@ -1,0 +1,30 @@
+footer {
+    .w-socials-list a {
+        color:#323232;
+        font-size: 17px;
+    }
+
+    #menu-copyright {
+
+        li {
+             border-left: solid 1px #323232;
+             padding: 0 10px;
+             margin-right: 0;
+
+            a {text-decoration: underline;}
+        }
+
+        li:first-child {
+            border-left: none;   
+        }
+
+        li:last-child {
+            padding-right: 0;
+        }
+        
+    }
+}
+
+@media only screen and (min-width:600px) and (max-width:768px) {
+    .col1Footer .vc_column-inner {border-bottom-width:0 !important;}
+}

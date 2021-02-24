@@ -1,130 +1,53 @@
-/* In dit bestand staat de werking van het navigatiemenu
-*  Deze is opgebouwd uit een aantal event listeners die methods in een tweetal classes gebruikt
-*  Alle logica zit in de classen verwerkt
-*  Hierbij gebruiken we een algemene class voor variabelen en het mobiele menu en een class voor het desktop menu
-*/
+const setCookie = (cookieName,cookieValue,seconds,cookiePath = "/") => {
+    let expirationTime = (1000 * seconds);                        
+    const date = new Date();  
+    const dateTimeNow = date.getTime(); 
 
-//Event listener voor het mobiele menu
+    date.setTime(dateTimeNow + expirationTime);  
+    expirationTime = date.toUTCString();
+
+    document.cookie = cookieName+"="+cookieValue+"; expires="+expirationTime+"; path="+cookiePath; 
+}
+
+const getCookie = (cookieName) => {
+  const name = cookieName + "=";
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+//Sticky header
 (function() {
-    
-    const mainMenuLinkWithSubmenu = document.querySelectorAll('#mainMenu .menu-item-has-children a');
-
-    for(let link of mainMenuLinkWithSubmenu) {
-
-        link.addEventListener('click', (e) => {
-
-            if(window.innerWidth <= 992) {
-
-                if(link.parentElement.classList.contains('menu-item-has-children')) {
-
-                    e.preventDefault();
-                    setMenu.activateSubmenu(link);
-
+    window.addEventListener('scroll',() => {
+        const pageHeader = document.getElementById('page-header');
+        if(window.scrollY >= 100) {
+            if(!pageHeader.classList.contains('sticky')) {
+                pageHeader.classList.add('sticky');
+                if(document.getElementById('wpadminbar')) {
+                    pageHeader.classList.add('is-admin');
                 } else {
-
-                    setMenu.clearMenu();
-
+                    pageHeader.classList.remove('is-admin');
                 }
-                
             }
-
-        });
-
-    }
-
-    //Eventlistener om het mobiele menu terug naar startpositie te zetten
-    const menuKnop = document.querySelector('#mobileMenuButton .animated-hamburger-icon');
-
-    menuKnop.addEventListener('click', () => {
-
-        if(menuKnop.classList.contains('open')){
-
-            setMenu.clearMenu();
-
-        }
-
-    })
-
-}());
-
-//Eventlistener het openen en sluiten van het mobiele menu na klikken hamburger icoon
-(function() {
-
-    const menuButton = document.querySelector('#mobileMenuButton');
-    const menuIcons = document.querySelectorAll('#mobileMenuButton .animated-hamburger-icon');
-
-    menuButton.addEventListener('click', () => {
-        const scrollDepth = window.scrollY;
-        menuIcons[0].classList.toggle('open');
-        document.getElementsByTagName('body')[0].classList.toggle('header-show');
-        document.querySelector('#contactButtonTopHeader').classList.toggle('visibility-hidden');
-        document.querySelector('#mobileMenuHomeIcon').classList.toggle('visibility-hidden');
-        setMenu.footerMenuBrowserFixedBottom(scrollDepth);
-
-    });
-
-}());
-
-//Eventlistener voor desktop menu
-(function() {
-
-    const mainMenu = document.querySelector('#mainMenu');
-    const level1items = mainMenu.querySelectorAll('li.menu-item-has-children.level_1');
-    const pageHeader = document.querySelector('#page-header');
-    let mouseOver = false;
-    let lastTimeoutId;
-
-    document.addEventListener('mousemove',(e) => {
-
-        if(pageHeader.offsetHeight+setMenu.adminLoggedIn() >= e.clientY) {
-
-            mouseOver = true; 
-
         } else {
-
-            mouseOver = false;
-            mainMenu.classList.remove('megamenu');
-
-            for(let level1item of level1items) {
-                setMenu.activatedropdown(level1item,false);
+            if(pageHeader.classList.contains('sticky')) {
+                pageHeader.classList.remove('sticky');
             }
-
         }
-    });
-    
-
-    for(let level1item of level1items) {
-        
-        level1item.addEventListener('mouseenter',() => {
-
-            if(window.innerWidth > 992) {
-
-                //We stellen een korte timeout in om haperen te voorkopen
-                clearTimeout(lastTimeoutId);
-                lastTimeoutId = setTimeout(() => {
-
-                    mainMenu.classList.add('megamenu');
-                    setMenu.activatedropdown(level1item);
-
-                }, 300);
-            
-            }
-        });
-
-    }
+    })
 }());
 
-
-
-
-
-/* De werking van het menu staat in deze class
-*  Deze class is voor het overzicht opgedeeld in seMenuClass en setMenuClassDesktop
-*  In setMenuClass staan alle globale variabelen en methods die geladen moeten worden bij initialiseren
-*  Daarnaast bevat het de methods voor de werking van het mobiele menu
-*  Voor het desktop menu worden variabelen uit setMenuCVlass gebruikt maar alle methods staan in setMenuClassDesktop
-*/
-class setMenuClass {
+//Deze class is voor het mobiele menu. 
+class setSubmenuClass {
 
     constructor() {
         this.mainMenuParentLink = document.querySelectorAll('#mainMenu .menu-item.level_1');
@@ -133,55 +56,9 @@ class setMenuClass {
         this.currentLevel = 1;
 
         this.setActiveClasses();
-        this.stickyHeader();
         document.getElementById('mainMenu').dataset.currentlevel = this.currentLevel;
         window.addEventListener('load', this.setMenu);
         window.addEventListener('resize', this.setMenu);
-    }
-
-    //browser fix voor samsung internet
-    footerMenuBrowserFixedBottom(scrollDepth) {
-
-        if(scrollDepth < 30) {
-            document.getElementsByTagName('body')[0].dataset.taskbar = true;
-        } else {
-            document.getElementsByTagName('body')[0].dataset.taskbar = false;
-        }
-        //document.getElementsByTagName('body')[0].innerHTML = navigator.userAgent;
-
-        if(document.getElementsByTagName('body')[0].classList.contains('header-show')) {
-            document.getElementsByTagName('html')[0].dataset.headershow = true;
-            
-            if(navigator.userAgent.indexOf("SamsungBrowser") > -1) {
-                document.getElementsByTagName('body')[0].dataset.browser = "samsung";
-            } else if(navigator.userAgent.indexOf("Mac OS") > -1) {
-                document.getElementsByTagName('body')[0].dataset.browser = "safari";
-            } else if(navigator.userAgent.indexOf("Chrome") > -1) {
-                document.getElementsByTagName('body')[0].dataset.browser = "chrome";
-            }
-        } else {
-            document.getElementsByTagName('html')[0].dataset.headershow = false;
-        } 
-    }
-
-    stickyHeader() {
-        window.addEventListener('scroll',() => {
-            const pageHeader = document.getElementById('page-header');
-            if(window.scrollY >= 62) {
-                if(!pageHeader.classList.contains('sticky')) {
-                    pageHeader.classList.add('sticky');
-                    if(document.getElementById('wpadminbar')) {
-                        pageHeader.classList.add('is-admin');
-                    } else {
-                        pageHeader.classList.remove('is-admin');
-                    }
-                }
-            } else {
-                if(pageHeader.classList.contains('sticky')) {
-                    pageHeader.classList.remove('sticky');
-                }
-            }
-        })
     }
 
     //Bepaald of we mobiel of desktop menu tonen
@@ -279,8 +156,6 @@ class setMenuClass {
         }
     }
 
-    //verwijderd alle active classen
-    //alleen elementen met active class worden getoond
     clearAllActives() {
         const allActives = this.mainNavContainer.querySelectorAll('.menu-item.active');
         for(let activeLink of allActives) {
@@ -289,7 +164,7 @@ class setMenuClass {
         return true;
     }
 
-    //reset menu naar start positie
+    //reset menu
     clearMenu() {
         this.currentLevel = 1;
         this.setActiveClasses();
@@ -303,7 +178,7 @@ class setMenuClass {
         document.getElementById('mainMenu').dataset.currentlevel = this.currentLevel;
     }
 
-    //return het niveau van submenu's (level 1, 2 3)
+    //return het niveau van submenu's
     getClickLevel(link) {
         if(link.classList.contains('level_1')) return 1;
         else if(link.classList.contains('level_2')) return 2;
@@ -314,7 +189,6 @@ class setMenuClass {
         }
     }
 
-    //stelt het huidige niveau van het submenu in
     setCurrentLevel(link) {
 
         let linkLevel = this.getClickLevel(link);
@@ -329,14 +203,12 @@ class setMenuClass {
 } //class
 
 //Deze class is voor het desktop menu
-class setMenuClassDesktop  extends setMenuClass {
+class setSubmenuClassDesktop  extends setSubmenuClass {
     constructor() {
         super();
         this.adminbar = 0;
     }
 
-    //Als admin is ingelogd ontstaat er een probleem bij het megamenu gezien die rekening houd met de scrollpositie
-    //In deze method voegen we 32px extra speling toe
     adminLoggedIn() {
         if(document.querySelector('#wpadminbar')) {
             this.adminbar = 32;
@@ -367,17 +239,11 @@ class setMenuClassDesktop  extends setMenuClass {
         else return false;
     }
 
-    //returns de hoogte in px van het megamenu
-    //Dit wordt gebruikt om texta padding toe te voegen aan de #mainNavContainer
     getHeightSubmenu(el,level = 2) {
-
         if(el.querySelectorAll(`ul.level_${level}`)) {
-
             const childDropdown = el.querySelectorAll('ul.level_2');
             if(childDropdown.length === 1) {
-
                 return childDropdown[0].offsetHeight;
-
             } else {
                 console.error('Meer of minder dan een dropdownmenu gevonden');
             }
@@ -388,14 +254,11 @@ class setMenuClassDesktop  extends setMenuClass {
     }
 
     clearDropdown() {
-
         const dropdownLists = this.mainNavContainer.querySelectorAll('.show-dropdown');
         if(dropdownLists.length > 0) {
-
             for(let dropdownList of dropdownLists) {
                 dropdownList.classList.remove('show-dropdown');
             }
-            
         } else {
             return false;
         }
@@ -403,11 +266,93 @@ class setMenuClassDesktop  extends setMenuClass {
 
 } //class
 
-const setMenu = new setMenuClassDesktop(); //Init class zowel desktop als mobiel
+//Regelt het openen en sluiten van het mobiele menu
+(function() {
+    const menuButton = document.querySelector('#mobileMenuButton');
+    const menuIcons = document.querySelectorAll('#mobileMenuButton .animated-hamburger-icon');
 
+    menuButton.addEventListener('click', () => {
+        menuIcons[0].classList.toggle('open');
+        document.getElementsByTagName('body')[0].classList.toggle('header-show');
+        document.querySelector('#contactButtonTopHeader').classList.toggle('visibility-hidden');
+        document.querySelector('#mobileMenuHomeIcon').classList.toggle('visibility-hidden');
+    });
 
+}());
 
+//Event listener voor het mobile menu
+(function() {
+    //Link met submenu
+    const setSubmenu = new setSubmenuClass();
+    this.mainMenuLinkWithSubmenu = document.querySelectorAll('#mainMenu .menu-item-has-children a');
 
+    for(let link of mainMenuLinkWithSubmenu) {
+        link.addEventListener('click', (e) => {
+
+            if(window.innerWidth <= 992) {
+                e.preventDefault();
+                setSubmenu.activateSubmenu(link);
+            }
+
+        });
+    }
+
+    //clear menu
+    const menuKnop = document.querySelector('#mobileMenuButton .animated-hamburger-icon');
+    menuKnop.addEventListener('click', () => {
+        if(menuKnop.classList.contains('open')){
+            setSubmenu.clearMenu();
+        }
+    })
+}());
+
+//Eventlistener voor desktop menu
+(function() {
+
+    const setSubmenu = new setSubmenuClassDesktop();
+    const mainMenu = document.querySelector('#mainMenu');
+    const level1items = mainMenu.querySelectorAll('li.menu-item-has-children.level_1');
+    const pageHeader = document.querySelector('#page-header');
+    let mouseOver = false;
+    let lastTimeoutId;
+
+    document.addEventListener('mousemove',(e) => {
+
+        if(pageHeader.offsetHeight+setSubmenu.adminLoggedIn() >= e.clientY) {
+
+            mouseOver = true;
+
+        } else {
+
+            mouseOver = false;
+            mainMenu.classList.remove('megamenu');
+
+            for(let level1item of level1items) {
+                setSubmenu.activatedropdown(level1item,false);
+            }
+
+        }
+    });
+    
+
+    for(let level1item of level1items) {
+        
+        level1item.addEventListener('mouseenter',() => {
+
+            if(window.innerWidth > 992) {
+
+                clearTimeout(lastTimeoutId);
+                lastTimeoutId = setTimeout(() => {
+                    mainMenu.classList.add('megamenu');
+                    setSubmenu.activatedropdown(level1item);
+
+                }, 300);
+            
+            }
+        });
+
+    }
+}());
 
 
 
