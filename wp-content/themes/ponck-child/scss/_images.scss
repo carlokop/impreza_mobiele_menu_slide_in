@@ -1,0 +1,20 @@
+.img-container-4-3 {
+    background-color: transparent;
+    position: relative;
+    padding-bottom: 75%;
+}
+
+.img-container-16-9 .img-wrapper, .img-container-4-3 .img-wrapper, .img-container-1-1 .img-wrapper {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+}
+
+.img-container-16-9 .img-wrapper img, .img-container-4-3 .img-wrapper img, .img-container-1-1 .img-wrapper img {
+    height: 100%;
+}

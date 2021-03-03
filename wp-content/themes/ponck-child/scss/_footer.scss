@@ -6,6 +6,9 @@ footer {
 
     #menu-copyright {
 
+        overflow-y: hidden;
+        padding-inline-start: 0;
+
         li {
              border-left: solid 1px #323232;
              padding: 0 10px;
@@ -15,7 +18,8 @@ footer {
         }
 
         li:first-child {
-            border-left: none;   
+            border-left: none; 
+            padding-left:0;  
         }
 
         li:last-child {

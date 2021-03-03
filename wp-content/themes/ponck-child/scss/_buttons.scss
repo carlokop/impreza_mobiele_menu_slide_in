@@ -7,12 +7,115 @@
 .btn.primary {
     color:$wit;
     background:$primary;
+    transition: all 0.225s;
 }
 
 .btn.secondary {
     color:$wit;
     background:$secondary;
+    transition: all 0.225s;
+}
+
+.btn.primary:hover {
+    color:$secondary;
+    background:$wit;
+}
+
+.btn.secondary:hover {
+    color:$wit;
+    background:$primary;
+}
+
+a.btn.pagination.arrow-fixed.left,
+a.btn.pagination.arrow-fixed.right {
+    position: relative;
+    left:25px;
+    padding:0;
+    color:$secondary;
+    transition: color 0.225s;
+    cursor:pointer;
+    i {
+        position: absolute;
+        left: -25px;
+        top: 0;
+        transition: left 0.5s;
+    }
+}
+
+a.btn.pagination.arrow-fixed.right {
+    left:unset;
+    right:0;
+    color:$secondary;
+    i {
+        left: unset;
+        right:-25px;
+        transition: right 0.5s;
+    }
+}
+
+.btn.pagination.arrow-fixed.left:hover {
+    color:$primary;
+    i {left:-35px;}
+}
+.btn.pagination.arrow-fixed.right:hover {
+    color:$primary;
+    i {right:-35px;}
+}
+
+
+.btn.tertiar i {transition: all 0.5s;}
+.btn.tertiar:hover i {
+    margin-left: 1em;
 }
 
 .btn.rounded {border-radius:50px;}
+
+//fix responsive voor thema buttons
+@media only screen and (max-width:991px) {
+    .w-btn {padding: 0.6em 1.2em;}
+    .us-btn-style_2,
+    .us-btn-style_5 {
+        font-size: 18px;
+    }
+}
+
+.btn.outline {
+    border-radius: 50px;
+    font-size: 14px;
+    transition: all 0.225s;
+}
+
+.btn.outline.wit {
+    color: #fff;
+    border: solid 1px #fff;
+}
+
+.btn.outline.wit:hover {
+    background: $primary;
+    border: solid 1px $primary;
+}
+
+.btn.outline.secondary {
+    color: #aeaeae;
+    border: solid 1px #aeaeae;
+    background: $wit;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+}
+
+.btn.outline.secondary:hover {
+    color:$wit;
+    background: $secondary;
+    border: solid 1px $secondary;
+}
+
+
+.meta-overlay {
+    position: absolute;
+    bottom: 0;
+    padding: 15px 0;
+    left: 10px;
+    width: calc(100% - 20px);
+    a {padding:0 3px;}
+}
 

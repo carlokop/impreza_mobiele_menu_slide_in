@@ -1,26 +1,15 @@
 <?php
-// Set-up log-in screen
-add_action( 'login_enqueue_scripts', function() {
-	
-	// Load CSS
-	wp_enqueue_style('admin-login-style', '//ponck.nl/assets/css/login.css', array(), '2.0', 'all');
-	
-}, 1);
 
-add_action('wp_enqueue_scripts', 'custom_scripts');
-function custom_scripts() {
-	wp_enqueue_script('navbar-js', get_stylesheet_directory_uri() . '/js/navbar.dev.js', array(), '1.0.0', true);
-}
-add_theme_support('custom-logo');
-
-function return_to_ponck($url) {
-	
-    return 'https://ponck.nl';
-	
-}
-
-add_filter( 'login_headerurl', 'return_to_ponck' );
-
-
+require_once __DIR__ . '/common/functions/enqueue.php';
 require_once __DIR__ . '/common/functions/US_Walker_Nav_Menu_Child.php';
+require_once __DIR__ . '/common/functions/custom_posts_types.php';
+require_once __DIR__ . '/common/functions/shortcodes.php';
 
+define("LOGO", get_bloginfo('url') . "/wp-content/uploads/2021/02/leene-logo.png");
+define("LOGOWIT", get_bloginfo('url') .  "/wp-content/uploads/2021/02/leene-logo-wit.png");
+
+add_filter('excerpt_length', 'your_prefix_excerpt_length');
+function your_prefix_excerpt_length()
+{
+    return 10;
+}

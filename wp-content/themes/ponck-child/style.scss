@@ -10,28 +10,167 @@
  Text Domain:  ponck-child
 */
 
-@font-face {
-  font-family: 'AvenirNext-Regular';
-  src: url('fonts/AvenirNextLTPro-Regular.otf');
-  font-weight: 400;
-}
-
-// @font-face {
-//   font-family: 'Noteworthy-Light';
-//   src: url('fonts/Noteworthy-Light-300.ttf');
-//   font-weight: 300;
-// }
-
-
-body {
-    font-family: 'AvenirNext-Regular';
-}
-
+@import "scss/_fontstyles";
 @import "scss/_helpers";  
 @import "scss/_buttons";
 @import "scss/_animations";
-@import "scss/_mainmenu";  //navigatiemenu en mobiel
+@import "scss/_mainmenu";  
 @import "scss/_footer";
+@import "scss/_images";
+
+#homeHeaderSection {
+    background-size: cover !important;
+    background-position: 80% 50%!important;
+    background-repeat:no-repeat;
+
+    .l-section-h {
+        position: absolute;
+        bottom:0;
+    }
+
+    .wijzijnLee {
+        text-shadow: 0px 4px 29px rgba(49,36,101,0.5);
+        color: #ffffff;
+        font-family: "AvenirNext-Medium";
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+    }
+
+    .duidelijke {
+        text-shadow: 0px 5px 35px rgba(49,36,101,0.5);
+        color: #ffffff;
+        font-family: "AvenirNext-DemiBold";
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 26px;
+        margin-bottom: 10px !important;
+        p {max-width: 400px;}
+    }
+
+}
+
+@media only screen and (min-width:768px) {
+    
+    #homeHeaderSection {
+        .duidelijke p {max-width: 50%;}
+        .l-section-overlay {visibility: hidden;}
+    }
+    
+}
+
+@media only screen and (min-width:993px) {
+    
+    #homeHeaderSection {
+        .wijzijnLee {
+            font-size: 18px;
+            line-height: 22px;
+        }
+        
+        .duidelijke {
+            font-size: 28px;
+            line-height: 31px;
+            letter-spacing: -0.30px;
+        }
+    }
+    
+}
+
+@media only screen and (min-width:1366px) {
+    
+    #homeHeaderSection {
+        .wijzijnLee {
+            font-size: 21px;
+            line-height: 28px;
+        }
+        
+        .duidelijke {
+        font-size: 31px;
+        line-height: 37px;
+        letter-spacing: -0.30px;
+        }
+    }
+    
+}
+
+@media only screen and (min-width:1920px) {
+    
+    #homeHeaderSection {
+        .wijzijnLee {
+            font-size: 26px;
+            line-height: 35px;
+        }
+        
+        .duidelijke {
+        font-size: 44px;
+        line-height: 52px;
+        letter-spacing: -0.40px;
+        }
+
+        .col-xl-30-extra {margin-bottom:30px;}
+    }
+    
+}
+
+@media only screen and (min-width:2560px) {
+    
+    #homeHeaderSection {
+        .wijzijnLee {
+            font-size: 34px;
+            line-height: 45px;
+        }
+        
+        .duidelijke {
+            font-size: 50px;
+            line-height: 63px;
+            letter-spacing: -0.50px;
+        }
+    }
+    
+}
+
+article.case {
+    margin-bottom: 2em;
+    h3 {
+        color:$primary;
+        font-size: 16px;
+        line-height: 2;
+        margin: 10px 0 0 0;
+        padding: 0;
+    }
+    a {color:$secondary;}
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.filter-options {
+    .intro {
+        font-size:16px;
+        color:#aeaeae;
+    }
+}
+
+ul.filters {
+    list-style:none;
+    padding-inline-start: 0;
+    margin-left: 0;
+
+    li {
+        display: inline;
+        padding: 0 5px;
+        a.active {
+            background: $secondary !important;
+            color:$wit !important;
+            border:solid 1px $secondary !important;
+        }
+    }
+}
+
+
+//to top
+.w-toplink {display:none;}
 
 
 

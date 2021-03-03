@@ -115,9 +115,6 @@
 }());
 
 
-
-
-
 /* De werking van het menu staat in deze class
 *  Deze class is voor het overzicht opgedeeld in seMenuClass en setMenuClassDesktop
 *  In setMenuClass staan alle globale variabelen en methods die geladen moeten worden bij initialiseren

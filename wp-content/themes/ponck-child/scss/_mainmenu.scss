@@ -336,7 +336,7 @@
     }
 
     .page-header {
-        background:$primary;
+        background:transparent;
         transition: all 0.225s;
         font-family: 'Roboto', sans-serif;
         position: fixed;
@@ -368,9 +368,10 @@
                     height:100px;
                     transition: all 0.225s;
                 }
+                .wit {display:none;}
                 i {
                     font-size:30px;
-                    color:$wit;
+                    color:$zwart;
                     transition: all 0.225s;
                 }
             }
@@ -398,14 +399,18 @@
                     padding: 0 30px;
                     position: unset;
                     a { 
-                        color:$wit !important;
+                        color:$zwart !important;
+                        font-family: "AvenirNext-Medium";
+                        font-size: 16px;
+                        letter-spacing: 0.64px;
+
                         transition: all 0.225s;
                         .w-nav-arrow {
                             display: initial;
                         }
                         .w-nav-arrow:before {
                             display: inline-block;
-                            transition: all 0.225s;
+                            transition: transform 0.225s;
                         }
                         .w-nav-arrow {display: none;}
                     }
@@ -509,12 +514,18 @@
                 align-items: center;
                 padding-top:35px;
                 transition: padding 0.225s;
+                font-size: 16px;
+
+                .btn.secondary:hover {
+                    background:$wit;
+                    color:$secondary;
+                }
 
                 .lang {
                     padding: 0 15px;
                     a {
                         font-size: 14px;
-                        color: $wit;
+                        color: $zwart;
                     }
                     a.disabled {
                         opacity: 0.6;
@@ -523,6 +534,40 @@
             }
 
         }
+    }
+
+    .page-header:hover {
+
+        background-color:$primary;
+
+        .inner {
+            .logo {
+                i {color:$wit;}
+                .wit {display:unset;}
+                .kleur {display:none;}
+            }
+            
+            ul#mainMenu {
+
+                li {
+                    a { 
+                        color:$wit !important;
+                    }
+                }
+            }
+
+            .buttons_naast_menu {
+
+                .lang {
+
+                    a {
+                        color: $wit;
+                    }
+
+                }
+            }
+        }
+
     }
 
     .page-header.sticky {
@@ -535,6 +580,7 @@
         .logo {
             img {display:none;}
             .icon {display:flex;}
+            svg {fill:red}
         }
 
         .inner {

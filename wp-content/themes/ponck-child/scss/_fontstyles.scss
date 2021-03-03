@@ -1,0 +1,202 @@
+@import "_colors";  
+
+@font-face {
+  font-family: 'AvenirNext-Regular';
+  src: url('fonts/Metropolis-Regular.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'AvenirNext-Medium';
+  src: url('fonts/Metropolis-Medium.otf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'AvenirNext-DemiBold';
+  src: url('fonts/Metropolis-SemiBold.otf');
+  font-weight: 600;
+}
+
+
+body {
+    font-family: 'AvenirNext-Regular';
+    font-size:15px;
+}
+
+h1, .h1, 
+h2, .h2, 
+h3, .h3, 
+h4, .h4, 
+h5, .h5, 
+h6, .h6 {
+    font-weight:400;
+    font-family: 'AvenirNext-DemiBold';
+    color:$secondary;
+    line-height: 1.2;
+}
+
+//tot 768px
+h1, .h1 {
+    font-size: 24px;
+}
+h2, .h2 {
+    font-size: 18px;
+}
+h3, .h3 {
+    font-size: 16px;
+    line-height: 2;
+    color:#aeaeae;
+    font-family: "AvenirNext-Medium";
+    letter-spacing: 0.16px;
+}
+h4, .h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+
+//tablet
+@media only screen and (min-width:768px) {
+
+    body{
+        font-size:16px;
+    }
+
+    h1, .h1 {
+    font-size: 28px;
+    }
+    h2, .h2 {
+        font-size: 20px;
+    }
+    h3, .h3 {
+        font-size: 17px;
+    }
+    h4, .h4 {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width:1025px) {
+
+    body{
+        font-size:18px;
+    }
+
+    h1, .h1 {
+    font-size: 32px;
+    }
+    h2, .h2 {
+        font-size: 24px;
+    }
+    h3, .h3 {
+        font-size: 19px;
+    }
+    h4, .h4 {
+        font-size: 13px;
+    }
+}
+
+//laptop
+@media only screen and (min-width:1366px) {
+
+    body{
+        font-size:20px;
+    }
+
+    h1, .h1 {
+    font-size: 36px;
+    }
+    h2, .h2 {
+        font-size: 26px;
+    }
+    h3, .h3 {
+        font-size: 20px;
+    }
+    h4, .h4 {
+        font-size: 14px;
+    }
+}
+
+//hd
+@media only screen and (min-width:1920px) {
+
+    body{
+        font-size:22px;
+    }
+
+    h1, .h1 {
+    font-size: 44px;
+    }
+    h2, .h2 {
+        font-size: 28px;
+    }
+    h3, .h3 {
+        font-size: 22px;
+    }
+    h4, .h4 {
+        font-size: 14px;
+    }
+}
+
+.AvenirNext-Medium {
+    font-family: 'AvenirNext-Medium';
+}
+
+.AvenirNext-DemiBold {
+      font-family: "AvenirNext-DemiBold";
+}
+
+
+//list styles 
+ul.checkbox {
+    list-style: none;
+    font-family: "AvenirNext-Medium";
+
+    .icon:before {
+        display: inline;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        margin-right:0.5em;
+        margin-left: -1.6em;
+    }
+    .checkmark:before {
+        // font-family: "Font Awesome 5 Free"; 
+        // font-weight: 900; 
+        // content: "\f00c";
+        content: '';
+        background-image: url('svg/check.svg');
+        background-size: 14px 14px;
+        height: 14px;
+        width: 14px;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+}
+
+.casesCarousel .owl-dots {
+    text-align: left;
+    span {
+        background-color:$wit;
+        border:solid 1px $zwart;
+    }
+}
+.casesCarousel .owl-dot.active span {
+    background-color: $primary !important;
+    box-shadow: unset;
+    border:solid 1px $primary;
+}
+
+ul.nospace {
+    padding-inline-start: 20px;
+    margin-left: 0;
+}
+
+ul.marker-primary {
+    li::marker {
+        color:$primary;
+    }
+}
