@@ -62,7 +62,7 @@ function include_grid_func($atts)
         array(
             'post_type' => 'post',
             'tax_type' => 'category',
-            'num_posts' => 1,
+            'num_posts' => 10,
             'columns'   => 1,
             'meta'      => false,
         ),$atts

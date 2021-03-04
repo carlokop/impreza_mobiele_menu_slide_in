@@ -6,6 +6,8 @@
 .float-left {float:left;}
 .d-none {display:none;}
 .d-unset {display:unset;}
+.d-block {display:block;}
+.d-flex {display:flex;}
 
 .mb-0 {margin-bottom:0;}
 
@@ -22,6 +24,8 @@
     align-items: center;
 }
 
+
+
 //grid voor -xxl
 @each $size, $wordtNogNietGebruikt in $breakpoints {
 
@@ -32,6 +36,13 @@
 
         .d#{$size}-none {display:none;}
         .d#{$size}-unset {display:unset;}
+        .d#{$size}-block {display:block;}
+        .d#{$size}-flex {display:flex;}
+
+        .row#{$size}-centered {
+            display: flex;
+            align-items: center;
+        }
 
     }
 

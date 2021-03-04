@@ -5,15 +5,17 @@
 *   $post_type en $num_posts moet reeds worden geladen in de shortcode;
 */
 $curr = get_queried_object();
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-if(is_category()) {
+if (is_category()) {
 
     $args = array(
         'post_type' => $post_type,
         'posts_per_page' => $num_posts,
+        'paged' => $paged,
         'order' => 'DESC',
         'orderby' => 'date',
-        'offset' => 0,
+        //'offset' => 0,
         'tax_query' => array(
             array(
                 'taxonomy' => $tax_type,
@@ -22,14 +24,14 @@ if(is_category()) {
             ),
         ),
     );
-
 } else {
     $args = array(
         'post_type' => $post_type,
         'posts_per_page' => $num_posts,
+        'paged' => $paged,
         'order' => 'DESC',
         'orderby' => 'date',
-        'offset' => 0,
+        //'offset' => 0,
         'post__not_in' => array(get_the_ID()), //exclude current post
     );
 }
@@ -92,3 +94,12 @@ while ($query->have_posts()) : $query->the_post();
 endwhile; ?>
 
 <div class="clearfix"></div>
+
+
+<?php
+if (function_exists("pagination")) {
+    echo pagination($query->max_num_pages);
+}
+?>
+
+<?php wp_reset_postdata(); ?>

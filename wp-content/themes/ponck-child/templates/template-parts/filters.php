@@ -11,8 +11,8 @@ $categories = get_terms(array(
 ));
 
 ?>
-<div class="row-centered filter-options">
-    <span class='float-left intro'><?php echo $intro; ?></span>
+<div class="row-md-centered filter-options d-block d-md-flex">
+    <span class='float-left-md intro'><?php echo $intro; ?></span>
     <ul class="filters">
         <li><a href="<?php echo get_bloginfo("url"); ?>/verhalen/" class="btn outline secondary <?php if (!is_category()) echo 'active'; ?>">Alle</a></li>
 
