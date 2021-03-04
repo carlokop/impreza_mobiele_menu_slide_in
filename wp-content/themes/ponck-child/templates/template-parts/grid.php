@@ -4,15 +4,36 @@
 *   Dit template wordt via shortcodes gebruik
 *   $post_type en $num_posts moet reeds worden geladen in de shortcode;
 */
+$curr = get_queried_object();
 
-$args = array(
-    'post_type' => $post_type,
-    'posts_per_page' => $num_posts,
-    'order' => 'DESC',
-    'orderby' => 'date',
-    'offset' => 0,
-    'post__not_in' => array(get_the_ID()), //exclude current post
-);
+if(is_category()) {
+
+    $args = array(
+        'post_type' => $post_type,
+        'posts_per_page' => $num_posts,
+        'order' => 'DESC',
+        'orderby' => 'date',
+        'offset' => 0,
+        'tax_query' => array(
+            array(
+                'taxonomy' => $tax_type,
+                'field'    => 'term_id',
+                'terms'    => $curr->term_taxonomy_id,
+            ),
+        ),
+    );
+
+} else {
+    $args = array(
+        'post_type' => $post_type,
+        'posts_per_page' => $num_posts,
+        'order' => 'DESC',
+        'orderby' => 'date',
+        'offset' => 0,
+        'post__not_in' => array(get_the_ID()), //exclude current post
+    );
+}
+
 
 $query = new WP_Query($args);
 

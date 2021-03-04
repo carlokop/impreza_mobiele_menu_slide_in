@@ -11,17 +11,17 @@ $categories = get_terms(array(
 ));
 
 ?>
-<div class="row-centered">
+<div class="row-centered filter-options">
     <span class='float-left intro'><?php echo $intro; ?></span>
     <ul class="filters">
         <li><a href="<?php echo get_bloginfo("url"); ?>/verhalen/" class="btn outline secondary <?php if (!is_category()) echo 'active'; ?>">Alle</a></li>
 
         <?php
 
-        $curr = get_the_category();
+        $curr = get_queried_object();
         foreach ($categories as $category) {
 
-            if ($category->term_id == $curr[0]->cat_ID) $active = "active";
+            if ($category->term_id == $curr->term_taxonomy_id) $active = "active";
             else $active = '';
 
             echo '<li><a href="' . get_category_link($category) . '" class="btn outline secondary ' . $active . '">' . $category->name . '</a></li>';
