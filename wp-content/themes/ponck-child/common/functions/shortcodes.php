@@ -60,21 +60,19 @@ function include_grid_func($atts)
 
     $atts = shortcode_atts(
         array(
-            'post_type' => '',
-            'num_posts' => '',
-            'columns'   => '',
+            'post_type' => 'posts',
+            'tax_type' => 'category',
+            'num_posts' => 10,
+            'columns'   => 1,
             'meta'      => false,
         ),$atts
     );
 
-    if($atts['post_type']) $post_type = $atts['post_type'];
-    else $post_type = 'posts';
-
-    if ($atts['num_posts']) $num_posts = $atts['num_posts'];
-    else $num_posts = 10;
-
-    if ($atts['columns']) $columns = $atts['columns'];
-    else $columns = 1;
+    $post_type = $atts['post_type'];
+    $tax_type = $atts['tax_type'];
+    $num_posts = $atts['num_posts'];
+    $columns = $atts['columns'];
+    $meta = $atts['meta'];
 
     include get_stylesheet_directory() . '/templates/template-parts/grid.php';
     return;
