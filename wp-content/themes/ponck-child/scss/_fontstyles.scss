@@ -2,20 +2,20 @@
 
 @font-face {
   font-family: 'AvenirNext-Regular';
-  src: url('fonts/Metropolis-Regular.otf');
+  src: url('fonts/AvenirNextLTPro-Regular.ttf');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'AvenirNext-Medium';
-  src: url('fonts/Metropolis-Medium.otf');
-  font-weight: 500;
+  src: url('fonts/AvenirNextLTPro-Medium.otf');
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'AvenirNext-DemiBold';
-  src: url('fonts/Metropolis-SemiBold.otf');
-  font-weight: 600;
+  src: url('fonts/AvenirNextLTPro-Demi.ttf');
+  font-weight: 400;
 }
 
 
@@ -31,7 +31,8 @@ h4, .h4,
 h5, .h5, 
 h6, .h6 {
     font-weight:400;
-    font-family: 'AvenirNext-DemiBold';
+    //font-family: 'AvenirNext-DemiBold';
+    font-family: 'AvenirNext-Medium';
     color:$secondary;
     line-height: 1.2;
 }
@@ -41,19 +42,20 @@ h1, .h1 {
     font-size: 24px;
 }
 h2, .h2 {
-    font-size: 18px;
+    font-size: 24px;
 }
 h3, .h3 {
-    font-size: 16px;
-    line-height: 2;
-    color:#aeaeae;
+    font-size: 14px;
+    color:$primary;
     font-family: "AvenirNext-Medium";
-    letter-spacing: 0.16px;
+    // letter-spacing: 0.16px;
 }
 h4, .h4 {
     font-size: 12px;
+    line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    font-family: "AvenirNext-Medium";
 }
 
 
@@ -68,13 +70,13 @@ h4, .h4 {
     font-size: 28px;
     }
     h2, .h2 {
-        font-size: 20px;
+        font-size: 28px;
     }
     h3, .h3 {
-        font-size: 17px;
+        font-size: 16px;
     }
     h4, .h4 {
-        font-size: 12px;
+        font-size: 16px;
     }
 }
 
@@ -85,16 +87,16 @@ h4, .h4 {
     }
 
     h1, .h1 {
-    font-size: 32px;
+    font-size: 30px;
     }
     h2, .h2 {
-        font-size: 24px;
+        font-size: 30px;
     }
     h3, .h3 {
-        font-size: 19px;
+        font-size: 20px;
     }
     h4, .h4 {
-        font-size: 13px;
+        font-size: 20px;
     }
 }
 
@@ -106,16 +108,16 @@ h4, .h4 {
     }
 
     h1, .h1 {
-    font-size: 36px;
+    font-size: 40px;
     }
     h2, .h2 {
-        font-size: 26px;
+        font-size: 40px;
     }
     h3, .h3 {
-        font-size: 20px;
+        font-size: 24px;
     }
     h4, .h4 {
-        font-size: 14px;
+        font-size: 24px;
     }
 }
 
@@ -127,19 +129,31 @@ h4, .h4 {
     }
 
     h1, .h1 {
-    font-size: 44px;
+    font-size: 52px;
     }
     h2, .h2 {
-        font-size: 28px;
+        font-size: 52px;
     }
     h3, .h3 {
-        font-size: 22px;
+        font-size: 28px;
     }
     h4, .h4 {
-        font-size: 14px;
+        font-size: 28px;
     }
 }
 
+a, a:visited, a:active , a:focus {
+    color:$primary;
+    transition: all 0.3s;
+}
+
+a:hover {color:$secondary;}
+
+.secondary {color:$secondary;}
+
+.AvenirNext-Regular {
+    font-family: 'AvenirNext-Regular';
+}
 .AvenirNext-Medium {
     font-family: 'AvenirNext-Medium';
 }
@@ -147,6 +161,8 @@ h4, .h4 {
 .AvenirNext-DemiBold {
       font-family: "AvenirNext-DemiBold";
 }
+
+.small {font-size:80%;}
 
 
 //list styles 

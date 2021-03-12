@@ -171,16 +171,9 @@ $us_layout = US_Layout::instance();
 		<?php
 		if ($us_layout->header_show != 'never') {
 
-			do_action('us_before_header');
+			do_action('us_before_header');	
 
-			//Hier laden we het header bestand wat gecustomised is
-
-			if (file_exists(__DIR__ . '/l-header-html.php')) {
-				include(__DIR__ . '/l-header-html.php');
-			} else {
-				echo "Template file l-header.php ontbreekt in Child theme /templates/";
-				echo "<br>Zie child theme /templates/header.php regel 163";
-			}
-
+			get_template_part('templates/template-parts/header','inner'); 
+			
 			do_action('us_after_header');
 		} ?>

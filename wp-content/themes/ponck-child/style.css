@@ -5,26 +5,26 @@
  Author:       PONCK
  Author URI:   http://ponck.nl/
  Template:     Impreza
- Version:      1.0.0
+ Version:      1.0.1
  Tags:         plaats, hier, jouw, tags, gescheiden, door, kommas
  Text Domain:  ponck-child
 */
 @font-face {
   font-family: 'AvenirNext-Regular';
-  src: url("fonts/Metropolis-Regular.otf");
+  src: url("fonts/AvenirNextLTPro-Regular.ttf");
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'AvenirNext-Medium';
-  src: url("fonts/Metropolis-Medium.otf");
-  font-weight: 500;
+  src: url("fonts/AvenirNextLTPro-Medium.otf");
+  font-weight: 400;
 }
 
 @font-face {
   font-family: 'AvenirNext-DemiBold';
-  src: url("fonts/Metropolis-SemiBold.otf");
-  font-weight: 600;
+  src: url("fonts/AvenirNextLTPro-Demi.ttf");
+  font-weight: 400;
 }
 
 body {
@@ -39,7 +39,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   font-weight: 400;
-  font-family: 'AvenirNext-DemiBold';
+  font-family: 'AvenirNext-Medium';
   color: #333;
   line-height: 1.2;
 }
@@ -49,21 +49,21 @@ h1, .h1 {
 }
 
 h2, .h2 {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 h3, .h3 {
-  font-size: 16px;
-  line-height: 2;
-  color: #aeaeae;
+  font-size: 14px;
+  color: #e6007E;
   font-family: "AvenirNext-Medium";
-  letter-spacing: 0.16px;
 }
 
 h4, .h4 {
   font-size: 12px;
+  line-height: 2;
   text-transform: uppercase;
   letter-spacing: 0.8px;
+  font-family: "AvenirNext-Medium";
 }
 
 @media only screen and (min-width: 768px) {
@@ -74,13 +74,13 @@ h4, .h4 {
     font-size: 28px;
   }
   h2, .h2 {
-    font-size: 20px;
+    font-size: 28px;
   }
   h3, .h3 {
-    font-size: 17px;
+    font-size: 16px;
   }
   h4, .h4 {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -89,16 +89,16 @@ h4, .h4 {
     font-size: 18px;
   }
   h1, .h1 {
-    font-size: 32px;
+    font-size: 30px;
   }
   h2, .h2 {
-    font-size: 24px;
+    font-size: 30px;
   }
   h3, .h3 {
-    font-size: 19px;
+    font-size: 20px;
   }
   h4, .h4 {
-    font-size: 13px;
+    font-size: 20px;
   }
 }
 
@@ -107,16 +107,16 @@ h4, .h4 {
     font-size: 20px;
   }
   h1, .h1 {
-    font-size: 36px;
+    font-size: 40px;
   }
   h2, .h2 {
-    font-size: 26px;
+    font-size: 40px;
   }
   h3, .h3 {
-    font-size: 20px;
+    font-size: 24px;
   }
   h4, .h4 {
-    font-size: 14px;
+    font-size: 24px;
   }
 }
 
@@ -125,17 +125,34 @@ h4, .h4 {
     font-size: 22px;
   }
   h1, .h1 {
-    font-size: 44px;
+    font-size: 52px;
   }
   h2, .h2 {
-    font-size: 28px;
+    font-size: 52px;
   }
   h3, .h3 {
-    font-size: 22px;
+    font-size: 28px;
   }
   h4, .h4 {
-    font-size: 14px;
+    font-size: 28px;
   }
+}
+
+a, a:visited, a:active, a:focus {
+  color: #e6007E;
+  transition: all 0.3s;
+}
+
+a:hover {
+  color: #333;
+}
+
+.secondary {
+  color: #333;
+}
+
+.AvenirNext-Regular {
+  font-family: 'AvenirNext-Regular';
 }
 
 .AvenirNext-Medium {
@@ -144,6 +161,10 @@ h4, .h4 {
 
 .AvenirNext-DemiBold {
   font-family: "AvenirNext-DemiBold";
+}
+
+.small {
+  font-size: 80%;
 }
 
 ul.checkbox {
@@ -240,6 +261,15 @@ ul.marker-primary li::marker {
 .row-centered {
   display: flex;
   align-items: center;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.justify-space-between {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media only screen and (min-width: 600px) {
@@ -418,49 +448,50 @@ ul.marker-primary li::marker {
   background: #e6007E;
 }
 
-a.btn.pagination.arrow-fixed.left,
-a.btn.pagination.arrow-fixed.right {
+a.btn.prev-next.arrow-fixed.left,
+a.btn.prev-next.arrow-fixed.right {
   position: relative;
   left: 25px;
   padding: 0;
   color: #333;
   transition: color 0.225s;
+  display: flex;
   cursor: pointer;
 }
 
-a.btn.pagination.arrow-fixed.left i,
-a.btn.pagination.arrow-fixed.right i {
+a.btn.prev-next.arrow-fixed.left i,
+a.btn.prev-next.arrow-fixed.right i {
   position: absolute;
   left: -25px;
-  top: 0;
+  top: 5px;
   transition: left 0.5s;
 }
 
-a.btn.pagination.arrow-fixed.right {
+a.btn.prev-next.arrow-fixed.right {
   left: unset;
   right: 0;
   color: #333;
 }
 
-a.btn.pagination.arrow-fixed.right i {
+a.btn.prev-next.arrow-fixed.right i {
   left: unset;
   right: -25px;
   transition: right 0.5s;
 }
 
-.btn.pagination.arrow-fixed.left:hover {
+.btn.prev-next.arrow-fixed.left:hover {
   color: #e6007E;
 }
 
-.btn.pagination.arrow-fixed.left:hover i {
+.btn.prev-next.arrow-fixed.left:hover i {
   left: -35px;
 }
 
-.btn.pagination.arrow-fixed.right:hover {
+.btn.prev-next.arrow-fixed.right:hover {
   color: #e6007E;
 }
 
-.btn.pagination.arrow-fixed.right:hover i {
+.btn.prev-next.arrow-fixed.right:hover i {
   right: -35px;
 }
 
@@ -516,6 +547,10 @@ a.btn.pagination.arrow-fixed.right i {
   border: solid 1px #333;
 }
 
+.us-nav-style_6 > *, .navstyle_6 > .owl-nav div, .us-btn-style_6 {
+  padding: 5px 15px;
+}
+
 .meta-overlay {
   position: absolute;
   bottom: 0;
@@ -528,78 +563,94 @@ a.btn.pagination.arrow-fixed.right i {
   padding: 0 3px;
 }
 
-.pagination {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  border-top: solid 1px #dedede;
-  display: flex;
+.blog-grid .pagination {
+  margin-top: 0;
+  padding: 1rem 0;
+  border-top: solid 1px #e2e2e2;
+  margin-bottom: 2rem;
+}
+
+.blog-grid .pagination .nav-links {
+  justify-content: start !important;
+}
+
+.blog-grid-filters .w-filter-list {
+  flex-wrap: unset !important;
+}
+
+.blog-grid-filters .w-filter-item {
   align-items: center;
-  justify-content: space-between;
 }
 
-.pagination ul {
-  list-style: none;
-  padding-inline-start: 0;
-  margin-left: 0;
-  margin-bottom: 0;
-}
-
-.pagination ul li {
-  display: inline;
-  padding: 5px;
-}
-
-.pagination ul li a {
-  background: #333;
-  color: #fff;
-  border: solid 1px #333;
-  font-size: 16px;
-  padding: 9px 19px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  display: inline-block;
-}
-
-.pagination ul li a.inactive {
-  background: #fff;
-  color: #dbdbdb;
-  border-color: #dbdbdb;
-  transition: all 0,3s;
-}
-
-.pagination ul li a.active:hover {
-  color: #fff;
-}
-
-.pagination ul li a.inactive:hover {
-  color: #fff;
-  background: #333;
-}
-
-.pagination .text {
+.blog-grid-filters a.w-filter-item-value {
   color: #aeaeae;
-  font-size: 16px;
+  border: solid 1px #aeaeae;
+  border-radius: 50px !important;
+  padding: 0 !important;
+  margin-right: 1rem !important;
 }
 
-@media only screen and (max-width: 768px) {
-  .pagination ul li {
-    display: none;
+.blog-grid-filters a.w-filter-item-value label {
+  display: unset;
+}
+
+.blog-grid-filters div.w-filter-item-values {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.blog-grid-filters .w-filter-item-value.selected,
+.blog-grid-filters .w-filter-item-value:hover {
+  background: #e6007E !important;
+  border-color: #e6007E;
+}
+
+.blog-grid-filters .w-filter-item-value.selected .w-filter-item-value-label,
+.blog-grid-filters .w-filter-item-value:hover .w-filter-item-value-label {
+  color: #fff;
+}
+
+.w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item:before {
+  content: 'Thema\'s: ';
+  padding-right: 15px;
+  color: #aeaeae;
+  font-family: "AvenirNext-Medium";
+}
+
+.w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {
+  line-height: 2;
+}
+
+.w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-values {
+  flex-wrap: unset;
+}
+
+.filter.state_desktop.style_switch_default.blog-grid-filters .w-filter-item-value.selected {
+  background: #e6007E !important;
+}
+
+@media screen and (max-width: 480px) {
+  .g-filters-item, .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {
+    margin: unset !important;
+    margin-right: 1em !important;
+    font-size: 10px !important;
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
+    width: unset;
   }
-  .pagination ul li a {
-    font-size: 12px;
-    padding: 4px 11px;
-    width: 30px;
-    height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item:before {
+    content: '';
+    padding-right: 0;
   }
-  .pagination ul li:nth-child(1),
-  .pagination ul li:nth-child(2),
-  .pagination ul li:nth-child(3),
-  .pagination ul li:last-child {
-    display: initial;
-  }
-  .pagination .text {
-    font-size: 12px;
+  .blog-grid-filter:before {
+    content: 'Thema\'s: ';
+    padding-right: 15px;
+    color: #aeaeae;
+    font-family: "AvenirNext-Medium";
   }
 }
 
@@ -1168,6 +1219,106 @@ footer #menu-copyright li:last-child {
 
 .img-container-16-9 .img-wrapper img, .img-container-4-3 .img-wrapper img, .img-container-1-1 .img-wrapper img {
   height: 100%;
+}
+
+.w-person {
+  text-align: left;
+}
+
+.w-person .w-person-content {
+  padding-top: 10px;
+}
+
+.w-person h4 {
+  text-transform: unset;
+  font-size: 22px;
+  line-height: 1.6;
+  font-family: 'AvenirNext-Regular';
+}
+
+.w-person .w-person-description {
+  color: #aeaeae;
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.w-person .w-person-description:before {
+  content: 'T';
+  padding-right: 10px;
+  float: left;
+  color: #333;
+}
+
+.w-slider.sliderDots .rsBullets {
+  justify-content: start;
+}
+
+.w-slider.sliderDots .rsBullets span {
+  width: 12px;
+  height: 12px;
+  border: solid 1px #aeaeae;
+  background: #fff;
+}
+
+.w-slider.sliderDots .rsBullet.rsNavSelected span {
+  background: #e6007E !important;
+  box-shadow: none;
+  border: solid 1px #e6007E;
+}
+
+.w-slider.sliderDots .rsNavItem {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+.wpcf7 input.box, .wpcf7 textarea.box {
+  color: #333;
+  font-size: 18px;
+  min-height: 1.6rem;
+  line-height: 1.6rem;
+  padding: 10px 0;
+  margin: 0;
+  box-shadow: none;
+  border-bottom: solid 1px #e0e0e0;
+}
+
+.wpcf7 .upload-button {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #9d9d9d;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 1.5rem;
+  background: #ededed;
+}
+
+.wpcf7 .upload-button svg {
+  fill: currentColor;
+  margin-left: 15px;
+}
+
+.wpcf7 button[type="submit"] {
+  background: transparent !important;
+  color: #333 !important;
+  padding: 0;
+  position: relative;
+  margin-right: 30px;
+}
+
+.wpcf7 button[type="submit"] i {
+  position: absolute;
+  transition: all 0.225s;
+  right: -20px;
+}
+
+.wpcf7 button[type="submit"]:hover span {
+  color: #333 !important;
+}
+
+.wpcf7 button[type="submit"]:hover i {
+  right: -30px;
+  color: #333 !important;
 }
 
 #homeHeaderSection {

@@ -98,7 +98,9 @@ endwhile; ?>
 
 <?php
 if (function_exists("pagination")) {
-    echo pagination($query->max_num_pages);
+    if($pagination) {
+        echo pagination($query->max_num_pages);
+    }
 }
 ?>
 

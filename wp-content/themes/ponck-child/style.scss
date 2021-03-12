@@ -5,7 +5,7 @@
  Author:       PONCK
  Author URI:   http://ponck.nl/
  Template:     Impreza
- Version:      1.0.0
+ Version:      1.0.1
  Tags:         plaats, hier, jouw, tags, gescheiden, door, kommas
  Text Domain:  ponck-child
 */
@@ -17,6 +17,8 @@
 @import "scss/_mainmenu";  
 @import "scss/_footer";
 @import "scss/_images";
+@import "scss/_customElements";
+@import "scss/_forms";
 
 #homeHeaderSection {
     background-size: cover !important;

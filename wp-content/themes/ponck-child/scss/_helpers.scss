@@ -24,6 +24,13 @@
     align-items: center;
 }
 
+.clearfix {clear:both;}
+
+.justify-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
 
 
 //grid voor -xxl

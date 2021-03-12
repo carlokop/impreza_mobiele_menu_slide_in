@@ -1,0 +1,53 @@
+@import "_colors";  
+
+.wpcf7 {
+    input.box, textarea.box {
+        color:$secondary;
+        font-size:18px;
+        min-height:1.6rem;
+        line-height:1.6rem;
+        padding: 10px 0;
+        margin: 0;
+        box-shadow: none;
+        border-bottom: solid 1px #e0e0e0;
+    }
+    .upload-button {
+        border-radius: 50px;
+        padding:10px 20px;
+        font-size: 16px;
+        color:#9d9d9d;
+        display: flex;
+        align-items: center;
+        margin-top:40px;
+        margin-bottom:1.5rem;
+        background: #ededed;
+        svg {
+            fill:currentColor;
+            margin-left:15px;
+        }
+    }
+    button[type="submit"] {
+        background: transparent !important;
+        color:$secondary !important;
+        padding:0;
+        position: relative;
+        margin-right:30px;
+        i {
+            position: absolute;
+            transition:all 0.225s;
+            right:-20px;
+        }
+    }
+    button[type="submit"]:hover {
+        span{   
+            color:$secondary !important;
+        }
+        i {
+            right:-30px;
+            color:$secondary !important;
+        }
+    }
+    
+    
+}
+

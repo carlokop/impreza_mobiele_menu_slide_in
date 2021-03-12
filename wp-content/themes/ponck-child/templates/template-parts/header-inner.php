@@ -1,7 +1,7 @@
 <div class="row topHeader hide-lg">
     <a href="<?php echo get_bloginfo('url'); ?>">
         <span id="mobileMenuHomeIcon" class="home-icon">
-            <?xml version="1.0" encoding="utf-8"?>
+
             <svg width="38px" height="30px" viewbox="0 0 30 22" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
                 <g id="Group-7" transform="translate(0.8800049 0.8798828)">
                     <path d="M0 0.143L0 12.8686L5.53553 12.8686L5.53553 6.46646C5.53553 4.93207 6.77963 3.68797 8.31402 3.68797C9.84984 3.68797 11.0954 4.93207 11.0954 6.46646L11.0954 12.8686L16.7868 12.8686L16.7868 0" transform="translate(5.2528076 7.151367)" id="Stroke-1" fill="none" fill-rule="evenodd" stroke="#FEFEFE" stroke-width="1.76" />
@@ -29,7 +29,7 @@
             <div class="inner at_left">
                 <div class="logo hide-sm">
                     <a class="icon" href="<?php echo get_bloginfo('url'); ?>">
-                        <?xml version="1.0" encoding="utf-8"?>
+
                         <svg width="38px" height="30px" viewbox="0 0 30 22" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group-7" transform="translate(0.8800049 0.8798828)">
                                 <path d="M0 0.143L0 12.8686L5.53553 12.8686L5.53553 6.46646C5.53553 4.93207 6.77963 3.68797 8.31402 3.68797C9.84984 3.68797 11.0954 4.93207 11.0954 6.46646L11.0954 12.8686L16.7868 12.8686L16.7868 0" transform="translate(5.2528076 7.151367)" id="Stroke-1" fill="none" fill-rule="evenodd" stroke="#FEFEFE" stroke-width="1.76" />
@@ -63,11 +63,17 @@
                         ?>
 
                         <div class="buttons_naast_menu type_desktop hide-sm">
-                            <a href="#" class="btn secondary rounded">Contact</a>
+                            <a href="<?php echo get_bloginfo('url'); ?>/contact/" class="btn secondary rounded">Contact</a>
                             <div class="lang">
-                                <a href="#" class="">NL</a>
-                                <span>/</span>
-                                <a href="#" class="disabled">EN</a>
+                                <?php if (is_page(398)) { ?>
+                                    <a href="<?php echo get_bloginfo('url'); ?>" class="">NL</a>
+                                    <span>/</span>
+                                    <a href="#" class="<?php if (is_page(398)) echo "disabled" ?>">EN</a>
+                                <?php } else { ?>
+                                    <a class="disabled">NL</a>
+                                    <span>/</span>
+                                    <a href="<?php echo get_permalink(398); ?>" class="<?php if (is_page(398)) echo "disabled" ?>">EN</a>
+                                <?php } ?>
                             </div>
                         </div>
 
@@ -81,11 +87,17 @@
     </div>
 
     <div class="row mobileMenuFooter hide-lg">
-        <a href="#" class="btn secondary rounded">Contact</a>
+        <a href="<?php echo get_bloginfo('url'); ?>/contact/" class="btn secondary rounded">Contact</a>
         <div class="lang">
-            <a href="#" class="">NL</a>
-            <span>/</span>
-            <a href="#" class="disabled">EN</a>
+            <?php if (is_page(398)) { ?>
+                <a href="<?php echo get_bloginfo('url'); ?>" class="">NL</a>
+                <span>/</span>
+                <a href="#" class="<?php if (is_page(398)) echo "disabled" ?>">EN</a>
+            <?php } else { ?>
+                <a class="disabled">NL</a>
+                <span>/</span>
+                <a href="<?php echo get_permalink(398); ?>" class="<?php if (is_page(398)) echo "disabled" ?>">EN</a>
+            <?php } ?>
         </div>
     </div>
 </header>
