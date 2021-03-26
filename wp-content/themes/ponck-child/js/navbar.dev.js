@@ -112,6 +112,18 @@
         });
 
     }
+
+    //clears dropdowns wanneer je het scherm verlaat
+    pageHeader.addEventListener('mouseleave',()=> {
+        setMenu.clearDropdown();
+    });
+    
+    document.addEventListener("mouseleave", function(event){
+        if(event.clientY <= 0 || event.clientX <= 0 || (event.clientX >= window.innerWidth || event.clientY >= window.innerHeight)) {
+            setMenu.clearDropdown();
+        }
+    });
+
 }());
 
 
@@ -330,6 +342,14 @@ class setMenuClassDesktop  extends setMenuClass {
     constructor() {
         super();
         this.adminbar = 0;
+        this.slideInNavbar();
+    }
+
+    //slides in mnain menu bij laden pagina
+    slideInNavbar() {
+        setTimeout(function(){ 
+            document.getElementById('page-header').classList.add('slide-in');
+        }, 500);
     }
 
     //Als admin is ingelogd ontstaat er een probleem bij het megamenu gezien die rekening houd met de scrollpositie

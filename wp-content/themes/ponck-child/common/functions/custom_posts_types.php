@@ -65,6 +65,59 @@ $args = array(
 
 register_post_type('cases', $args);
 
+//cases thema's taxonomie
+$labels = array(
+    'name'                       => _x('Case Thema\'s', 'taxonomy general name', 'impreza'),
+    'singular_name'              => _x('Case Thema', 'taxonomy singular name', 'impreza'),
+    'search_items'               => __('Zoek Thema', 'impreza'),
+    'all_items'                  => __('Alle Thema\'s', 'impreza'),
+    'parent_item'                => null,
+    'parent_item_colon'          => null,
+    'edit_item'                  => __('Bewerk thema', 'impreza'),
+    'update_item'                => __('Update thema', 'impreza'),
+    'add_new_item'               => __('Nieuw thema toevoegen', 'impreza'),
+    'new_item_name'              => __('Nieuwe thema naam', 'impreza'),
+    'separate_items_with_commas' => __('Items met komma scheiden', 'impreza'),
+    'add_or_remove_items'        => __('Thema toevoegen of verwijderen', 'impreza'),
+    'not_found'                  => __('Geen thema\'s gevonden', 'impreza'),
+    'menu_name'                  => __('Case Thema\'s', 'impreza'),
+);
+
+$args = array(
+    'hierarchical'          => true,
+    'labels'                => $labels,
+    'show_ui'               => true,
+    'show_in_rest'          => true,
+    'show_admin_column'     => true,
+    'update_count_callback' => '_update_post_term_count',
+    'query_var'             => false,
+    //'rewrite'               => array( 'slug' => 'sliders' ),
+);
+
+register_taxonomy('casesCats', 'cases', $args);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Post type jaaroverzicht
 $labels = array(
     'name'                  => _x('Jaaroverzichten', 'Jaaroverzicht', 'impreza'),

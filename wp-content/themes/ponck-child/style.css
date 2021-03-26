@@ -40,7 +40,7 @@ h5, .h5,
 h6, .h6 {
   font-weight: 400;
   font-family: 'AvenirNext-Medium';
-  color: #333;
+  color: #191919;
   line-height: 1.2;
 }
 
@@ -139,16 +139,20 @@ h4, .h4 {
 }
 
 a, a:visited, a:active, a:focus {
-  color: #e6007E;
+  color: #191919;
   transition: all 0.3s;
 }
 
 a:hover {
-  color: #333;
+  color: #e6007E;
+}
+
+p a {
+  text-decoration: underline;
 }
 
 .secondary {
-  color: #333;
+  color: #191919;
 }
 
 .AvenirNext-Regular {
@@ -434,12 +438,12 @@ ul.marker-primary li::marker {
 
 .btn.secondary {
   color: #fff;
-  background: #333;
+  background: #191919;
   transition: all 0.225s;
 }
 
 .btn.primary:hover {
-  color: #333;
+  color: #191919;
   background: #fff;
 }
 
@@ -453,7 +457,7 @@ a.btn.prev-next.arrow-fixed.right {
   position: relative;
   left: 25px;
   padding: 0;
-  color: #333;
+  color: #191919;
   transition: color 0.225s;
   display: flex;
   cursor: pointer;
@@ -470,7 +474,7 @@ a.btn.prev-next.arrow-fixed.right i {
 a.btn.prev-next.arrow-fixed.right {
   left: unset;
   right: 0;
-  color: #333;
+  color: #191919;
 }
 
 a.btn.prev-next.arrow-fixed.right i {
@@ -543,8 +547,8 @@ a.btn.prev-next.arrow-fixed.right i {
 
 .btn.outline.secondary:hover {
   color: #fff;
-  background: #333;
-  border: solid 1px #333;
+  background: #191919;
+  border: solid 1px #191919;
 }
 
 .us-nav-style_6 > *, .navstyle_6 > .owl-nav div, .us-btn-style_6 {
@@ -616,6 +620,10 @@ a.btn.prev-next.arrow-fixed.right i {
   padding-right: 15px;
   color: #aeaeae;
   font-family: "AvenirNext-Medium";
+}
+
+.w-filter.state_desktop.opdrachtgevers[class*="style_switch_"] .w-filter-item:before {
+  content: 'Opdrachtgever\'s: ';
 }
 
 .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {
@@ -954,7 +962,7 @@ a.btn.prev-next.arrow-fixed.right i {
     transition: all 0.225s;
     font-family: 'Roboto', sans-serif;
     position: fixed;
-    top: 0;
+    top: -120px;
     left: 0;
     width: 100%;
     z-index: 999;
@@ -975,7 +983,7 @@ a.btn.prev-next.arrow-fixed.right i {
   .page-header .inner .logo img {
     display: flex;
     width: auto;
-    height: 100px;
+    height: 70px;
     transition: all 0.225s;
   }
   .page-header .inner .logo .wit {
@@ -995,13 +1003,18 @@ a.btn.prev-next.arrow-fixed.right i {
     align-items: center;
     position: relative;
     transition: padding 0.225s;
-    padding-top: 35px;
+    padding-top: 10px;
+    padding-inline-start: 0;
+  }
+  .page-header .inner ul#mainMenu a {
+    text-decoration: none;
   }
   .page-header .inner ul#mainMenu .menu-item-has-children > .w-nav-anchor:not(.level_1) .w-nav-title {
     padding-right: unset;
   }
   .page-header .inner ul#mainMenu ul {
     display: none;
+    padding-inline-start: 15px;
   }
   .page-header .inner ul#mainMenu li {
     padding: 0 30px;
@@ -1026,6 +1039,9 @@ a.btn.prev-next.arrow-fixed.right i {
   }
   .page-header .inner ul#mainMenu li a:hover {
     opacity: 0.8;
+  }
+  .page-header .inner ul#mainMenu li:first-child {
+    padding-left: 0;
   }
   .page-header .inner ul#mainMenu li.level_1.show-dropdown a.level_1 {
     position: relative;
@@ -1055,6 +1071,9 @@ a.btn.prev-next.arrow-fixed.right i {
     margin-left: 0;
     padding-inline-start: 0;
     width: 100%;
+  }
+  .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 .w-nav-anchor:not(.level_1) {
+    padding: 0.6em 20px 0.6em 0;
   }
   .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li {
     width: 50%;
@@ -1103,13 +1122,13 @@ a.btn.prev-next.arrow-fixed.right i {
   .page-header .inner .buttons_naast_menu {
     display: flex;
     align-items: center;
-    padding-top: 35px;
+    padding-top: 10px;
     transition: padding 0.225s;
     font-size: 16px;
   }
-  .page-header .inner .buttons_naast_menu .btn.secondary:hover {
-    background: #fff;
-    color: #333;
+  .page-header .inner .buttons_naast_menu .btn {
+    background: #e6007E;
+    color: #fff;
   }
   .page-header .inner .buttons_naast_menu .lang {
     padding: 0 15px;
@@ -1117,9 +1136,29 @@ a.btn.prev-next.arrow-fixed.right i {
   .page-header .inner .buttons_naast_menu .lang a {
     font-size: 14px;
     color: #323232;
+    opacity: 0.6;
   }
   .page-header .inner .buttons_naast_menu .lang a.disabled {
-    opacity: 0.6;
+    opacity: 1;
+  }
+  .page-header.slide-in {
+    top: 0;
+  }
+  .page-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+  .page-header.sticky .logo img {
+    display: none;
+  }
+  .page-header.sticky .logo .icon {
+    display: flex;
+  }
+  .page-header.sticky .logo i {
+    margin-top: 10px;
   }
   .page-header:hover {
     background-color: #e6007E;
@@ -1136,30 +1175,19 @@ a.btn.prev-next.arrow-fixed.right i {
   .page-header:hover .inner ul#mainMenu li a {
     color: #fff !important;
   }
+  .page-header:hover .inner .buttons_naast_menu .btn {
+    background: #191919;
+    color: #fff;
+  }
+  .page-header:hover .inner .buttons_naast_menu .btn:hover {
+    background: #fff;
+    color: #191919;
+  }
   .page-header:hover .inner .buttons_naast_menu .lang a {
     color: #fff;
   }
-  .page-header.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-  }
-  .page-header.sticky .logo img {
+  .page-header.sticky:hover .inner .logo .custom-logo-link {
     display: none;
-  }
-  .page-header.sticky .logo .icon {
-    display: flex;
-  }
-  .page-header.sticky .logo svg {
-    fill: red;
-  }
-  .page-header.sticky .inner ul#mainMenu {
-    padding-top: 0;
-  }
-  .page-header.sticky .inner .buttons_naast_menu {
-    padding-top: 0;
   }
   .admin-bar .page-header {
     top: 32px;
@@ -1246,7 +1274,7 @@ footer #menu-copyright li:last-child {
   content: 'T';
   padding-right: 10px;
   float: left;
-  color: #333;
+  color: #191919;
 }
 
 .w-slider.sliderDots .rsBullets {
@@ -1271,7 +1299,7 @@ footer #menu-copyright li:last-child {
 }
 
 .wpcf7 input.box, .wpcf7 textarea.box {
-  color: #333;
+  color: #191919;
   font-size: 18px;
   min-height: 1.6rem;
   line-height: 1.6rem;
@@ -1300,7 +1328,7 @@ footer #menu-copyright li:last-child {
 
 .wpcf7 button[type="submit"] {
   background: transparent !important;
-  color: #333 !important;
+  color: #191919 !important;
   padding: 0;
   position: relative;
   margin-right: 30px;
@@ -1313,12 +1341,12 @@ footer #menu-copyright li:last-child {
 }
 
 .wpcf7 button[type="submit"]:hover span {
-  color: #333 !important;
+  color: #191919 !important;
 }
 
 .wpcf7 button[type="submit"]:hover i {
   right: -30px;
-  color: #333 !important;
+  color: #191919 !important;
 }
 
 #homeHeaderSection {
@@ -1344,7 +1372,7 @@ footer #menu-copyright li:last-child {
 #homeHeaderSection .duidelijke {
   text-shadow: 0px 5px 35px rgba(49, 36, 101, 0.5);
   color: #ffffff;
-  font-family: "AvenirNext-DemiBold";
+  font-family: "AvenirNext-Medium";
   font-size: 24px;
   font-weight: 400;
   line-height: 26px;
@@ -1428,7 +1456,7 @@ article.case h3 {
 }
 
 article.case a {
-  color: #333;
+  color: #191919;
 }
 
 article.case h2 {
@@ -1453,9 +1481,9 @@ ul.filters li {
 }
 
 ul.filters li a.active {
-  background: #333 !important;
+  background: #191919 !important;
   color: #fff !important;
-  border: solid 1px #333 !important;
+  border: solid 1px #191919 !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -1468,5 +1496,50 @@ ul.filters li a.active {
 
 .w-toplink {
   display: none;
+}
+
+#cookiebar {
+  display: none;
+}
+
+#cookiebar.show {
+  display: unset;
+}
+
+.diensten-team-cta .w-post-elm.post_image.as_circle {
+  max-width: 200px;
+  margin-right: 60px;
+}
+
+.diensten-team-cta .team-cta-koptekst {
+  font-size: 28px;
+  line-height: 1.2;
+  font-family: "AvenirNext-DemiBold";
+  color: #191919;
+}
+
+.diensten-team-cta .team-cta-ondertekst:before {
+  content: 'Neem contact op met';
+  padding-right: 0.5em;
+}
+
+.diensten-team-cta .team-cta-ondertekst {
+  color: #505050 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
+  font-family: "AvenirNext-Medium";
+}
+
+#us_grid_1 .w-grid-item-h:before {
+  padding-bottom: 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .diensten-team-cta {
+    display: block;
+  }
+  .team-cta-koptekst {
+    margin-top: 20px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

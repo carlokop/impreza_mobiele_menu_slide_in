@@ -340,7 +340,7 @@
         transition: all 0.225s;
         font-family: 'Roboto', sans-serif;
         position: fixed;
-        top: 0;
+        top: -120px;
         left: 0;
         width: 100%;
         z-index: 999;
@@ -365,7 +365,7 @@
                 img {
                     display:flex;
                     width:auto;
-                    height:100px;
+                    height:70px;
                     transition: all 0.225s;
                 }
                 .wit {display:none;}
@@ -386,14 +386,20 @@
                 align-items: center;
                 position: relative;
                 transition: padding 0.225s;
-                padding-top:35px;
+                padding-top:10px;
+                padding-inline-start: 0;
+
+                a {text-decoration: none;}
 
                 .menu-item-has-children>.w-nav-anchor:not(.level_1) .w-nav-title {
                     padding-right: unset;
                 }
                 
 
-                ul {display: none;}
+                ul {
+                    display: none;
+                    padding-inline-start: 15px;
+                }
 
                 li {
                     padding: 0 30px;
@@ -415,6 +421,10 @@
                         .w-nav-arrow {display: none;}
                     }
                     a:hover { opacity: 0.8;}
+                }
+
+                li:first-child {
+                    padding-left:0;
                 }
 
                 li.level_1.show-dropdown {
@@ -457,6 +467,10 @@
                         margin-left: 0;
                         padding-inline-start: 0;
                         width:100%;
+
+                        .w-nav-anchor:not(.level_1) {
+                            padding:0.6em 20px 0.6em 0;
+                        }
 
                         li {
                             width: 50%;
@@ -512,13 +526,13 @@
             .buttons_naast_menu {
                 display: flex;
                 align-items: center;
-                padding-top:35px;
+                padding-top:10px;
                 transition: padding 0.225s;
                 font-size: 16px;
 
-                .btn.secondary:hover {
-                    background:$wit;
-                    color:$secondary;
+                .btn {
+                    background: $primary;
+                    color:$wit;
                 }
 
                 .lang {
@@ -526,15 +540,38 @@
                     a {
                         font-size: 14px;
                         color: $zwart;
+                        opacity: 0.6;
                     }
                     a.disabled {
-                        opacity: 0.6;
+                        opacity: 1;
                     }
                 }
             }
 
         }
     }
+
+    .page-header.slide-in {
+        top:0;
+    }
+
+    .page-header.sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+
+        .logo {
+            img {display:none;}
+            .icon {display:flex;}
+            i {
+                margin-top:10px;
+            }
+        }
+
+    }
+    
 
     .page-header:hover {
 
@@ -558,6 +595,16 @@
 
             .buttons_naast_menu {
 
+                .btn {
+                    background: $secondary;
+                    color:$wit;
+                }
+
+                .btn:hover {
+                    background: $wit;
+                    color:$secondary;
+                }
+
                 .lang {
 
                     a {
@@ -567,32 +614,19 @@
                 }
             }
         }
+        
 
     }
 
-    .page-header.sticky {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 9999;
-
-        .logo {
-            img {display:none;}
-            .icon {display:flex;}
-            svg {fill:red}
-        }
-
+    .page-header.sticky:hover {
         .inner {
-            ul#mainMenu {
-                padding-top: 0;
-            }
-            .buttons_naast_menu {
-                padding-top: 0;
+            .logo {
+                .custom-logo-link {display:none;}
             }
         }
-
     }
+
+    
 
     .admin-bar .page-header {
         top:32px;

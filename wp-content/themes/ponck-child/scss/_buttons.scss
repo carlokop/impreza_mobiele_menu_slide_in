@@ -164,6 +164,10 @@ a.btn.prev-next.arrow-fixed.right {
     font-family: "AvenirNext-Medium";
 }
 
+.w-filter.state_desktop.opdrachtgevers[class*="style_switch_"] .w-filter-item:before {
+    content: 'Opdrachtgever\'s: ';
+}
+
 .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {line-height:2;}
 .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-values {flex-wrap:unset;}
 

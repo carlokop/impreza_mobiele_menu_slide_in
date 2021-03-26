@@ -143,11 +143,13 @@ h4, .h4 {
 }
 
 a, a:visited, a:active , a:focus {
-    color:$primary;
+    color:$secondary;
     transition: all 0.3s;
 }
 
-a:hover {color:$secondary;}
+a:hover {color:$primary;}
+
+p a {text-decoration: underline;}
 
 .secondary {color:$secondary;}
 
