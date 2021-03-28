@@ -29,7 +29,7 @@
             <div class="inner at_left">
                 <div class="logo hide-sm">
                     <a class="icon" href="<?php echo get_bloginfo('url'); ?>">
-                        <i class="fas fa-home"></i>
+                        <i class="home-icon"></i>
 
                         <!-- <svg width="38px" height="30px" viewbox="0 0 30 22" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group-7" transform="translate(0.8800049 0.8798828)">

@@ -374,6 +374,16 @@
                     color:$zwart;
                     transition: all 0.225s;
                 }
+
+                i:after {
+                    content: '';
+                    background-image: url(/wp-content/themes/ponck-child/svg/home-zwart.svg);
+                    width: 40px;
+                    height: 40px;
+                    background-repeat: no-repeat;
+                    background-size: 40px 40px !important;
+                    float: right;
+                }
             }
 
             #mainNavContainer {
@@ -461,7 +471,7 @@
                     }
 
                     ul.level_2 {
-                        display: unset;
+                        display: none;
                         position: absolute;
                         left: 0;
                         margin-left: 0;
@@ -582,6 +592,9 @@
                 i {color:$wit;}
                 .wit {display:unset;}
                 .kleur {display:none;}
+                i:after {
+                    background-image: url(/wp-content/themes/ponck-child/svg/home.svg);
+                }
             }
             
             ul#mainMenu {
@@ -590,6 +603,12 @@
                     a { 
                         color:$wit !important;
                     }
+                }
+                li.show-dropdown {
+                
+                    ul.level_2 {
+                        display: unset;
+                    }    
                 }
             }
 

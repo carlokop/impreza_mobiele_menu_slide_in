@@ -29,16 +29,17 @@
 a.btn.prev-next.arrow-fixed.left,
 a.btn.prev-next.arrow-fixed.right {
     position: relative;
-    left:25px;
+    left:35px;
     padding:0;
     color:$secondary;
     transition: color 0.225s;
     display: flex;
+    color:$secondary !important;
+    font-size: 20px;
     cursor:pointer;
     i {
         position: absolute;
-        left: -25px;
-        top: 5px;
+        left: -35px;
         transition: left 0.5s;
     }
 }
@@ -49,18 +50,39 @@ a.btn.prev-next.arrow-fixed.right {
     color:$secondary;
     i {
         left: unset;
-        right:-25px;
+        right:-35px;
         transition: right 0.5s;
+    }
+    i:after {
+        content: '';
+        background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
+        width: 21px;
+        height: 15px;
+        background-repeat: no-repeat;
+        background-size: 21px 15px !important;
+        float: right;
+    }
+}
+
+a.btn.prev-next.arrow-fixed.left {
+    i:before {
+        content: '';
+        background-image: url(/wp-content/themes/ponck-child/svg/arrow-links.svg);
+        width: 21px;
+        height: 15px;
+        background-repeat: no-repeat;
+        background-size: 21px 15px !important;
+        float: left;
     }
 }
 
 .btn.prev-next.arrow-fixed.left:hover {
     color:$primary;
-    i {left:-35px;}
+    i {left:-45px;}
 }
 .btn.prev-next.arrow-fixed.right:hover {
     color:$primary;
-    i {right:-35px;}
+    i {right:-45px;}
 }
 
 
@@ -150,8 +172,8 @@ a.btn.prev-next.arrow-fixed.right {
     }
     .w-filter-item-value.selected,
     .w-filter-item-value:hover {
-        background:$primary !important;
-        border-color:$primary;
+        background:$secondary !important;
+        border-color:$secondary;
         .w-filter-item-value-label {
             color:$wit;
         }

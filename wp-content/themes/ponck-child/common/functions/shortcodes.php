@@ -10,12 +10,13 @@ function nextPost($atts)
         ),
         $atts
     );
-
-
+ 
     if(get_next_post()) {
         echo '<a class="btn prev-next arrow-fixed right" rel="next" href="' . get_permalink($next) . '">
-            <span class="w-btn-label">' . $atts['text'] . '</span>
-            <i class="fas fa-arrow-right"></i>
+            <span class="flex-center">
+                <span class="w-btn-label">' . $atts['text'] . '</span>
+                <i class="arrow-rechts"></i>
+            </span>
         </a>';
     } else {
         echo '<div></div>';
@@ -37,8 +38,10 @@ function prevPost($atts)
 
     if (get_previous_post()) {
         echo '<a class="btn prev-next arrow-fixed left" rel="prev" href="'. get_permalink($previous) . '">
-            <i class="fas fa-arrow-left"></i>
-            <span class="w-btn-label">' . $atts['text'] . '</span>
+            <span class="flex-center">
+                <i class="arrow-links"></i>
+                <span class="w-btn-label">' . $atts['text'] . '</span>
+            </span>
         </a>';
     } else {
         echo '<div></div>';
@@ -49,8 +52,10 @@ add_shortcode('prevPost_output', 'prevPost');
 function lastPage($atts)
 {
     echo '<a class="btn prev-next arrow-fixed left" onclick="window.history.back()">
-        <i class="fas fa-arrow-left"></i>
-        <span class="w-btn-label">Terug</span>
+        <span class="flex-center">
+            <i class="arrow-links"></i>
+            <span class="w-btn-label">Terug</span>
+        </span>
     </a>';
 }
 add_shortcode('lastPage_output', 'lastPage');

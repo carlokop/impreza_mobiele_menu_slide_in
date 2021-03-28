@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg width="30px" height="22px" viewbox="0 0 30 22" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-  <g id="Group-7" transform="translate(0.8800049 0.8798828)">
-    <path d="M0 0.143L0 12.8686L5.53553 12.8686L5.53553 6.46646C5.53553 4.93207 6.77963 3.68797 8.31402 3.68797C9.84984 3.68797 11.0954 4.93207 11.0954 6.46646L11.0954 12.8686L16.7868 12.8686L16.7868 0" transform="translate(5.2528076 7.151367)" id="Stroke-1" fill="none" fill-rule="evenodd" stroke="#FEFEFE" stroke-width="1.76" />
-    <path d="M26.1175 9.43943L12.8872 0L0 9.43943" transform="translate(0.6899414 0)" id="Stroke-3" fill="none" fill-rule="evenodd" stroke="#FEFEFE" stroke-width="1.76" />
-    <path d="M26.1275 11.2298L13.5907 2.28657L1.39139 11.2226L0 9.94136L13.5736 0L27.4975 9.93421L26.1275 11.2298Z" transform="translate(0 1.012207)" id="Fill-5" fill="#E4087D" fill-rule="evenodd" stroke="none" />
+<svg width="21px" height="18px" viewBox="0 0 21 18" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <g id="Group-5" transform="translate(0.6000061 0.60009766)">
+    <path d="M18.264 6.601L9.013 0L0 6.601" transform="translate(0.3539 0.7397)" id="Stroke-1" fill="none" fill-rule="evenodd" stroke="#FEFEFE" stroke-width="1.2" />
+    <path d="M11.739 7.306L8.957 7.306L8.957 3.429C8.957 2.027 7.816 0.886 6.414 0.886C5.01 0.886 3.87 2.027 3.87 3.429L3.87 7.306L1.199 7.306L1.199 0.044L0 0.922L0 8.506L5.069 8.506L5.069 3.429C5.069 2.688 5.673 2.086 6.414 2.086C7.155 2.086 7.758 2.688 7.758 3.429L7.758 8.506L12.938 8.506L12.938 0.856L11.739 0L11.739 7.306Z" transform="translate(2.9462 6.834)" id="Fill-3" fill="#FEFEFE" fill-rule="evenodd" stroke="none" />
   </g>
 </svg>

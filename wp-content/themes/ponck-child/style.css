@@ -276,6 +276,11 @@ ul.marker-primary li::marker {
   justify-content: space-between;
 }
 
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
 @media only screen and (min-width: 600px) {
   .float-left-sm {
     float: left;
@@ -455,19 +460,20 @@ ul.marker-primary li::marker {
 a.btn.prev-next.arrow-fixed.left,
 a.btn.prev-next.arrow-fixed.right {
   position: relative;
-  left: 25px;
+  left: 35px;
   padding: 0;
   color: #191919;
   transition: color 0.225s;
   display: flex;
+  color: #191919 !important;
+  font-size: 20px;
   cursor: pointer;
 }
 
 a.btn.prev-next.arrow-fixed.left i,
 a.btn.prev-next.arrow-fixed.right i {
   position: absolute;
-  left: -25px;
-  top: 5px;
+  left: -35px;
   transition: left 0.5s;
 }
 
@@ -479,8 +485,28 @@ a.btn.prev-next.arrow-fixed.right {
 
 a.btn.prev-next.arrow-fixed.right i {
   left: unset;
-  right: -25px;
+  right: -35px;
   transition: right 0.5s;
+}
+
+a.btn.prev-next.arrow-fixed.right i:after {
+  content: '';
+  background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
+  width: 21px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-size: 21px 15px !important;
+  float: right;
+}
+
+a.btn.prev-next.arrow-fixed.left i:before {
+  content: '';
+  background-image: url(/wp-content/themes/ponck-child/svg/arrow-links.svg);
+  width: 21px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-size: 21px 15px !important;
+  float: left;
 }
 
 .btn.prev-next.arrow-fixed.left:hover {
@@ -488,7 +514,7 @@ a.btn.prev-next.arrow-fixed.right i {
 }
 
 .btn.prev-next.arrow-fixed.left:hover i {
-  left: -35px;
+  left: -45px;
 }
 
 .btn.prev-next.arrow-fixed.right:hover {
@@ -496,7 +522,7 @@ a.btn.prev-next.arrow-fixed.right i {
 }
 
 .btn.prev-next.arrow-fixed.right:hover i {
-  right: -35px;
+  right: -45px;
 }
 
 .btn.tertiar i {
@@ -606,8 +632,8 @@ a.btn.prev-next.arrow-fixed.right i {
 
 .blog-grid-filters .w-filter-item-value.selected,
 .blog-grid-filters .w-filter-item-value:hover {
-  background: #e6007E !important;
-  border-color: #e6007E;
+  background: #191919 !important;
+  border-color: #191919;
 }
 
 .blog-grid-filters .w-filter-item-value.selected .w-filter-item-value-label,
@@ -994,6 +1020,15 @@ a.btn.prev-next.arrow-fixed.right i {
     color: #323232;
     transition: all 0.225s;
   }
+  .page-header .inner .logo i:after {
+    content: '';
+    background-image: url(/wp-content/themes/ponck-child/svg/home-zwart.svg);
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-size: 40px 40px !important;
+    float: right;
+  }
   .page-header .inner #mainNavContainer {
     transition: padding 0.225s ease-in-out;
     overflow: hidden;
@@ -1065,7 +1100,7 @@ a.btn.prev-next.arrow-fixed.right i {
     transform: rotate(180deg);
   }
   .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 {
-    display: unset;
+    display: none;
     position: absolute;
     left: 0;
     margin-left: 0;
@@ -1172,8 +1207,14 @@ a.btn.prev-next.arrow-fixed.right i {
   .page-header:hover .inner .logo .kleur {
     display: none;
   }
+  .page-header:hover .inner .logo i:after {
+    background-image: url(/wp-content/themes/ponck-child/svg/home.svg);
+  }
   .page-header:hover .inner ul#mainMenu li a {
     color: #fff !important;
+  }
+  .page-header:hover .inner ul#mainMenu li.show-dropdown ul.level_2 {
+    display: unset;
   }
   .page-header:hover .inner .buttons_naast_menu .btn {
     background: #191919;
@@ -1197,6 +1238,15 @@ a.btn.prev-next.arrow-fixed.right i {
 footer .w-socials-list a {
   color: #323232;
   font-size: 17px;
+}
+
+footer .w-socials-item .w-socials-item-link:hover {
+  border-color: transparent !important;
+  background: unset !important;
+}
+
+footer .w-socials-item-link-hover:hover {
+  background: unset !important;
 }
 
 footer #menu-copyright {
@@ -1332,21 +1382,40 @@ footer #menu-copyright li:last-child {
   padding: 0;
   position: relative;
   margin-right: 30px;
+  display: flex;
 }
 
-.wpcf7 button[type="submit"] i {
+.wpcf7 button[type="submit"] i:after {
+  content: '';
+  background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
+  background-size: contain;
+  width: 15px;
+  height: 10px;
+  background-repeat: no-repeat;
+  background-size: 15px 10px !important;
+  float: right;
   position: absolute;
-  transition: all 0.225s;
+  top: 11px;
   right: -20px;
+  transition: all 0.3s;
 }
 
 .wpcf7 button[type="submit"]:hover span {
   color: #191919 !important;
 }
 
-.wpcf7 button[type="submit"]:hover i {
+.wpcf7 button[type="submit"]:hover i:after {
   right: -30px;
   color: #191919 !important;
+}
+
+.wpcf7 button[type="submit"]:not(.w-btn) {
+  transition-duration: 0s;
+}
+
+.wpcf7 .grijs,
+.wpcf7 a.grijs {
+  color: #939393;
 }
 
 #homeHeaderSection {
@@ -1504,6 +1573,10 @@ ul.filters li a.active {
 
 #cookiebar.show {
   display: unset;
+}
+
+#cookiebar.show .l-section {
+  z-index: 999;
 }
 
 .diensten-team-cta .w-post-elm.post_image.as_circle {

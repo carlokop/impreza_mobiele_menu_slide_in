@@ -32,21 +32,41 @@
         padding:0;
         position: relative;
         margin-right:30px;
-        i {
+        display:flex;
+        
+        i:after {
+            content: '';
+            background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
+            background-size: contain;
+            width: 15px;
+            height: 10px;
+            background-repeat: no-repeat;
+            background-size: 15px 10px !important;
+            float: right;
             position: absolute;
-            transition:all 0.225s;
-            right:-20px;
+            top: 11px;
+            right: -20px;
+            transition: all 0.3s;
         }
     }
     button[type="submit"]:hover {
         span{   
             color:$secondary !important;
         }
-        i {
-            right:-30px;
+        i:after {
+            right: -30px;
             color:$secondary !important;
         }
     }
+
+    button[type="submit"]:not(.w-btn) {
+        transition-duration: 0s;
+    }
+
+    
+
+    .grijs,
+    a.grijs {color:#939393;}
     
     
 }

@@ -184,7 +184,10 @@ ul.filters {
 
 //cookiebar
 #cookiebar {display:none;}
-#cookiebar.show {display:unset;}
+#cookiebar.show {
+    display:unset;
+    .l-section {z-index:999;}
+}
 
 //diensten team cta
 .diensten-team-cta {
