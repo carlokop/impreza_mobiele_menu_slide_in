@@ -220,6 +220,31 @@ a.btn.prev-next.arrow-fixed.left {
     }
 }
 
+.fa-pijl-rechts:before {
+        content: '';
+        display: inline-block;
+        transition: transform 0.225s;
+        background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
+        width: 18px;
+        height: 13px;
+        background-repeat: no-repeat;
+        background-size: 18px 13px !important;
+        margin-top:6px;
+}
+
+.pagination .page-numbers.next:after {
+    content: '';
+    display: inline-block;
+    transition: transform 0.225s;
+    background-image: url(/wp-content/themes/ponck-child/svg/dubbel-chevron.svg);
+    width: 10px;
+    height: 9px;
+    background-repeat: no-repeat;
+    background-size: 10px 9px !important;
+    margin-top:6px;
+    margin-left:2px;
+}
+
 // .pagination {
 //     padding-top:30px;
 //     padding-bottom: 30px;

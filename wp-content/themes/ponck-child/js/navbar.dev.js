@@ -114,15 +114,15 @@
     }
 
     //clears dropdowns wanneer je het scherm verlaat
-    // pageHeader.addEventListener('mouseleave',()=> {
-    //     setMenu.clearDropdown();
-    // });
+    pageHeader.addEventListener('mouseleave',()=> {
+        setMenu.clearDropdown();
+    });
     
-    // document.addEventListener("mouseleave", function(event){
-    //     if(event.clientY <= 0 || event.clientX <= 0 || (event.clientX >= window.innerWidth || event.clientY >= window.innerHeight)) {
-    //         setMenu.clearDropdown();
-    //     }
-    // });
+    document.addEventListener("mouseleave", function(event){
+        if(event.clientY <= 0 || event.clientX <= 0 || (event.clientX >= window.innerWidth || event.clientY >= window.innerHeight)) {
+            setMenu.clearDropdown();
+        }
+    });
 
 }());
 

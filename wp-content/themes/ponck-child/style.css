@@ -688,6 +688,31 @@ a.btn.prev-next.arrow-fixed.left i:before {
   }
 }
 
+.fa-pijl-rechts:before {
+  content: '';
+  display: inline-block;
+  transition: transform 0.225s;
+  background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
+  width: 18px;
+  height: 13px;
+  background-repeat: no-repeat;
+  background-size: 18px 13px !important;
+  margin-top: 6px;
+}
+
+.pagination .page-numbers.next:after {
+  content: '';
+  display: inline-block;
+  transition: transform 0.225s;
+  background-image: url(/wp-content/themes/ponck-child/svg/dubbel-chevron.svg);
+  width: 10px;
+  height: 9px;
+  background-repeat: no-repeat;
+  background-size: 10px 9px !important;
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
 @keyframes mobielMenuSubmenu {
   0% {
     left: 0;
@@ -878,12 +903,14 @@ a.btn.prev-next.arrow-fixed.left i:before {
     font-size: 20px;
   }
   .page-header #mainMenu[data-currentlevel='2'] li.level_1 a.level_1:before {
-    content: '\f060';
-    display: flex;
-    font-family: fontawesome;
-    font-weight: 400;
-    color: #fff;
-    font-size: 20px;
+    content: '';
+    display: inline-block;
+    transition: transform 0.225s;
+    background-image: url(/wp-content/themes/ponck-child/svg/arrow-links-wit.svg);
+    width: 18px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-size: 18px 13px !important;
   }
   .page-header #mainMenu[data-currentlevel='2'] li.level_1 .w-nav-arrow {
     display: none;
@@ -895,12 +922,14 @@ a.btn.prev-next.arrow-fixed.left i:before {
     font-size: 20px;
   }
   .page-header #mainMenu[data-currentlevel='3'] li.level_2 a.level_2:before {
-    content: '\f060';
-    display: flex;
-    font-family: fontawesome;
-    font-weight: 400;
-    color: #fff;
-    font-size: 20px;
+    content: '';
+    display: inline-block;
+    transition: transform 0.225s;
+    background-image: url(/wp-content/themes/ponck-child/svg/arrow-links-wit.svg);
+    width: 18px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-size: 18px 13px !important;
   }
   .page-header #mainMenu[data-currentlevel='3'] li.level_2 .w-nav-arrow {
     display: none;
@@ -953,12 +982,32 @@ a.btn.prev-next.arrow-fixed.left i:before {
     right: unset;
   }
   #page-header nav.type_mobile ul.w-nav-list.level_1 li a .w-nav-arrow:before {
-    content: '\f061';
-    vertical-align: top;
-    font-family: fontawesome;
-    font-weight: 400;
-    color: #fff;
-    font-size: inherit;
+    content: '';
+    display: inline-block;
+    transition: transform 0.225s;
+    background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
+    width: 18px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-size: 18px 13px !important;
+    margin-top: 9px;
+  }
+  #page-header nav.type_mobile ul.w-nav-list-sub.level_2 li.menu-item-has-children .w-nav-arrow {
+    display: inline-block;
+  }
+  #page-header nav.type_mobile ul.w-nav-list-sub.level_2 li.menu-item-has-children .w-nav-arrow:before {
+    content: '';
+    display: inline-block;
+    transition: transform 0.225s;
+    background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
+    width: 18px;
+    height: 13px;
+    background-repeat: no-repeat;
+    background-size: 18px 13px !important;
+    margin-top: 6px;
+  }
+  #page-header nav.type_mobile #mainMenu[data-currentlevel='3'] ul.w-nav-list-sub.level_2 .w-nav-arrow {
+    display: none;
   }
   #page-header nav.type_mobile #mainMenu .menu-item {
     display: none;
@@ -1068,6 +1117,13 @@ a.btn.prev-next.arrow-fixed.left i:before {
   .page-header .inner ul#mainMenu li a .w-nav-arrow:before {
     display: inline-block;
     transition: transform 0.225s;
+    content: '';
+    background-image: url(/wp-content/themes/ponck-child/svg/chevron.svg);
+    width: 12px;
+    height: 6px;
+    background-repeat: no-repeat;
+    background-size: 12px 6px !important;
+    margin-top: 12px;
   }
   .page-header .inner ul#mainMenu li a .w-nav-arrow {
     display: none;
@@ -1133,7 +1189,12 @@ a.btn.prev-next.arrow-fixed.left i:before {
     padding-left: 1em;
   }
   .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a.level_2 .w-nav-arrow:before {
-    content: '\f061';
+    content: '';
+    background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
+    width: 18px;
+    height: 13px;
+    background-size: 18px 13px !important;
+    margin-top: 5px;
   }
   .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a:hover {
     padding-left: 25px;
@@ -1212,6 +1273,9 @@ a.btn.prev-next.arrow-fixed.left i:before {
   }
   .page-header:hover .inner ul#mainMenu li a {
     color: #fff !important;
+  }
+  .page-header:hover .inner ul#mainMenu li .w-nav-arrow:before {
+    background-image: url(/wp-content/themes/ponck-child/svg/chevron-wit.svg);
   }
   .page-header:hover .inner ul#mainMenu li.show-dropdown ul.level_2 {
     display: unset;
