@@ -41,21 +41,29 @@ h6, .h6 {
   font-weight: 400;
   font-family: 'AvenirNext-Medium';
   color: #191919;
-  line-height: 1.2;
+  line-height: 1.3;
+}
+
+h1, .h1,
+h2, .h2 {
+  line-height: 1.05;
 }
 
 h1, .h1 {
   font-size: 24px;
+  font-family: 'AvenirNext-DemiBold';
 }
 
 h2, .h2 {
   font-size: 24px;
+  font-family: 'AvenirNext-DemiBold';
 }
 
 h3, .h3 {
   font-size: 14px;
   color: #e6007E;
-  font-family: "AvenirNext-Medium";
+  font-family: "AvenirNext-DemiBold";
+  margin-bottom: 15px;
 }
 
 h4, .h4 {
@@ -149,6 +157,10 @@ a:hover {
 
 p a {
   text-decoration: underline;
+}
+
+a.no-underline {
+  text-decoration: none !important;
 }
 
 .secondary {
@@ -467,6 +479,7 @@ a.btn.prev-next.arrow-fixed.right {
   display: flex;
   color: #191919 !important;
   font-size: 20px;
+  font-family: "AvenirNext-DemiBold";
   cursor: pointer;
 }
 
@@ -475,11 +488,12 @@ a.btn.prev-next.arrow-fixed.right i {
   position: absolute;
   left: -35px;
   transition: left 0.5s;
+  top: 9px;
 }
 
 a.btn.prev-next.arrow-fixed.right {
   left: unset;
-  right: 0;
+  right: 35px;
   color: #191919;
 }
 
@@ -1050,7 +1064,10 @@ a.btn.prev-next.arrow-fixed.left i:before {
   .page-header .inner {
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px;
+    padding: 15px 10px 0;
+  }
+  .page-header .inner .logo {
+    max-height: 70px;
   }
   .page-header .inner .logo .icon {
     display: none;
@@ -1099,6 +1116,7 @@ a.btn.prev-next.arrow-fixed.left i:before {
   .page-header .inner ul#mainMenu ul {
     display: none;
     padding-inline-start: 15px;
+    padding-bottom: 40px;
   }
   .page-header .inner ul#mainMenu li {
     padding: 0 30px;
@@ -1240,59 +1258,77 @@ a.btn.prev-next.arrow-fixed.left i:before {
   .page-header.slide-in {
     top: 0;
   }
-  .page-header.sticky {
+  .page-header.sticky,
+  .page-header:hover {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 9999;
-  }
-  .page-header.sticky .logo img {
-    display: none;
-  }
-  .page-header.sticky .logo .icon {
-    display: flex;
-  }
-  .page-header.sticky .logo i {
-    margin-top: 10px;
-  }
-  .page-header:hover {
     background-color: #e6007E;
   }
-  .page-header:hover .inner .logo i {
-    color: #fff;
-  }
-  .page-header:hover .inner .logo .wit {
-    display: unset;
-  }
-  .page-header:hover .inner .logo .kleur {
+  .page-header.sticky .inner .logo img,
+  .page-header:hover .inner .logo img {
     display: none;
   }
+  .page-header.sticky .inner .logo .icon,
+  .page-header:hover .inner .logo .icon {
+    display: flex;
+  }
+  .page-header.sticky .inner .logo i:after,
   .page-header:hover .inner .logo i:after {
     background-image: url(/wp-content/themes/ponck-child/svg/home.svg);
   }
+  .page-header.sticky .inner ul#mainMenu li a,
   .page-header:hover .inner ul#mainMenu li a {
     color: #fff !important;
   }
+  .page-header.sticky .inner ul#mainMenu li .w-nav-arrow:before,
   .page-header:hover .inner ul#mainMenu li .w-nav-arrow:before {
     background-image: url(/wp-content/themes/ponck-child/svg/chevron-wit.svg);
   }
+  .page-header.sticky .inner ul#mainMenu li.show-dropdown ul.level_2,
   .page-header:hover .inner ul#mainMenu li.show-dropdown ul.level_2 {
     display: unset;
   }
+  .page-header.sticky .inner .buttons_naast_menu .btn,
   .page-header:hover .inner .buttons_naast_menu .btn {
     background: #191919;
     color: #fff;
   }
+  .page-header.sticky .inner .buttons_naast_menu .btn:hover,
   .page-header:hover .inner .buttons_naast_menu .btn:hover {
     background: #fff;
     color: #191919;
   }
+  .page-header.sticky .inner .buttons_naast_menu .lang a,
   .page-header:hover .inner .buttons_naast_menu .lang a {
     color: #fff;
   }
+  .page-header.sticky .inner {
+    padding: 10px;
+  }
+  .page-header.sticky ul#mainMenu {
+    padding-top: 0;
+  }
+  .page-header.sticky .buttons_naast_menu {
+    padding-top: 0;
+  }
+  .page-header:hover {
+    background-color: #e6007E;
+    padding: 0;
+  }
+  .page-header:hover .inner .logo .wit {
+    display: inline;
+  }
+  .page-header:hover .inner .logo i:after {
+    display: none;
+  }
   .page-header.sticky:hover .inner .logo .custom-logo-link {
     display: none;
+  }
+  .page-header.sticky:hover .inner .logo i:after {
+    display: inline;
   }
   .admin-bar .page-header {
     top: 32px;
@@ -1421,6 +1457,7 @@ footer #menu-copyright li:last-child {
   margin: 0;
   box-shadow: none;
   border-bottom: solid 1px #e0e0e0;
+  font-family: 'AvenirNext-Regular';
 }
 
 .wpcf7 .upload-button {
@@ -1447,6 +1484,7 @@ footer #menu-copyright li:last-child {
   position: relative;
   margin-right: 30px;
   display: flex;
+  font-family: 'AvenirNext-DemiBold';
 }
 
 .wpcf7 button[type="submit"] i:after {
@@ -1480,6 +1518,34 @@ footer #menu-copyright li:last-child {
 .wpcf7 .grijs,
 .wpcf7 a.grijs {
   color: #939393;
+}
+
+.wpcf7 input::-webkit-input-placeholder,
+.wpcf7 textarea::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #191919;
+  opacity: 1;
+}
+
+.wpcf7 input::-moz-placeholder,
+.wpcf7 textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #191919;
+  opacity: 1;
+}
+
+.wpcf7 input:-ms-input-placeholder,
+.wpcf7 textarea:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #191919;
+  opacity: 1;
+}
+
+.wpcf7 input:-moz-placeholder,
+.wpcf7 textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: #191919;
+  opacity: 1;
 }
 
 #homeHeaderSection {
@@ -1644,8 +1710,8 @@ ul.filters li a.active {
 }
 
 .diensten-team-cta .w-post-elm.post_image.as_circle {
-  max-width: 200px;
-  margin-right: 60px;
+  max-width: 220px;
+  margin-right: 40px;
 }
 
 .diensten-team-cta .team-cta-koptekst {

@@ -36,17 +36,19 @@ a.btn.prev-next.arrow-fixed.right {
     display: flex;
     color:$secondary !important;
     font-size: 20px;
+    font-family: "AvenirNext-DemiBold";
     cursor:pointer;
     i {
         position: absolute;
         left: -35px;
         transition: left 0.5s;
+        top: 9px;
     }
 }
 
 a.btn.prev-next.arrow-fixed.right {
     left:unset;
-    right:0;
+    right:35px;
     color:$secondary;
     i {
         left: unset;

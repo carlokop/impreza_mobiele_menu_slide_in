@@ -10,6 +10,7 @@
         margin: 0;
         box-shadow: none;
         border-bottom: solid 1px #e0e0e0;
+        font-family: 'AvenirNext-Regular';
     }
     .upload-button {
         border-radius: 50px;
@@ -33,6 +34,7 @@
         position: relative;
         margin-right:30px;
         display:flex;
+        font-family: 'AvenirNext-DemiBold';
         
         i:after {
             content: '';
@@ -67,7 +69,29 @@
 
     .grijs,
     a.grijs {color:#939393;}
-    
+
+    input::-webkit-input-placeholder,
+    textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $secondary;
+        opacity: 1;
+    }
+    input::-moz-placeholder,
+    textarea::-moz-placeholder { /* Firefox 19+ */
+        color: $secondary;
+        opacity: 1;
+    }
+    input:-ms-input-placeholder,
+    textarea:-ms-input-placeholder { /* IE 10+ */
+        color: $secondary;
+        opacity: 1;
+    }
+    input:-moz-placeholder,
+    textarea:-moz-placeholder { /* Firefox 18- */
+        color: $secondary;
+        opacity: 1;
+    }
     
 }
+
+
 

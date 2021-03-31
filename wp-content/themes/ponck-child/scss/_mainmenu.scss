@@ -387,10 +387,10 @@
         .inner {
             display: flex;
             justify-content: space-between;
-            // align-items: center;
-            padding:10px 15px;
+            padding:15px 10px 0;
 
             .logo {
+                max-height:70px;
                 .icon {
                     display:none;
                 }
@@ -441,6 +441,7 @@
                 ul {
                     display: none;
                     padding-inline-start: 15px;
+                    padding-bottom: 40px;
                 }
 
                 li {
@@ -465,7 +466,6 @@
                             height: 6px;
                             background-repeat: no-repeat;
                             background-size: 12px 6px !important;
-                            //float: right;
                             margin-top:12px;
                         }
                         .w-nav-arrow {display: none;}
@@ -610,38 +610,24 @@
         top:0;
     }
 
-    .page-header.sticky {
+    .page-header.sticky,
+    .page-header:hover {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         z-index: 9999;
-
-        .logo {
-            img {display:none;}
-            .icon {display:flex;}
-            i {
-                margin-top:10px;
-            }
-        }
-
-    }
-    
-
-    .page-header:hover {
-
         background-color:$primary;
 
         .inner {
+
             .logo {
-                i {color:$wit;}
-                .wit {display:unset;}
-                .kleur {display:none;}
+                img {display:none;}
+                .icon {display:flex;}
                 i:after {
                     background-image: url(/wp-content/themes/ponck-child/svg/home.svg);
                 }
             }
-            
             ul#mainMenu {
 
                 li {
@@ -659,7 +645,6 @@
                     }    
                 }
             }
-
             .buttons_naast_menu {
 
                 .btn {
@@ -681,19 +666,47 @@
                 }
             }
         }
-        
 
+    }
+
+    .page-header.sticky {
+        .inner {
+            padding:10px;
+        }
+        ul#mainMenu {
+            padding-top:0;
+        }
+        .buttons_naast_menu {
+            padding-top:0;
+        }
+    }
+    
+
+    .page-header:hover {
+
+        background-color:$primary;
+        padding: 0;
+
+        .inner {
+            .logo {
+                .wit {display:inline;}
+                i:after {
+                    display:none;
+                }
+            }
+        }
     }
 
     .page-header.sticky:hover {
         .inner {
             .logo {
                 .custom-logo-link {display:none;}
+                i:after {
+                    display:inline;
+                }
             }
         }
     }
-
-    
 
     .admin-bar .page-header {
         top:32px;
