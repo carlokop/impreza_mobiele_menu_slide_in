@@ -92,6 +92,9 @@ a.btn.prev-next.arrow-fixed.left {
 .btn.tertiar:hover i {
     margin-left: 1em;
 }
+.btn.tertiar.no-animation:hover i {
+    margin-left: 0.5em;
+}
 
 .btn.rounded {border-radius:50px;}
 
@@ -192,7 +195,7 @@ a.btn.prev-next.arrow-fixed.left {
     content: 'Opdrachtgever\'s: ';
 }
 
-.w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {line-height:2;}
+.w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {line-height:3;}
 .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-values {flex-wrap:unset;}
 
 .filter.state_desktop.style_switch_default.blog-grid-filters .w-filter-item-value.selected {background:$primary !important;}
@@ -202,9 +205,9 @@ a.btn.prev-next.arrow-fixed.left {
     .g-filters-item, .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {
         margin:unset !important;
         margin-right: 1em !important;
-        font-size: 10px!important;
-        padding-left: 0rem!important;
-        padding-right: 0rem!important;
+        font-size: 12px!important;
+        padding-left: 8px!important;
+        padding-right: 8px!important;
         width:unset;
     }
 }

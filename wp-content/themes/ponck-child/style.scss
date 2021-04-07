@@ -182,45 +182,6 @@ ul.filters {
 //to top
 .w-toplink {display:none;}
 
-//cookiebar
-#cookiebar {display:none;}
-#cookiebar.show {
-    display:unset;
-    .l-section {z-index:999;}
-}
-
-//diensten team cta
-.diensten-team-cta {
-    .w-post-elm.post_image.as_circle {
-        max-width:220px;
-        margin-right: 40px;
-    }
-    .team-cta-koptekst {
-        font-size:28px;
-        line-height: 1.2;
-        font-family: "AvenirNext-DemiBold";
-        color:$secondary;
-    }
-    .team-cta-ondertekst:before {
-        content: 'Neem contact op met';
-        padding-right:0.5em;
-    }
-    .team-cta-ondertekst {
-        color: #505050!important;
-        font-size: 24px!important;
-        line-height: 36px!important;
-        font-family: "AvenirNext-Medium";
-    }
-}
-
-#us_grid_1 .w-grid-item-h:before {padding-bottom:0 !important;}
-
-@media only screen and (max-width:768px) {
-    .diensten-team-cta {
-        display:block;
-    }
-    .team-cta-koptekst {margin-top:20px;}
-}
 
 
 

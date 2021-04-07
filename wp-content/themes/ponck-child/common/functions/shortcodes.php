@@ -69,16 +69,16 @@ function team_social_func($atts)
         foreach($networks as $network => $url) {
             switch ($network) {
                 case 'linkedin':
-                    echo '<li><a class="w-socials-item-link" href="'.$url. '" target="_blank" rel="noopener nofollow" title="LinkedIn" aria-label="LinkedIn"><span class="w-socials-item-link-hover"></span><i class="fab fa-linkedin-in"></i></a></li>';
+                    echo '<li><a class="w-socials-item-link" href="'.$url. '" target="_blank" rel="noopener nofollow" title="LinkedIn" aria-label="LinkedIn"><span class="w-socials-item-link-hover"></span><i class="svg-icon linkedin"></i></a></li>';
                     break;
                 case 'twitter':
-                    echo '<li><a class="w-socials-item-link" href="' . $url . '" target="_blank" rel="noopener nofollow" title="Twitter" aria-label="Twitter"><span class="w-socials-item-link-hover"></span><i class="fab fa-twitter"></i></a></li>';
+                    echo '<li><a class="w-socials-item-link" href="' . $url . '" target="_blank" rel="noopener nofollow" title="Twitter" aria-label="Twitter"><span class="w-socials-item-link-hover"></span><i class="svg-icon twitter"></i></a></li>';
                     break;
                 case 'facebook':
-                    echo '<li><a class="w-socials-item-link" href="' . $url . '" target="_blank" rel="noopener nofollow" title="Twitter" aria-label="Twitter"><span class="w-socials-item-link-hover"></span><i class="fab fa-facebook-f"></i></a></li>';
+                    echo '<li><a class="w-socials-item-link" href="' . $url . '" target="_blank" rel="noopener nofollow" title="Facebook" aria-label="Facebook"><span class="w-socials-item-link-hover"></span><i class="svg-icon facebook"></i></a></li>';
                     break;
                 case 'instagram':
-                    echo '<li><a class="w-socials-item-link" href="' . $url . '" target="_blank" rel="noopener nofollow" title="Twitter" aria-label="Twitter"><span class="w-socials-item-link-hover"></span><i class="fab fa-instagram"></i></a></li>';
+                    echo '<li><a class="w-socials-item-link" href="' . $url . '" target="_blank" rel="noopener nofollow" title="Instagram" aria-label="Instagram"><span class="w-socials-item-link-hover"></span><i class="svg-icon instagram"></i></a></li>';
                     break;
             }
         }
@@ -95,6 +95,12 @@ function link_social_func($atts)
     endif;
 }
 add_shortcode('link_social', 'link_social_func');
+
+function social_icon_func($atts)
+{
+    return "<a href='".$atts['url']. "' target='_blank'><i class='svg-icon " . $atts['icon'] . "'></i></a>";
+}
+add_shortcode('social_icon', 'social_icon_func');
 
 // function include_grid_func($atts)
 // {

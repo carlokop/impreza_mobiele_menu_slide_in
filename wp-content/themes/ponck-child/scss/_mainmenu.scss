@@ -115,6 +115,21 @@
             font-size:30px;
             color:$wit;
             transition: all 0.225s;
+            i {
+                font-size:30px;
+                color:$zwart;
+                transition: all 0.225s;
+            }
+
+            i:after {
+                content: '';
+                background-image: url(/wp-content/themes/ponck-child/svg/home.svg);
+                width: 27px;
+                height: 27px;
+                background-repeat: no-repeat;
+                background-size: 27px 27px !important;
+                float: right;
+            }
         }
 
         #mobileMenuButton .text {
@@ -390,14 +405,14 @@
             padding:15px 10px 0;
 
             .logo {
-                max-height:70px;
+                max-height:95px;
                 .icon {
                     display:none;
                 }
                 img {
                     display:flex;
                     width:auto;
-                    height:70px;
+                    height:95px;
                     transition: all 0.225s;
                 }
                 .wit {display:none;}
@@ -405,15 +420,16 @@
                     font-size:30px;
                     color:$zwart;
                     transition: all 0.225s;
+                    margin-top:7px;
                 }
 
                 i:after {
                     content: '';
                     background-image: url(/wp-content/themes/ponck-child/svg/home-zwart.svg);
-                    width: 40px;
-                    height: 40px;
+                    width: 27px;
+                    height: 27px;
                     background-repeat: no-repeat;
-                    background-size: 40px 40px !important;
+                    background-size: 27px 27px !important;
                     float: right;
                 }
             }
@@ -523,15 +539,18 @@
                         }
 
                         li {
-                            width: 50%;
+                            width: 33.33%;
                             float: left;
                             padding:0;
 
                             a.level_2 {
                                 text-transform: capitalize;
-                                font-size: 14px;
+                                font-size: 20px;
                                 color:$wit;
                                 transition: all 0.225s;
+                                font-family: "AvenirNext-DemiBold";
+                                display: flex;
+                                align-items: center;
 
                                 .w-nav-title {
                                     position: relative;
@@ -546,15 +565,20 @@
                                     padding-left:1em;
                                 }
                                 .w-nav-arrow:before {
-                                        content: '';
-                                        background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
-                                        width:18px;
-                                        height:13px;
-                                        background-size: 18px 13px !important;
-                                        margin-top:5px;
+                                    content: '';
+                                    background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
+                                    width:18px;
+                                    height:13px;
+                                    background-size: 18px 13px !important;
+                                    margin-top:9px;
+                                    transition: all 0.225s; 
                                 }
                             }
-                            a:hover {padding-left: 25px;}
+                            a:hover {
+                                .w-nav-arrow:before {
+                                    margin-left: 5px !important;
+                                }
+                            }
                             ul.level_3 {
                                 display: block;
                                 margin-left: 0;
@@ -575,7 +599,6 @@
                         }
                     }    
                 }
-
             }
 
             .buttons_naast_menu {
@@ -584,6 +607,7 @@
                 padding-top:10px;
                 transition: padding 0.225s;
                 font-size: 16px;
+                font-family: "AvenirNext-Medium";
 
                 .btn {
                     background: $primary;
@@ -592,6 +616,7 @@
 
                 .lang {
                     padding: 0 15px;
+                    font-family: "AvenirNext-Medium";
                     a {
                         font-size: 14px;
                         color: $zwart;
@@ -602,7 +627,6 @@
                     }
                 }
             }
-
         }
     }
 
@@ -623,7 +647,7 @@
 
             .logo {
                 img {display:none;}
-                .icon {display:flex;}
+                .icon {display:none;}
                 i:after {
                     background-image: url(/wp-content/themes/ponck-child/svg/home.svg);
                 }
@@ -672,6 +696,9 @@
     .page-header.sticky {
         .inner {
             padding:10px;
+            .logo {
+                .icon {display:flex;}
+            }
         }
         ul#mainMenu {
             padding-top:0;

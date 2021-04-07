@@ -49,12 +49,26 @@ h2, .h2 {
     font-size: 24px;
     font-family: 'AvenirNext-DemiBold';
 }
+h2.bovenregel {
+     font-size:18px;
+     color:$primary;
+     letter-spacing: 0.18px;
+     margin-bottom:15px;
+}
 h3, .h3 {
     font-size: 14px;
     color:$primary;
     font-family: "AvenirNext-DemiBold";
     margin-bottom:15px;
     // letter-spacing: 0.16px;
+}
+h3.rozetitel {
+    font-size: 14px;
+    font-family: "AvenirNext-Medium";
+    letter-spacing: 0.26px;
+    color:$primary;
+    line-height:1.4;
+    margin-bottom:0.6em;
 }
 h4, .h4 {
     font-size: 12px;
@@ -63,6 +77,7 @@ h4, .h4 {
     letter-spacing: 0.8px;
     font-family: "AvenirNext-Medium";
 }
+
 
 
 //tablet
@@ -78,7 +93,13 @@ h4, .h4 {
     h2, .h2 {
         font-size: 28px;
     }
+    h2.bovenregel {
+        font-size:20px; 
+    }
     h3, .h3 {
+        font-size: 16px;
+    }
+    h3.rozetitel {
         font-size: 16px;
     }
     h4, .h4 {
@@ -98,8 +119,14 @@ h4, .h4 {
     h2, .h2 {
         font-size: 30px;
     }
+    h2.bovenregel {
+        font-size:22px;
+    }
     h3, .h3 {
         font-size: 20px;
+    }
+    h3.rozetitel {
+        font-size: 18px;
     }
     h4, .h4 {
         font-size: 20px;
@@ -119,8 +146,15 @@ h4, .h4 {
     h2, .h2 {
         font-size: 40px;
     }
+    h2.bovenregel {
+        font-size:24px;
+        margin-bottom:20px;
+    }
     h3, .h3 {
         font-size: 24px;
+    }
+    h3.rozetitel {
+        font-size: 23px;
     }
     h4, .h4 {
         font-size: 24px;
@@ -140,8 +174,14 @@ h4, .h4 {
     h2, .h2 {
         font-size: 52px;
     }
+    h2.bovenregel {
+        font-size:28px;
+    }
     h3, .h3 {
         font-size: 28px;
+    }
+    h3.rozetitel {
+        font-size: 26px;
     }
     h4, .h4 {
         font-size: 28px;
