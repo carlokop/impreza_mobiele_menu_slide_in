@@ -45,15 +45,23 @@
 }
 
 .dienstenBlok {
-    transition: all 0.3s;
-    .w-btn {transition:none;}
-    i:before {transition: margin 0.3s;}
+    transition: margin 0.3s;
+    //transition-delay: 0.1s;
+    .w-btn {transition:all 0.3s;}
+    i:before {transition: all 0.3s;}
+    .vc_column-inner {
+        background:#fff;
+        transition: all 0.3s;
+    }
+    p {transition:all 0.3s;}
+    .d-hover-none {transition:all 0.3s;}
+    .d-hover {transition:all 0.3s;}
 }
 
 .dienstenBlok:hover {
-    margin-top:-20px;
-    margin-bottom:20px;
-    .vc_column-inner {background:$primary;}
+    
+    .vc_column-inner {background:$primary;margin-top:-20px;
+    margin-bottom:20px;}
     .d-hover-none {display:none;}
     .d-hover {display:block;}
     p {color:$wit;}
@@ -91,12 +99,21 @@ a {
     .svg-icon.twitter:before {background-image: url(/wp-content/themes/ponck-child/svg/twitter.svg);margin-bottom: -1px;}
     .svg-icon.facebook:before {background-image: url(/wp-content/themes/ponck-child/svg/facebook.svg);}
     .svg-icon.instagram:before {background-image: url(/wp-content/themes/ponck-child/svg/instagram.svg);}
+    .svg-icon.envelope:before {background-image: url(/wp-content/themes/ponck-child/svg/envelope.svg);}
 }
 a:hover {
     .svg-icon.linkedin:before {background-image: url(/wp-content/themes/ponck-child/svg/linkedin-roze.svg);}
     .svg-icon.twitter:before {background-image: url(/wp-content/themes/ponck-child/svg/twitter-roze.svg);}
     .svg-icon.facebook:before {background-image: url(/wp-content/themes/ponck-child/svg/facebook-roze.svg);}
     .svg-icon.instagram:before {background-image: url(/wp-content/themes/ponck-child/svg/instagram-roze.svg);}
+    .svg-icon.envelope:before {background-image: url(/wp-content/themes/ponck-child/svg/envelope-roze.svg);}
+
+    //witte kleur hover
+    .svg-icon.linkedin.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/linkedin-wit.svg);}
+    .svg-icon.twitter.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/twitter-wit.svg);}
+    .svg-icon.facebook.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/facebook-wit.svg);}
+    .svg-icon.instagram.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/instagram-wit.svg);}
+    .svg-icon.envelope.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/envelope-wit.svg);}    
 }
 
 
@@ -142,5 +159,45 @@ a:hover {
             font-size:18px;
         }
         .team-cta-ondertekst {font-size:16px !important;}
+    }
+}
+
+//owlslider
+.pro-slider {
+    width: calc(100% - 50px);
+    .owl-stage-outer{overflow:unset;}
+    .w-grid-list {margin:-0.5rem;}
+    .w-grid-item {padding:0.5rem !important;}
+
+    h3 {
+        color: #323232;
+        font-family: "AvenirNext-DemiBold";
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 19.151999px;
+    }
+
+    .owl-dots {
+        text-align: left;
+        margin: 10px 0 0 0.5rem !important;
+
+        .owl-dot {
+            span {
+                border: solid 1.2px #e5e5e5;
+                background: #fff !important;
+                color: unset;
+                box-shadow: none;
+                width:12px;
+                height:12px;
+            }
+        }
+        .owl-dot.active {
+            span {
+                border: solid 1.2px #e5e5e5;
+                background: #fff !important;
+                border: solid 1.2px #e6007e;
+                background: #e6007e !important;
+            }
+        }
     }
 }

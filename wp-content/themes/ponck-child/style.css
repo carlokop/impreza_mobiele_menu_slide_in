@@ -5,7 +5,7 @@
  Author:       PONCK
  Author URI:   http://ponck.nl/
  Template:     Impreza
- Version:      1.0.1
+ Version:      1.0.2
  Tags:         plaats, hier, jouw, tags, gescheiden, door, kommas
  Text Domain:  ponck-child
 */
@@ -204,6 +204,11 @@ a.no-underline {
   text-decoration: none !important;
 }
 
+a.hover-primary:hover,
+.hover-primary a:hover {
+  color: #e6007E !important;
+}
+
 .secondary {
   color: #191919;
 }
@@ -227,6 +232,8 @@ a.no-underline {
 ul.checkbox {
   list-style: none;
   font-family: "AvenirNext-Medium";
+  margin-left: 30px;
+  padding-inline-start: 0;
 }
 
 ul.checkbox .icon:before {
@@ -759,6 +766,7 @@ a.btn.prev-next.arrow-fixed.left i:before {
   margin-top: 6px;
 }
 
+.pagination .page-numbers.prev:after,
 .pagination .page-numbers.next:after {
   content: '';
   display: inline-block;
@@ -770,6 +778,11 @@ a.btn.prev-next.arrow-fixed.left i:before {
   background-size: 10px 9px !important;
   margin-top: 6px;
   margin-left: 2px;
+}
+
+.pagination .page-numbers.prev:after {
+  transform: rotate(180deg);
+  margin-left: -2px;
 }
 
 @keyframes mobielMenuSubmenu {
@@ -812,7 +825,7 @@ a.btn.prev-next.arrow-fixed.left i:before {
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
-  transition: .25s ease-in-out;
+  transition: .225s ease-in-out;
 }
 
 .animated-hamburger-icon span:nth-child(1) {
@@ -874,14 +887,15 @@ a.btn.prev-next.arrow-fixed.left i:before {
     align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
-    position: fixed;
     height: 48px;
     top: 0;
     left: 0;
+    position: fixed;
     width: 100%;
     z-index: 999999;
-    background: #e6007E;
+    background: transparent;
     font-family: 'Roboto', sans-serif;
+    transition: background 0.225s;
   }
   .topHeader a {
     display: flex;
@@ -893,6 +907,7 @@ a.btn.prev-next.arrow-fixed.left i:before {
     transition: all 0.225s;
   }
   .topHeader .home-icon i {
+    display: none;
     font-size: 30px;
     color: #323232;
     transition: all 0.225s;
@@ -906,21 +921,55 @@ a.btn.prev-next.arrow-fixed.left i:before {
     background-size: 27px 27px !important;
     float: right;
   }
+  .topHeader .home-icon img {
+    max-width: 150px;
+    margin-top: 50px;
+  }
   .topHeader #mobileMenuButton .text {
     float: left;
     position: absolute;
     right: 50px;
     font-size: 20px;
     bottom: 10px;
-    color: #fff;
+    color: #191919;
+    transition: all 0.225s;
   }
   .topHeader #contactButtonTopHeader {
+    opacity: 0;
     transition: all 0.225s;
   }
   .topHeader .home-icon.visibility-hidden,
   .topHeader #contactButtonTopHeader.visibility-hidden {
     visibility: hidden;
     opacity: 0;
+  }
+  .topHeader .animated-hamburger-icon span {
+    background: #191919;
+  }
+  .topHeader.sticky {
+    background: #e6007E;
+  }
+  .topHeader.sticky .home-icon i {
+    display: block;
+  }
+  .topHeader.sticky .home-icon img {
+    max-width: 0;
+    display: none;
+  }
+  .topHeader.sticky #mobileMenuButton .text {
+    color: #fff;
+  }
+  .topHeader.sticky .animated-hamburger-icon span {
+    background: #fff;
+  }
+  .topHeader.sticky #contactButtonTopHeader {
+    opacity: 1;
+  }
+  .header-show .topHeader #mobileMenuButton .text {
+    color: #fff;
+  }
+  .header-show .topHeader .animated-hamburger-icon span {
+    background: #fff;
   }
   .header-show .page-header {
     transform: translate3d(0, 0, 0);
@@ -1250,7 +1299,6 @@ a.btn.prev-next.arrow-fixed.left i:before {
     padding: 0;
   }
   .page-header .inner ul#mainMenu li.show-dropdown ul.level_2 li a.level_2 {
-    text-transform: capitalize;
     font-size: 20px;
     color: #fff;
     transition: all 0.225s;
@@ -1367,6 +1415,10 @@ a.btn.prev-next.arrow-fixed.left i:before {
     background: #fff;
     color: #191919;
   }
+  .page-header.sticky .inner .buttons_naast_menu .lang,
+  .page-header:hover .inner .buttons_naast_menu .lang {
+    color: #fff;
+  }
   .page-header.sticky .inner .buttons_naast_menu .lang a,
   .page-header:hover .inner .buttons_naast_menu .lang a {
     color: #fff;
@@ -1401,6 +1453,18 @@ a.btn.prev-next.arrow-fixed.left i:before {
   }
   .admin-bar .page-header {
     top: 32px;
+  }
+  .menu-wit.page-header .inner ul#mainMenu li a {
+    color: #fff !important;
+  }
+  .menu-wit.page-header .inner ul#mainMenu li a .w-nav-arrow:before {
+    background-image: url(/wp-content/themes/ponck-child/svg/chevron-wit.svg);
+  }
+  .menu-wit.page-header .inner .buttons_naast_menu .lang {
+    color: #fff;
+  }
+  .menu-wit.page-header .inner .buttons_naast_menu .lang a {
+    color: #fff;
   }
 }
 
@@ -1518,24 +1582,38 @@ footer #menu-copyright li:last-child {
 }
 
 .dienstenBlok {
-  transition: all 0.3s;
-}
-
-.dienstenBlok .w-btn {
-  transition: none;
-}
-
-.dienstenBlok i:before {
   transition: margin 0.3s;
 }
 
-.dienstenBlok:hover {
-  margin-top: -20px;
-  margin-bottom: 20px;
+.dienstenBlok .w-btn {
+  transition: all 0.3s;
+}
+
+.dienstenBlok i:before {
+  transition: all 0.3s;
+}
+
+.dienstenBlok .vc_column-inner {
+  background: #fff;
+  transition: all 0.3s;
+}
+
+.dienstenBlok p {
+  transition: all 0.3s;
+}
+
+.dienstenBlok .d-hover-none {
+  transition: all 0.3s;
+}
+
+.dienstenBlok .d-hover {
+  transition: all 0.3s;
 }
 
 .dienstenBlok:hover .vc_column-inner {
   background: #e6007E;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }
 
 .dienstenBlok:hover .d-hover-none {
@@ -1606,6 +1684,10 @@ a .svg-icon.instagram:before {
   background-image: url(/wp-content/themes/ponck-child/svg/instagram.svg);
 }
 
+a .svg-icon.envelope:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/envelope.svg);
+}
+
 a:hover .svg-icon.linkedin:before {
   background-image: url(/wp-content/themes/ponck-child/svg/linkedin-roze.svg);
 }
@@ -1620,6 +1702,30 @@ a:hover .svg-icon.facebook:before {
 
 a:hover .svg-icon.instagram:before {
   background-image: url(/wp-content/themes/ponck-child/svg/instagram-roze.svg);
+}
+
+a:hover .svg-icon.envelope:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/envelope-roze.svg);
+}
+
+a:hover .svg-icon.linkedin.hoverwit:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/linkedin-wit.svg);
+}
+
+a:hover .svg-icon.twitter.hoverwit:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/twitter-wit.svg);
+}
+
+a:hover .svg-icon.facebook.hoverwit:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/facebook-wit.svg);
+}
+
+a:hover .svg-icon.instagram.hoverwit:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/instagram-wit.svg);
+}
+
+a:hover .svg-icon.envelope.hoverwit:before {
+  background-image: url(/wp-content/themes/ponck-child/svg/envelope-wit.svg);
 }
 
 #cookiebar {
@@ -1676,6 +1782,51 @@ a:hover .svg-icon.instagram:before {
   .diensten-team-cta .team-cta-ondertekst {
     font-size: 16px !important;
   }
+}
+
+.pro-slider {
+  width: calc(100% - 50px);
+}
+
+.pro-slider .owl-stage-outer {
+  overflow: unset;
+}
+
+.pro-slider .w-grid-list {
+  margin: -0.5rem;
+}
+
+.pro-slider .w-grid-item {
+  padding: 0.5rem !important;
+}
+
+.pro-slider h3 {
+  color: #323232;
+  font-family: "AvenirNext-DemiBold";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19.151999px;
+}
+
+.pro-slider .owl-dots {
+  text-align: left;
+  margin: 10px 0 0 0.5rem !important;
+}
+
+.pro-slider .owl-dots .owl-dot span {
+  border: solid 1.2px #e5e5e5;
+  background: #fff !important;
+  color: unset;
+  box-shadow: none;
+  width: 12px;
+  height: 12px;
+}
+
+.pro-slider .owl-dots .owl-dot.active span {
+  border: solid 1.2px #e5e5e5;
+  background: #fff !important;
+  border: solid 1.2px #e6007e;
+  background: #e6007e !important;
 }
 
 .wpcf7 input.box, .wpcf7 textarea.box {

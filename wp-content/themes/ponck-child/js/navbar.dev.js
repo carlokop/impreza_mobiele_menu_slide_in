@@ -179,9 +179,11 @@ class setMenuClass {
     stickyHeader() {
         window.addEventListener('scroll',() => {
             const pageHeader = document.getElementById('page-header');
+            const topHeader = document.getElementById('topHeader');
             if(window.scrollY >= 62) {
                 if(!pageHeader.classList.contains('sticky')) {
                     pageHeader.classList.add('sticky');
+                    topHeader.classList.add('sticky');
                     if(document.getElementById('wpadminbar')) {
                         pageHeader.classList.add('is-admin');
                     } else {
@@ -191,6 +193,7 @@ class setMenuClass {
             } else {
                 if(pageHeader.classList.contains('sticky')) {
                     pageHeader.classList.remove('sticky');
+                    topHeader.classList.remove('sticky');
                 }
             }
         })

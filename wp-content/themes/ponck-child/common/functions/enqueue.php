@@ -10,7 +10,7 @@ wp_enqueue_style('admin-login-style', '//ponck.nl/assets/css/login.css', array()
 
 add_action('wp_enqueue_scripts', 'custom_scripts');
 function custom_scripts() {
-wp_enqueue_script('navbar-js', get_stylesheet_directory_uri() . '/js/navbar.dev.js', array(), '1.0.0', true);
+wp_enqueue_script('navbar-js', get_stylesheet_directory_uri() . '/js/navbar.dev.js', array(), '1.0.1', true);
 wp_enqueue_script('custom-js', get_stylesheet_directory_uri() . '/js/custom.dev.js', array(), '1.0.0', true);
 }
 add_theme_support('custom-logo');

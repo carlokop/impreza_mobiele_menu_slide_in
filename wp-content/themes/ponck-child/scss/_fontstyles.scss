@@ -198,6 +198,9 @@ a:hover {color:$primary;}
 p a {text-decoration: underline;}
 a.no-underline {text-decoration: none !important;}
 
+a.hover-primary:hover,
+.hover-primary a:hover {color:$primary !important;}
+
 .secondary {color:$secondary;}
 
 .AvenirNext-Regular {
@@ -218,6 +221,9 @@ a.no-underline {text-decoration: none !important;}
 ul.checkbox {
     list-style: none;
     font-family: "AvenirNext-Medium";
+    margin-left:30px;
+    padding-inline-start: 0;
+    
 
     .icon:before {
         display: inline;
