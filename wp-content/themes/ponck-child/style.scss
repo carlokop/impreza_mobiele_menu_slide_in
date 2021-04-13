@@ -20,6 +20,16 @@
 @import "scss/_customElements";
 @import "scss/_forms";
 
+.eersterij{
+    padding-top:200px;    
+}
+.laatsterij{
+    padding-bottom:100px;
+}
+@media only screen and (max-width:768px){
+    .eersterij{padding-top:130px;}
+    .laatsterij{padding-bottom:50px;}
+}
 
 #homeHeaderSection {
     background-size: cover !important;

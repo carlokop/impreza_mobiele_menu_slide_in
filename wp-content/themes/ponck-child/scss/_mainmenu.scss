@@ -35,39 +35,42 @@
     transition: .225s ease-in-out;
     }
 
-    span:nth-child(1) {top: 0px;}
-    span:nth-child(2) {top: 8px;}
-    span:nth-child(3) {top: 8px;}
-    span:nth-child(4) {top: 16px;}
+    span:nth-child(1) {top: 4px;}
+    span:nth-child(2) {top: 12px;}
+    // span:nth-child(3) {top: 8px;}
+    // span:nth-child(4) {top: 16px;}
 
 }
 
 .animated-hamburger-icon.open {
-    span:nth-child(1) {
-        top: 20px;
-        width: 0%;
-        left: 50%;
-    }
+    top:5px;
+    // span:nth-child(1) {
+    //     top: 20px;
+    //     width: 0%;
+    //     left: 50%;
+    // }
 
-    span:nth-child(2) {
+    span:nth-child(1) {
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
+        top:4px;
     }
 
-    span:nth-child(3) {
+    span:nth-child(2) {
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg);
+        top:4px;
     }
 
-    span:nth-child(4) {
-        top: 20px;
-        width: 0%;
-        left: 50%;
-    }
+    // span:nth-child(4) {
+    //     top: 20px;
+    //     width: 0%;
+    //     left: 50%;
+    // }
 }
 
 
@@ -90,6 +93,15 @@
 
     nav.w-nav.animating {
         animation: mobielMenuSubmenu 1s ease-in-out;
+    }
+
+    #mobileMenuButton .text {
+        font-family: "AvenirNext-Medium";
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 17px;
+        text-align: right;
+        letter-spacing: 0.325px;
     }
 
 
@@ -143,7 +155,7 @@
             position: absolute;
             right: 50px;
             font-size: 20px;
-            bottom: 10px;
+            bottom: 14px;
             color: $secondary;
             transition: all 0.225s;
         }

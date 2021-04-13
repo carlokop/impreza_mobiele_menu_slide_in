@@ -11,8 +11,6 @@
         <div class="animated-hamburger-icon">
             <span></span>
             <span></span>
-            <span></span>
-            <span></span>
         </div>
     </div>
 </div>
