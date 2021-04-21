@@ -20,11 +20,11 @@
                     e.preventDefault();
                     setMenu.activateSubmenu(link);
 
-                } else {
+                } //else 
+                // {
+                //     setMenu.clearMenu();
 
-                    setMenu.clearMenu();
-
-                }
+                // }
                 
             }
 
@@ -73,6 +73,7 @@
     const pageHeader = document.querySelector('#page-header');
     let mouseOver = false;
     let lastTimeoutId;
+    const buttonsNaastMainmenu = document.querySelector('#buttonsNaastMainmenu');
 
     document.addEventListener('mousemove',(e) => {
 
@@ -97,6 +98,8 @@
     for(let level1item of level1items) {
         
         level1item.addEventListener('mouseenter',() => {
+            
+            pageHeader.classList.add('menuhover-active');
 
             if(window.innerWidth > 992) {
 
@@ -116,7 +119,28 @@
             }
         });
 
+        level1item.addEventListener('mouseleave',() => {
+            pageHeader.classList.remove('menuhover-active');
+        });
+
     }
+
+    //set class menuhover-active ook bij hover oiver contact en lang buttons in desktop mainmenu
+    buttonsNaastMainmenu.addEventListener('mouseenter',() => {
+        pageHeader.classList.add('menuhover-active');
+    });
+    buttonsNaastMainmenu.addEventListener('mouseleave',() => {
+        pageHeader.classList.remove('menuhover-active');
+    });
+
+    //fix om ongewenste dropdown-active class te verwijderen bij snel scrollen
+    //Het dropdown menu wordt geinitialiseerd na een setTimeout van 500ms
+    //Echter wanneer er heel snel buiten het menu wordt gescrolt zal het mouseleave event waarbij we de dropdown-active class verwijderen eerder plaatsvinden dan dat de setTimeout deze aanmaakt
+    mainMenu.addEventListener('mouseleave',() => {
+        setTimeout(function(){ 
+            setMenu.clearDropdown()
+        }, 500);
+    });
 
     //clears dropdowns wanneer je het scherm verlaat
     pageHeader.addEventListener('mouseleave',()=> {
@@ -139,6 +163,7 @@
 class setMenuClass {
 
     constructor() {
+        this.pageHeader = document.querySelector('#page-header');
         this.mainMenuParentLink = document.querySelectorAll('#mainMenu .menu-item.level_1');
         this.mainMenuLevel2Link = document.querySelectorAll('#mainMenu .menu-item.level_2');
         this.mainNavContainer = document.querySelector('#mainNavContainer');
@@ -375,9 +400,11 @@ class setMenuClassDesktop  extends setMenuClass {
             if(show) {
                 el.classList.add('show-dropdown');  
                 this.mainNavContainer.style.paddingBottom = this.getHeightSubmenu(el) + 'px';
+                this.pageHeader.classList.add('dropdown-active');
             } else {
                 el.classList.remove('show-dropdown');
                 this.mainNavContainer.style.paddingBottom = '0px';
+                this.pageHeader.classList.remove('dropdown-active');
             }
 
         } else {
@@ -413,6 +440,9 @@ class setMenuClassDesktop  extends setMenuClass {
     clearDropdown() {
 
         const dropdownLists = this.mainNavContainer.querySelectorAll('.show-dropdown');
+
+        this.pageHeader.classList.remove('dropdown-active');
+
         if(dropdownLists.length > 0) {
 
             for(let dropdownList of dropdownLists) {

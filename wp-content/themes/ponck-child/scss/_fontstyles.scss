@@ -77,7 +77,18 @@ h4, .h4 {
     letter-spacing: 0.8px;
     font-family: "AvenirNext-Medium";
 }
-
+/* Voor introtekst bovenste rij van cases en blogs */
+.intro p{   
+        font-size: 16px;
+        font-family: "AvenirNext-Medium";
+        letter-spacing: 0.26px;
+        color:#505050;
+        line-height:1.4;        
+}
+.single-post h2{
+    color:$primary;
+    font-size:16px;
+}
 
 
 //tablet
@@ -105,8 +116,11 @@ h4, .h4 {
     h4, .h4 {
         font-size: 16px;
     }
+    .single-post h2{
+        font-size:16px;
+    }
 }
-
+/*
 @media only screen and (min-width:1025px) {
 
     body{
@@ -131,8 +145,11 @@ h4, .h4 {
     h4, .h4 {
         font-size: 20px;
     }
+    .single-post h2{
+        font-size:20px;
+    }
 }
-
+*/
 //laptop
 /*
 @media only screen and (min-width:1366px) {
@@ -163,7 +180,7 @@ h4, .h4 {
 }
 */
 //hd
-@media only screen and (min-width:1200px) {
+@media only screen and (min-width:1025px) {
 
     body{
         font-size:22px;
@@ -187,6 +204,12 @@ h4, .h4 {
     h4, .h4 {
         font-size: 28px;
     }
+    .single-post h2{
+        font-size:28px;
+    }
+    .intro p{
+        font-size: 26px;
+    }
 }
 
 a, a:visited, a:active , a:focus {
@@ -205,14 +228,14 @@ a.hover-primary:hover,
 .secondary {color:$secondary;}
 
 .AvenirNext-Regular {
-    font-family: 'AvenirNext-Regular';
+    font-family: 'AvenirNext-Regular' !important;
 }
 .AvenirNext-Medium {
-    font-family: 'AvenirNext-Medium';
+    font-family: 'AvenirNext-Medium' !important;
 }
 
 .AvenirNext-DemiBold {
-      font-family: "AvenirNext-DemiBold";
+      font-family: "AvenirNext-DemiBold" !important;
 }
 
 .small {font-size:80%;}
@@ -252,8 +275,11 @@ ul.checkbox {
 .casesCarousel .owl-dots {
     text-align: left;
     span {
-        background-color:$wit;
-        border:solid 1px $zwart;
+        width: 15px; 
+        height: 15px; 
+        border:solid 2px #cdcdcd;
+        background-color:$wit;  
+        margin:0 10px 0 0;      
     }
 }
 .casesCarousel .owl-dot.active span {
@@ -271,4 +297,20 @@ ul.marker-primary {
     li::marker {
         color:$primary;
     }
+}
+/* Opsomming in Cases en Blog uitlijnen en op roze bullets zetten */
+
+.single-us_portfolio main ol, .single-post main ol{
+	padding-inline-start: 20px;
+    margin-left: 0;
+}
+.single-us_portfolio main ul:not(.checkbox), .single-post main ul:not(.checkbox){
+	padding-inline-start: 20px;
+    margin-left: 0;
+}
+.single-us_portfolio main ul:not(.checkbox) li, .single-post main ul:not(.checkbox) li{
+    margin-bottom:1.2rem;
+}
+.single-us_portfolio main ul:not(.checkbox) li::marker, .single-post main ul:not(.checkbox) li::marker {
+    color:#e6007E;
 }

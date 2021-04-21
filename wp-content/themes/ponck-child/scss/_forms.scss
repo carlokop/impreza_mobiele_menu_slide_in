@@ -19,13 +19,14 @@
 
     .upload-button {
         border-radius: 50px;
-        padding:10px 20px;
+        padding:5px 20px;
         font-size: 16px;
         color:#9d9d9d;
         display: flex;
         align-items: center;
         margin-right:20px;
         background: #ededed;
+        font-family: 'AvenirNext-Medium';
         svg {
             fill:currentColor;
             margin-left:15px;
@@ -39,15 +40,17 @@
         margin-right:30px;
         display:flex;
         font-family: 'AvenirNext-DemiBold';
+
+        .w-btn-label {font-size:20px;}
         
         i:after {
             content: '';
             background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts.svg);
             background-size: contain;
-            width: 15px;
-            height: 10px;
+            width: 18px;
+            height: 12px;
             background-repeat: no-repeat;
-            background-size: 15px 10px !important;
+            background-size: 18px 12px !important;
             float: right;
             position: absolute;
             top: 11px;

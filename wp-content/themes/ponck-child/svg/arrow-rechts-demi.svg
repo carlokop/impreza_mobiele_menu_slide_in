@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="21px" height="15px" viewBox="0 0 21 15" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <g id="Group-3" transform="matrix(0.9998477 -0.017452363 0.017452363 0.9998477 0.91552734 1.2297363)">
+    <g id="Group-2" transform="matrix(1 0 0 1 2.2737368E-12 4.5474735E-13)">
+      <g id="Group-4" transform="matrix(1 0 0 1 2.728484E-12 9.094947E-13)">
+        <path d="M0 0L6 6" transform="translate(11.453763 0.003959926)" id="Line-3-Copy" fill="none" fill-rule="evenodd" stroke="#323232" stroke-width="1.71" stroke-linecap="square" stroke-linejoin="round" />
+        <path d="M0 0L6 6" transform="matrix(-1 0 0 1 17.471214 6.0041122)" id="Line-3-Copy-2" fill="none" fill-rule="evenodd" stroke="#323232" stroke-width="1.71" stroke-linecap="square" stroke-linejoin="round" />
+        <path d="M16.25 0.5L0 0.5" transform="matrix(0.9998477 0.017452482 -0.017452482 0.9998477 0.8565384 5.2578154)" id="Path-4" fill="none" fill-rule="evenodd" stroke="#323232" stroke-width="1.8" />
+      </g>
+    </g>
+  </g>
+</svg>

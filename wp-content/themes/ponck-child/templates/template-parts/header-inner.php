@@ -5,12 +5,15 @@
             <img src="<?php echo LOGO ?>" class="kleur" alt="">
         </span>
     </a>
-    <a href="<?php echo get_bloginfo('url'); ?>/contact/" id="contactButtonTopHeader" class="btn secondary rounded">Contact</a>
-    <div id="mobileMenuButton" role="button">
-        <span class="text">Menu</span>
-        <div class="animated-hamburger-icon">
-            <span></span>
-            <span></span>
+
+    <div class="flex-container">
+        <a href="<?php echo get_bloginfo('url'); ?>/contact/" id="contactButtonTopHeader" class="btn secondary rounded">Contact</a>
+        <div id="mobileMenuButton" role="button">
+            <span class="text">Menu</span>
+            <div class="animated-hamburger-icon">
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </div>
 </div>
@@ -51,7 +54,7 @@ else $witteLetters = '';
                         );
                         ?>
 
-                        <div class="buttons_naast_menu type_desktop hide-sm">
+                        <div id="buttonsNaastMainmenu" class="buttons_naast_menu type_desktop hide-sm">
                             <a href="<?php echo get_bloginfo('url'); ?>/contact/" class="btn secondary rounded">Contact</a>
                             <div class="lang">
                                 <?php if (is_page(398)) { ?>

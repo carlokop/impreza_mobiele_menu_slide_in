@@ -26,17 +26,18 @@
     .rsBullets {
         justify-content:start;
         span {
-            width: 12px;
-            height: 12px;
-            border:solid 1px #aeaeae;
+            width: 15px; 
+            height: 15px; 
+            border:solid 2px #cdcdcd;
             background: #fff;
+            margin:30px 10px 0 0;
         }
     }
     .rsBullet.rsNavSelected {
         span {
             background: $primary!important;
             box-shadow: none;
-            border:solid 1px $primary;
+            border:solid 2px $primary;
         }
     }
     .rsNavItem {
@@ -180,6 +181,7 @@ a:hover {
     .owl-dots {
         text-align: left;
         margin: 10px 0 0 0.5rem !important;
+        padding-top:0;
 
         .owl-dot {
             span {
