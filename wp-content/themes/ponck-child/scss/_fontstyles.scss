@@ -21,7 +21,8 @@
 
 body {
     font-family: 'AvenirNext-Regular';
-    font-size:15px;
+    // font-size:15px;
+    font-size:17px;
 }
 
 h1, .h1, 
@@ -42,28 +43,33 @@ h2,.h2 {line-height: 1.05;}
 
 //tot 768px
 h1, .h1 {
-    font-size: 24px;
+    //font-size: 24px;
+    font-size: 26px;
     font-family: 'AvenirNext-DemiBold';
 }
 h2, .h2 {
-    font-size: 24px;
+    //font-size: 24px;
+    font-size: 26px;
     font-family: 'AvenirNext-DemiBold';
 }
-h2.bovenregel {
-     font-size:18px;
+h2.bovenregel, .single-post h2 {
+     //font-size:18px;
+     font-size:20px;
      color:$primary;
      letter-spacing: 0.18px;
      margin-bottom:15px;
 }
 h3, .h3 {
-    font-size: 14px;
-    color:$primary;
+    //font-size: 14px;
+    font-size: 19px;
+    color: $primary;
     font-family: "AvenirNext-DemiBold";
     margin-bottom:15px;
     // letter-spacing: 0.16px;
 }
 h3.rozetitel {
-    font-size: 14px;
+    //font-size: 14px;
+    font-size: 15px;
     font-family: "AvenirNext-Medium";
     letter-spacing: 0.26px;
     color:$primary;
@@ -71,27 +77,29 @@ h3.rozetitel {
     margin-bottom:0.6em;
 }
 h4, .h4 {
-    font-size: 12px;
+    //font-size: 12px;
+    font-size: 13px;
     line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     font-family: "AvenirNext-Medium";
 }
-/* Voor introtekst bovenste rij van cases en blogs */
+/* Voor introtekst bovenste rij o.a. van cases en blogs */
 .intro p{   
-        font-size: 16px;
+        //font-size: 16px;
+        font-size: 18px;
         font-family: "AvenirNext-Medium";
         letter-spacing: 0.26px;
         color:#505050;
         line-height:1.4;        
 }
-.single-post h2{
-    color:$primary;
-    font-size:16px;
+
+.single-post h2 {
+    line-height: 1.4;
 }
 
-
 //tablet
+/*
 @media only screen and (min-width:768px) {
 
     body{
@@ -120,6 +128,7 @@ h4, .h4 {
         font-size:16px;
     }
 }
+*/
 /*
 @media only screen and (min-width:1025px) {
 
@@ -180,7 +189,7 @@ h4, .h4 {
 }
 */
 //hd
-@media only screen and (min-width:1025px) {
+@media only screen and (min-width:769px) {
 
     body{
         font-size:22px;
@@ -192,7 +201,7 @@ h4, .h4 {
     h2, .h2 {
         font-size: 52px;
     }
-    h2.bovenregel {
+    h2.bovenregel, .single-post h2 {
         font-size:28px;
     }
     h3, .h3 {
@@ -210,6 +219,7 @@ h4, .h4 {
     .intro p{
         font-size: 26px;
     }
+
 }
 
 a, a:visited, a:active , a:focus {
@@ -244,10 +254,9 @@ a.hover-primary:hover,
 //list styles 
 ul.checkbox {
     list-style: none;
-    font-family: "AvenirNext-Medium";
-    margin-left:30px;
+    //font-family: "AvenirNext-Medium";
+    margin-left:27px;
     padding-inline-start: 0;
-    
 
     .icon:before {
         display: inline;
@@ -256,7 +265,7 @@ ul.checkbox {
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
         margin-right:0.5em;
-        margin-left: -1.6em;
+        margin-left: -28px;
     }
     .checkmark:before {
         // font-family: "Font Awesome 5 Free"; 
@@ -269,6 +278,12 @@ ul.checkbox {
         width: 14px;
         background-repeat: no-repeat;
         display: inline-block;
+    }
+}
+
+.overflowingCol {
+    ul.checkbox {
+        font-family: "AvenirNext-Medium";
     }
 }
 
@@ -298,19 +313,29 @@ ul.marker-primary {
         color:$primary;
     }
 }
-/* Opsomming in Cases en Blog uitlijnen en op roze bullets zetten */
+/* Opsomming in Cases en Blog uitlijnen en op roze bullets zetten, maar ook voor bv bij Privacyverklaring */
 
-.single-us_portfolio main ol, .single-post main ol{
+.single-us_portfolio main ol, 
+.single-post main ol,
+.single-vacatures main ol, 
+.single-vacatures main ol,
+.single-us_portfolio main ul:not(.checkbox), 
+.single-post main ul:not(.checkbox),
+.single-vacatures main ul:not(.checkbox), 
+.page main ul:not(.checkbox){
 	padding-inline-start: 20px;
     margin-left: 0;
 }
-.single-us_portfolio main ul:not(.checkbox), .single-post main ul:not(.checkbox){
-	padding-inline-start: 20px;
-    margin-left: 0;
-}
-.single-us_portfolio main ul:not(.checkbox) li, .single-post main ul:not(.checkbox) li{
+.single-us_portfolio main ul:not(.checkbox) li, 
+.single-post main ul:not(.checkbox) li,
+.single-vacatures main ul:not(.checkbox) li
+{
     margin-bottom:1.2rem;
 }
-.single-us_portfolio main ul:not(.checkbox) li::marker, .single-post main ul:not(.checkbox) li::marker {
+.single-us_portfolio main ul:not(.checkbox) li::marker, 
+.single-post main ul:not(.checkbox) li::marker, 
+.page main ul:not(.checkbox) li::marker,
+.single-vacatures main ul:not(.checkbox) li::marker
+{
     color:#e6007E;
 }

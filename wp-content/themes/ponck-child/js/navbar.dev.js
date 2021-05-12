@@ -20,11 +20,7 @@
                     e.preventDefault();
                     setMenu.activateSubmenu(link);
 
-                } //else 
-                // {
-                //     setMenu.clearMenu();
-
-                // }
+                }
                 
             }
 
@@ -60,7 +56,6 @@
         document.querySelector('#contactButtonTopHeader').classList.toggle('visibility-hidden');
         document.querySelector('#mobileMenuHomeIcon').classList.toggle('visibility-hidden');
         setMenu.footerMenuBrowserFixedBottom(scrollDepth);
-
     });
 
 }());
@@ -71,27 +66,19 @@
     const mainMenu = document.querySelector('#mainMenu');
     const level1items = mainMenu.querySelectorAll('li.level_1');
     const pageHeader = document.querySelector('#page-header');
-    let mouseOver = false;
-    let lastTimeoutId;
     const buttonsNaastMainmenu = document.querySelector('#buttonsNaastMainmenu');
 
     document.addEventListener('mousemove',(e) => {
 
-
-        if(pageHeader.offsetHeight+setMenu.adminLoggedIn() >= e.clientY) {
-
-            mouseOver = true; 
-
-        } else {
-
-            mouseOver = false;
+        if(pageHeader.offsetHeight+setMenu.adminLoggedIn() < e.clientY) {
+            
             mainMenu.classList.remove('megamenu');
 
             for(let level1item of level1items) {
                 setMenu.activatedropdown(level1item,false);
             }
 
-        }
+        } 
     });
     
 
@@ -103,18 +90,26 @@
 
             if(window.innerWidth > 992) {
 
+                if(level1item.classList.contains('menu-item-has-children')){
+                    mainMenu.classList.add('megamenu');
+                    setMenu.activatedropdown(level1item);
+                } else {
+                    setMenu.clearDropdown();
+                }
+
                 //We stellen een korte timeout in om haperen te voorkopen
-                clearTimeout(lastTimeoutId);
-                lastTimeoutId = setTimeout(() => {
+                // let lastTimeoutId;
+                // clearTimeout(lastTimeoutId);
+                // lastTimeoutId = setTimeout(() => {
 
-                   if(level1item.classList.contains('menu-item-has-children')){
-                        mainMenu.classList.add('megamenu');
-                        setMenu.activatedropdown(level1item);
-                   } else {
-                       setMenu.clearDropdown();
-                   }
+                //    if(level1item.classList.contains('menu-item-has-children')){
+                //         mainMenu.classList.add('megamenu');
+                //         setMenu.activatedropdown(level1item);
+                //     } else {
+                //         setMenu.clearDropdown();
+                //     }
 
-                }, 300);
+                // }, 0);
             
             }
         });
@@ -136,10 +131,12 @@
     //fix om ongewenste dropdown-active class te verwijderen bij snel scrollen
     //Het dropdown menu wordt geinitialiseerd na een setTimeout van 500ms
     //Echter wanneer er heel snel buiten het menu wordt gescrolt zal het mouseleave event waarbij we de dropdown-active class verwijderen eerder plaatsvinden dan dat de setTimeout deze aanmaakt
-    mainMenu.addEventListener('mouseleave',() => {
-        setTimeout(function(){ 
-            setMenu.clearDropdown()
-        }, 500);
+    const mainNavContainer = document.getElementById('mainNavContainer');
+    mainNavContainer.addEventListener('mouseleave',() => {
+        setMenu.clearDropdown();
+        // setTimeout(function(){ 
+        //     setMenu.clearDropdown();
+        // }, 500);
     });
 
     //clears dropdowns wanneer je het scherm verlaat
@@ -401,6 +398,11 @@ class setMenuClassDesktop  extends setMenuClass {
                 el.classList.add('show-dropdown');  
                 this.mainNavContainer.style.paddingBottom = this.getHeightSubmenu(el) + 'px';
                 this.pageHeader.classList.add('dropdown-active');
+                //set width ul#level_2
+                const ul_level_2s = document.querySelectorAll('#mainMenu ul.level_2');
+                for(let ul_level_2 of ul_level_2s) {
+                    ul_level_2.style.width = this.mainNavContainer.clientWidth+'px';
+                }
             } else {
                 el.classList.remove('show-dropdown');
                 this.mainNavContainer.style.paddingBottom = '0px';

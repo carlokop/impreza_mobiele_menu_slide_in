@@ -43,6 +43,31 @@ const getCookie = (name) => {
 
 }());
 
+(function() {
+    //voeg url toe aan het einde van alle socialShare links zodat de huidige pagina gedeeld kan worden op sociale media
+    if(document.querySelectorAll('.socialShare .w-socials-item-link').length != 0) {
+
+      const socialShareLinks = document.querySelectorAll('.socialShare .w-socials-item-link');
+      for(let link of socialShareLinks) {
+        link.href = link + location.href;
+      }
+
+    }
+}());
+
+//Contact Forms 7 GTM dataLayer event
+(function() {
+  if (typeof dataLayer != "undefined") {
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+          window.dataLayer.push({
+          "event" : "cf7submission",
+          "formId" : event.detail.contactFormId,
+          "response" : event.detail.inputs
+          })
+        });
+    }
+}());
+
 
 
 

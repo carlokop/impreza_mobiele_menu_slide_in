@@ -45,7 +45,7 @@ a.btn.prev-next.arrow-fixed.right {
         position: absolute;
         left: -35px;
         transition: left 0.5s;
-        top: 9px;
+        //top: 9px;
     }
 }
 
@@ -115,16 +115,18 @@ a.btn.prev-next.arrow-fixed.left {
 
 //fix responsive voor thema buttons
 @media only screen and (max-width:991px) {
-    .w-btn {padding: 0.6em 1.2em;}
+    
     .us-btn-style_2,
     .us-btn-style_5 {
-        font-size: 12px;
+
+        font-size: 15px;
+        min-width:110px;
     }
 }
 
 .btn.outline {
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 15px;
     transition: all 0.225s;
 }
 
@@ -175,7 +177,7 @@ a.btn.prev-next.arrow-fixed.left {
 }
 
 .blog-grid-filters {
-    .w-filter-list {flex-wrap:unset !important;}
+    .w-filter-list {flex-wrap:unset !important;overflow-x: auto;}
     .w-filter-item {align-items:center;}
     a.w-filter-item-value {
         color:#aeaeae;
@@ -190,14 +192,24 @@ a.btn.prev-next.arrow-fixed.left {
         overflow-x: auto;
         width:100%;
     }
-    .w-filter-item-value.selected,
+    
+    .w-filter-item-value .w-filter-item-value-label {transition: color 0.3s;}
+
     .w-filter-item-value:hover {
-        background:$secondary !important;
-        border-color:$secondary;
+        background: rgba(174, 174, 174, 0.5) !important;
+        border-color:rgba(174, 174, 174, 0.5) !important;
+        .w-filter-item-value-label {
+            color:#aeaeae;
+        }
+    }
+    .w-filter-item-value.selected {
+        background: $secondary !important;
+        border-color:$secondary !important;
         .w-filter-item-value-label {
             color:$wit;
         }
     }
+    
 }
 .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item:before {
     content: 'Thema\'s: ';
@@ -222,7 +234,7 @@ a.btn.prev-next.arrow-fixed.left {
     .g-filters-item, .w-filter.state_desktop.blog-grid-filters[class*="style_switch_"] .w-filter-item-value {
         margin:unset !important;
         margin-right: 1em !important;
-        font-size: 12px!important;
+        font-size: 16px!important;
         padding-left: 8px!important;
         padding-right: 8px!important;
         width:unset;
@@ -259,7 +271,11 @@ a.btn.prev-next.arrow-fixed.left {
 }
 /* Pagination centreren */
 
-.us-nav-style_8 > *{line-height:50px !important;width:50px;height:50px;min-width:unset !important;padding:0 !important;}
+.pagination .us-nav-style_8 > *{line-height:50px !important;width:50px;height:50px;min-width:unset !important;padding:0 !important;}
+
+// @media (max-width:768px) {
+//     .pagination .us-nav-style_8 > * {line-height:40px !important;}
+// }
 
 .pagination .page-numbers span{font-family: "AvenirNext-Medium";}
 .pagination .page-numbers.prev:after,

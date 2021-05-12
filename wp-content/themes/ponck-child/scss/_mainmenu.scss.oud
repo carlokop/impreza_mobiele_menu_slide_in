@@ -3,7 +3,7 @@
 // @import "_animations";
 
 .animated-hamburger-icon {
-  width: 24px;
+  width: 16px;
   height: 16px;
   position: relative;
   -webkit-transform: rotate(0deg);
@@ -34,8 +34,8 @@
     transition: .225s ease-in-out;
     }
 
-    span:nth-child(1) {top: 4px;}
-    span:nth-child(2) {top: 12px;}
+    span:nth-child(1) {top: 5px;}
+    span:nth-child(2) {top: 11px;}
     // span:nth-child(3) {top: 8px;}
     // span:nth-child(4) {top: 16px;}
 
@@ -54,7 +54,7 @@
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
-        top:4px;
+        top:3px;
     }
 
     span:nth-child(2) {
@@ -62,10 +62,16 @@
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg);
-        top:4px;
+        top:3px;
     }
 
+    // span:nth-child(4) {
+    //     top: 20px;
+    //     width: 0%;
+    //     left: 50%;
+    // }
 }
+
 
 /* Mobiele navigatie menu */
 @media (max-width: 992px) {
@@ -138,32 +144,27 @@
                 float: right;
             }
             img {
-                max-width: 130px;
-                margin-top: 45px;
+                max-width: 112px;
+                margin-top: 17px;
             }
         }
 
         .flex-container {
             display: flex;
             align-items: center;
-            width: 190px;
-            justify-content: space-between;  
-            // margin-top:10px;          
+            width: 175px;
+            justify-content: space-between;
 
             .btn.secondary:hover {
                 background:#fff;
                 color:$secondary;
             }
 
-            #contactButtonTopHeader {
-                font-size: 15px;
-            }
-
             #mobileMenuButton .text {
                 float: left;
                 position: absolute;
-                right: 58px;
-                font-size: 15px;
+                right: 50px;
+                font-size: 13px;
                 color: $secondary;
                 transition: all 0.225s;
             }
@@ -172,6 +173,8 @@
         #contactButtonTopHeader {
             opacity: 0;
             transition: all 0.225s;
+            font-size:12px;
+            padding:1px 14px;
         }
 
         .home-icon.visibility-hidden,
@@ -189,6 +192,7 @@
 
     .topHeader.sticky {
         background: $primary;
+        height:40px;
         .home-icon {
             i {
                 display:block;
@@ -278,9 +282,7 @@
         }
 
         #mainMenu[data-currentlevel='1'] li.level_1 a.level_1 {
-            font-size: 24px;      
-            display:flex;
-            align-items:center;      
+            font-size: 20px;            
         }
 
         .w-nav.type_mobile .menu-item-has-children.opened>.w-nav-anchor .w-nav-arrow {
@@ -290,7 +292,7 @@
         #mainMenu[data-currentlevel='2'] {
             li.level_1 {
                 a.level_1 {
-                    font-size: 24px;
+                    font-size: 21px;
                 }
                 a.level_1:before {
                     content: '';
@@ -309,7 +311,7 @@
             }
             li.level_2 a.level_2 {
                 font-family: 'AvenirNext-Medium', sans-serif;
-                font-size: 17px;
+                font-size: 15px;
                 letter-spacing: 0.6px;
             }
 
@@ -350,7 +352,7 @@
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            bottom:50px;
+            bottom:30px;
 
             .btn.secondary:hover {
                 background:#fff;
@@ -408,14 +410,14 @@
 
                     .w-nav-arrow:before {
                         content: '';
-                        display: block;
+                        display: inline-block;
                         transition: transform 0.225s;
-                        background-image: url(/wp-content/themes/ponck-child/svg/submenu_pijl_rechts.svg);
+                        background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
                         width: 18px;
                         height: 13px;
                         background-repeat: no-repeat;
                         background-size: 18px 13px !important;
-                        //margin-top:9px;
+                        margin-top:9px;
                     }
                 }
             }
@@ -426,9 +428,9 @@
                 .w-nav-arrow {display:inline-block;}
                 .w-nav-arrow:before {
                     content: '';
-                    display: block;
+                    display: inline-block;
                     transition: transform 0.225s;
-                    background-image: url(/wp-content/themes/ponck-child/svg/submenu_pijl_rechts.svg);
+                    background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit.svg);
                     width: 18px;
                     height: 13px;
                     background-repeat: no-repeat;
@@ -502,7 +504,6 @@
                     color:$zwart;
                     transition: all 0.225s;
                     margin-top:7px;
-                    margin-left:-25px;
                 }
 
                 i:after {
@@ -528,7 +529,6 @@
                 transition: padding 0.225s;
                 padding-top:10px;
                 padding-inline-start: 0;
-                margin-right: 10px;
 
                 a {text-decoration: none;}
 
@@ -616,7 +616,7 @@
                         top:60px;
                         margin-left: 0;
                         padding-inline-start: 0;
-                        width:130%; //fallback als js niet werkt
+                        width:130%; //kleine hack hier om submenu onder contact button te krijgen
 
                         .w-nav-anchor:not(.level_1) {
                             padding:0.4em 20px 0.4em 0;
@@ -645,11 +645,11 @@
                                     position: relative;
                                     line-height: unset;
                                     width: unset;
-                                    padding-left:15px;
+                                    padding-left:18px;
                                 }
                                 .w-nav-arrow:before {
                                     content: '';
-                                    background-image: url(/wp-content/themes/ponck-child/svg/submenu_pijl_rechts.svg);
+                                    background-image: url(/wp-content/themes/ponck-child/svg/arrow-rechts-wit-menu.svg);
                                     width:16px;
                                     height:12px;
                                     background-size: 16px 12px !important;
@@ -700,7 +700,6 @@
                 .lang {
                     padding: 0 15px;
                     font-family: "AvenirNext-Medium";
-                    margin-left: 10px;
                     a {
                         font-size: 14px;
                         color: $zwart;
@@ -826,7 +825,6 @@
     .page-header.menuhover-active:hover,
     .page-header.dropdown-active:hover {
         background-color:$primary;
-        padding-bottom:10px;
         .buttons_naast_menu .btn {
             background-color:$secondary;
         }

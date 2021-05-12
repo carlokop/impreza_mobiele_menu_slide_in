@@ -15,3 +15,4 @@ function your_prefix_excerpt_length()
     return 10;
 }
 
+

@@ -94,7 +94,7 @@ a {
         height: 18px;
         background-repeat: no-repeat;
         background-size: 18px 18px !important;
-        opacity: 0.8;
+        // opacity: 0.8;
     }
     .svg-icon.linkedin:before {background-image: url(/wp-content/themes/ponck-child/svg/linkedin.svg);}
     .svg-icon.twitter:before {background-image: url(/wp-content/themes/ponck-child/svg/twitter.svg);margin-bottom: -1px;}
@@ -115,6 +115,17 @@ a:hover {
     .svg-icon.facebook.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/facebook-wit.svg);}
     .svg-icon.instagram.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/instagram-wit.svg);}
     .svg-icon.envelope.hoverwit:before {background-image: url(/wp-content/themes/ponck-child/svg/envelope-wit.svg);}    
+}
+
+.w-socials-list {
+    a {
+        .svg-icon:before {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+    }
 }
 
 
@@ -154,12 +165,12 @@ a:hover {
 @media only screen and (max-width:768px) {
     .diensten-team-cta {
         display:block;
-        .w-post-elm.post_image.as_circle {max-width:100px;}
+        .w-post-elm.post_image.as_circle {max-width:120px;}
         .team-cta-koptekst {
             margin-top:20px;
-            font-size:18px;
+            font-size:22px;
         }
-        .team-cta-ondertekst {font-size:16px !important;}
+        .team-cta-ondertekst {font-size:18px !important;line-height:1.4;}
     }
 }
 
@@ -168,7 +179,7 @@ a:hover {
     width: calc(100% - 50px);
     .owl-stage-outer{overflow:unset;}
     .w-grid-list {margin:-0.5rem;}
-    .w-grid-item {padding:0.5rem !important;}
+    .w-grid-item {padding:0.5rem 0.5rem 0.5rem 1.5rem !important;}
 
     h3 {
         color: #323232;
@@ -180,7 +191,7 @@ a:hover {
 
     .owl-dots {
         text-align: left;
-        margin: 10px 0 0 0.5rem !important;
+        margin: 10px 0 0 1.2rem !important;
         padding-top:0;
 
         .owl-dot {
